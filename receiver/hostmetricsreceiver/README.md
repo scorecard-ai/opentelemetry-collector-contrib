@@ -182,34 +182,6 @@ The following feature gates control the transition process:
   `direction`
   attribute are emitted by the receiver.
 
-##### Transition schedule:
-
-1. v0.55.0, July 2022:
-
-- Most of the scrapers except for `disk` scraper can emit the new metrics without the `direction` attribute if 
-  feature gates enabled.
-- `receiver.hostmetricsreceiver.emitMetricsWithDirectionAttribute` is enabled by default.
-- `receiver.hostmetricsreceiver.emitMetricsWithoutDirectionAttribute` is disabled by default.
-
-2. v0.56.0, July 2022:
-
-- The new metrics are available for all scrapers, but disabled by default, they can be enabled with the feature gates.
-- The old metrics with `direction` attribute are deprecated with a warning.
-- `receiver.hostmetricsreceiver.emitMetricsWithDirectionAttribute` is enabled by default.
-- `receiver.hostmetricsreceiver.emitMetricsWithoutDirectionAttribute` is disabled by default.
-
-3. v0.58.0, August 2022:
-
-- The new metrics are enabled by default, deprecated metrics disabled, they can be enabled with the feature gates.
-- `receiver.hostmetricsreceiver.emitMetricsWithDirectionAttribute` is disabled by default.
-- `receiver.hostmetricsreceiver.emitMetricsWithoutDirectionAttribute` is enabled by default.
-
-4. v0.60.0, September 2022:
-
-- The feature gates are removed.
-- The new metrics without `direction` attribute are always emitted.
-- The deprecated metrics with `direction` attribute are no longer available.
-
 ##### Usage:
 
 To enable the new metrics without `direction` attribute and disable the deprecated metrics, run OTel Collector with the 

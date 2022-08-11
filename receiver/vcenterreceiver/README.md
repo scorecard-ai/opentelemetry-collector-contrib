@@ -88,26 +88,5 @@ The following feature gates control the transition process:
   `direction`
   attribute are emitted by the receiver.
 
-##### Transition schedule:
-
-1. v0.56.0, July 2022:
-
-- The new metrics are available for all scrapers, but disabled by default, they can be enabled with the feature gates.
-- The old metrics with `direction` attribute are deprecated with a warning.
-- `receiver.vcenterreceiver.emitMetricsWithDirectionAttribute` is enabled by default.
-- `receiver.vcenterreceiver.emitMetricsWithoutDirectionAttribute` is disabled by default.
-
-2. v0.58.0, August 2022:
-
-- The new metrics are enabled by default, deprecated metrics disabled, they can be enabled with the feature gates.
-- `receiver.vcenterreceiver.emitMetricsWithDirectionAttribute` is disabled by default.
-- `receiver.vcenterreceiver.emitMetricsWithoutDirectionAttribute` is enabled by default.
-
-3. v0.60.0, September 2022:
-
-- The feature gates are removed.
-- The new metrics without `direction` attribute are always emitted.
-- The deprecated metrics with `direction` attribute are no longer available.
-
 [alpha]: https://github.com/open-telemetry/opentelemetry-collector#alpha
 [contrib]: https://github.com/open-telemetry/opentelemetry-collector-releases/tree/main/distributions/otelcol-contrib
