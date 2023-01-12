@@ -123,6 +123,7 @@ func verifyTarget1(t *testing.T, td *testData, resourceMetrics []pmetric.Resourc
 
 	// m1 has 4 metrics + 5 internal scraper metrics
 	assert.Equal(t, 9, metricsCount(m1))
+	verifyScope(t, m1)
 
 	wantAttributes := td.attributes
 
@@ -187,6 +188,7 @@ func verifyTarget1(t *testing.T, td *testData, resourceMetrics []pmetric.Resourc
 	m2 := resourceMetrics[1]
 	// m2 has 4 metrics + 5 internal scraper metrics
 	assert.Equal(t, 9, metricsCount(m2))
+	verifyScope(t, m1)
 
 	metricsScrape2 := m2.ScopeMetrics().At(0).Metrics()
 	ts2 := getTS(metricsScrape2)
@@ -251,6 +253,8 @@ func verifyTarget1(t *testing.T, td *testData, resourceMetrics []pmetric.Resourc
 	m3 := resourceMetrics[2]
 	// m3 has 4 metrics + 5 internal scraper metrics
 	assert.Equal(t, 9, metricsCount(m3))
+	verifyScope(t, m1)
+
 	metricsScrape3 := m3.ScopeMetrics().At(0).Metrics()
 	ts3 := getTS(metricsScrape3)
 	e3 := []testExpectation{
@@ -509,6 +513,7 @@ func verifyTarget2(t *testing.T, td *testData, resourceMetrics []pmetric.Resourc
 	m1 := resourceMetrics[0]
 	// m1 has 4 metrics + 5 internal scraper metrics
 	assert.Equal(t, 9, metricsCount(m1))
+	verifyScope(t, m1)
 
 	wantAttributes := td.attributes
 
@@ -591,6 +596,7 @@ func verifyTarget2(t *testing.T, td *testData, resourceMetrics []pmetric.Resourc
 	m2 := resourceMetrics[1]
 	// m2 has 4 metrics + 5 internal scraper metrics
 	assert.Equal(t, 9, metricsCount(m2))
+	verifyScope(t, m2)
 
 	metricsScrape2 := m2.ScopeMetrics().At(0).Metrics()
 	ts2 := getTS(metricsScrape2)
@@ -695,6 +701,7 @@ func verifyTarget2(t *testing.T, td *testData, resourceMetrics []pmetric.Resourc
 	m3 := resourceMetrics[2]
 	// m3 has 4 metrics + 5 internal scraper metrics
 	assert.Equal(t, 9, metricsCount(m3))
+	verifyScope(t, m3)
 
 	metricsScrape3 := m3.ScopeMetrics().At(0).Metrics()
 	ts3 := getTS(metricsScrape3)
@@ -799,6 +806,7 @@ func verifyTarget2(t *testing.T, td *testData, resourceMetrics []pmetric.Resourc
 	m4 := resourceMetrics[3]
 	// m4 has 4 metrics + 5 internal scraper metrics
 	assert.Equal(t, 9, metricsCount(m4))
+	verifyScope(t, m4)
 
 	metricsScrape4 := m4.ScopeMetrics().At(0).Metrics()
 	ts4 := getTS(metricsScrape4)
@@ -903,6 +911,7 @@ func verifyTarget2(t *testing.T, td *testData, resourceMetrics []pmetric.Resourc
 	m5 := resourceMetrics[4]
 	// m5 has 4 metrics + 5 internal scraper metrics
 	assert.Equal(t, 9, metricsCount(m5))
+	verifyScope(t, m5)
 
 	metricsScrape5 := m5.ScopeMetrics().At(0).Metrics()
 	ts5 := getTS(metricsScrape5)
@@ -1057,7 +1066,7 @@ http_request_duration_seconds_bucket{le="+Inf"} 14003
 http_request_duration_seconds_sum 50100
 http_request_duration_seconds_count 14003
 
-# A corrupted histogram with only sum and count	
+# A corrupted histogram with only sum and count
 # HELP corrupted_hist A corrupted_hist.
 # TYPE corrupted_hist histogram
 corrupted_hist_sum 101
@@ -1091,6 +1100,7 @@ func verifyTarget3(t *testing.T, td *testData, resourceMetrics []pmetric.Resourc
 	m1 := resourceMetrics[0]
 	// m1 has 3 metrics + 5 internal scraper metrics
 	assert.Equal(t, 8, metricsCount(m1))
+	verifyScope(t, m1)
 
 	wantAttributes := td.attributes
 
@@ -1146,6 +1156,8 @@ func verifyTarget3(t *testing.T, td *testData, resourceMetrics []pmetric.Resourc
 	// m2 has 3 metrics + 5 internal scraper metrics
 	assert.Equal(t, 8, metricsCount(m2))
 
+	verifyScope(t, m2)
+
 	metricsScrape2 := m2.ScopeMetrics().At(0).Metrics()
 	ts2 := getTS(metricsScrape2)
 	e2 := []testExpectation{
@@ -1199,6 +1211,8 @@ func verifyTarget4(t *testing.T, td *testData, resourceMetrics []pmetric.Resourc
 	verifyNumValidScrapeResults(t, td, resourceMetrics)
 	m1 := resourceMetrics[0]
 
+	verifyScope(t, m1)
+
 	// m1 has 2 metrics + 5 internal scraper metrics
 	assert.Equal(t, 7, metricsCount(m1))
 
@@ -1229,6 +1243,12 @@ func verifyTarget4(t *testing.T, td *testData, resourceMetrics []pmetric.Resourc
 			}),
 	}
 	doCompare(t, "scrape-infostatesetmetrics-1", wantAttributes, m1, e1)
+}
+
+func verifyScope(t *testing.T, rm pmetric.ResourceMetrics) {
+	scope := rm.ScopeMetrics().At(0).Scope()
+	assert.Equal(t, "otelcol/prometheusreceiver", scope.Name())
+	assert.Equal(t, "latest", scope.Version())
 }
 
 // TestCoreMetricsEndToEnd end to end test executor

@@ -41,6 +41,7 @@ import (
 
 const (
 	targetMetricName = "target_info"
+	scopeName        = "otelcol/prometheusreceiver"
 )
 
 type transaction struct {
@@ -51,6 +52,7 @@ type transaction struct {
 	sink           consumer.Metrics
 	externalLabels labels.Labels
 	nodeResource   pcommon.Resource
+	scope          pcommon.InstrumentationScope
 	logger         *zap.Logger
 	metricAdjuster MetricsAdjuster
 	obsrecv        *obsreport.Receiver
@@ -67,6 +69,11 @@ func newTransaction(
 	settings receiver.CreateSettings,
 	obsrecv *obsreport.Receiver,
 	registry *featuregate.Registry) *transaction {
+
+	scope := pcommon.NewInstrumentationScope()
+	scope.SetName(scopeName)
+	scope.SetVersion(settings.BuildInfo.Version)
+
 	return &transaction{
 		ctx:            ctx,
 		families:       make(map[string]*metricFamily),
@@ -78,6 +85,7 @@ func newTransaction(
 		obsrecv:        obsrecv,
 		bufBytes:       make([]byte, 0, 1024),
 		normalizer:     prometheustranslator.NewNormalizer(registry),
+		scope:          scope,
 	}
 }
 
@@ -207,7 +215,9 @@ func (t *transaction) getMetrics(resource pcommon.Resource) (pmetric.Metrics, er
 	md := pmetric.NewMetrics()
 	rms := md.ResourceMetrics().AppendEmpty()
 	resource.CopyTo(rms.Resource())
-	metrics := rms.ScopeMetrics().AppendEmpty().Metrics()
+	scopeMetrics := rms.ScopeMetrics().AppendEmpty()
+	t.scope.CopyTo(scopeMetrics.Scope())
+	metrics := scopeMetrics.Metrics()
 
 	for _, mf := range t.families {
 		mf.appendMetric(metrics, t.normalizer)
