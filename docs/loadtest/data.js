@@ -1,5 +1,5 @@
 window.BENCHMARK_DATA = {
-  "lastUpdate": 1687838026647,
+  "lastUpdate": 1687838028936,
   "repoUrl": "https://github.com/mwear/opentelemetry-collector-contrib",
   "entries": {
     "Benchmark": [
@@ -4289,6 +4289,1436 @@ window.BENCHMARK_DATA = {
           {
             "name": "Trace1kSPSWithAttrs/20*5000bytes - Received Span Count",
             "value": 4280,
+            "unit": "1"
+          }
+        ]
+      },
+      {
+        "commit": {
+          "author": {
+            "name": "mwear",
+            "username": "mwear"
+          },
+          "committer": {
+            "name": "mwear",
+            "username": "mwear"
+          },
+          "id": "706eeeb70254e69f14490d5a090fdf1e45e12ff3",
+          "message": "Perf action",
+          "timestamp": "2023-06-22T16:59:27Z",
+          "url": "https://github.com/mwear/opentelemetry-collector-contrib/pull/3402/commits/706eeeb70254e69f14490d5a090fdf1e45e12ff3"
+        },
+        "date": 1687837994759,
+        "tool": "customSmallerIsBetter",
+        "benches": [
+          {
+            "name": "Log10kDPS/OTLP - Cpu Percentage Average",
+            "value": 11.265700830345752,
+            "unit": "%"
+          },
+          {
+            "name": "Log10kDPS/OTLP - Cpu Percentage Max",
+            "value": 13.331297075467901,
+            "unit": "%"
+          },
+          {
+            "name": "Log10kDPS/OTLP - RAM Avg (MiB)",
+            "value": 53,
+            "unit": "MiB"
+          },
+          {
+            "name": "Log10kDPS/OTLP - Ram Max (MiB)",
+            "value": 76,
+            "unit": "MiB"
+          },
+          {
+            "name": "Log10kDPS/OTLP - Sent Span Count",
+            "value": 150000,
+            "unit": "1"
+          },
+          {
+            "name": "Log10kDPS/OTLP - Received Span Count",
+            "value": 150000,
+            "unit": "1"
+          },
+          {
+            "name": "Log10kDPS/OTLP-HTTP - Cpu Percentage Average",
+            "value": 9.332720968713515,
+            "unit": "%"
+          },
+          {
+            "name": "Log10kDPS/OTLP-HTTP - Cpu Percentage Max",
+            "value": 10.99063661872132,
+            "unit": "%"
+          },
+          {
+            "name": "Log10kDPS/OTLP-HTTP - RAM Avg (MiB)",
+            "value": 50,
+            "unit": "MiB"
+          },
+          {
+            "name": "Log10kDPS/OTLP-HTTP - Ram Max (MiB)",
+            "value": 71,
+            "unit": "MiB"
+          },
+          {
+            "name": "Log10kDPS/OTLP-HTTP - Sent Span Count",
+            "value": 150000,
+            "unit": "1"
+          },
+          {
+            "name": "Log10kDPS/OTLP-HTTP - Received Span Count",
+            "value": 150000,
+            "unit": "1"
+          },
+          {
+            "name": "Log10kDPS/filelog - Cpu Percentage Average",
+            "value": 12.99951563111451,
+            "unit": "%"
+          },
+          {
+            "name": "Log10kDPS/filelog - Cpu Percentage Max",
+            "value": 14.331205483713799,
+            "unit": "%"
+          },
+          {
+            "name": "Log10kDPS/filelog - RAM Avg (MiB)",
+            "value": 54,
+            "unit": "MiB"
+          },
+          {
+            "name": "Log10kDPS/filelog - Ram Max (MiB)",
+            "value": 79,
+            "unit": "MiB"
+          },
+          {
+            "name": "Log10kDPS/filelog - Sent Span Count",
+            "value": 149900,
+            "unit": "1"
+          },
+          {
+            "name": "Log10kDPS/filelog - Received Span Count",
+            "value": 149900,
+            "unit": "1"
+          },
+          {
+            "name": "Log10kDPS/filelog_checkpoints - Cpu Percentage Average",
+            "value": 13.266015885453788,
+            "unit": "%"
+          },
+          {
+            "name": "Log10kDPS/filelog_checkpoints - Cpu Percentage Max",
+            "value": 15.331004344249715,
+            "unit": "%"
+          },
+          {
+            "name": "Log10kDPS/filelog_checkpoints - RAM Avg (MiB)",
+            "value": 54,
+            "unit": "MiB"
+          },
+          {
+            "name": "Log10kDPS/filelog_checkpoints - Ram Max (MiB)",
+            "value": 77,
+            "unit": "MiB"
+          },
+          {
+            "name": "Log10kDPS/filelog_checkpoints - Sent Span Count",
+            "value": 150000,
+            "unit": "1"
+          },
+          {
+            "name": "Log10kDPS/filelog_checkpoints - Received Span Count",
+            "value": 150000,
+            "unit": "1"
+          },
+          {
+            "name": "Log10kDPS/kubernetes_containers - Cpu Percentage Average",
+            "value": 37.73086279441467,
+            "unit": "%"
+          },
+          {
+            "name": "Log10kDPS/kubernetes_containers - Cpu Percentage Max",
+            "value": 38.99810399018021,
+            "unit": "%"
+          },
+          {
+            "name": "Log10kDPS/kubernetes_containers - RAM Avg (MiB)",
+            "value": 57,
+            "unit": "MiB"
+          },
+          {
+            "name": "Log10kDPS/kubernetes_containers - Ram Max (MiB)",
+            "value": 83,
+            "unit": "MiB"
+          },
+          {
+            "name": "Log10kDPS/kubernetes_containers - Sent Span Count",
+            "value": 149900,
+            "unit": "1"
+          },
+          {
+            "name": "Log10kDPS/kubernetes_containers - Received Span Count",
+            "value": 149900,
+            "unit": "1"
+          },
+          {
+            "name": "Log10kDPS/k8s_CRI-Containerd - Cpu Percentage Average",
+            "value": 34.53126528348052,
+            "unit": "%"
+          },
+          {
+            "name": "Log10kDPS/k8s_CRI-Containerd - Cpu Percentage Max",
+            "value": 35.65567626798085,
+            "unit": "%"
+          },
+          {
+            "name": "Log10kDPS/k8s_CRI-Containerd - RAM Avg (MiB)",
+            "value": 58,
+            "unit": "MiB"
+          },
+          {
+            "name": "Log10kDPS/k8s_CRI-Containerd - Ram Max (MiB)",
+            "value": 84,
+            "unit": "MiB"
+          },
+          {
+            "name": "Log10kDPS/k8s_CRI-Containerd - Sent Span Count",
+            "value": 149800,
+            "unit": "1"
+          },
+          {
+            "name": "Log10kDPS/k8s_CRI-Containerd - Received Span Count",
+            "value": 149800,
+            "unit": "1"
+          },
+          {
+            "name": "Log10kDPS/k8s_CRI-Containerd_no_attr_ops - Cpu Percentage Average",
+            "value": 25.131784813280277,
+            "unit": "%"
+          },
+          {
+            "name": "Log10kDPS/k8s_CRI-Containerd_no_attr_ops - Cpu Percentage Max",
+            "value": 27.66389593384162,
+            "unit": "%"
+          },
+          {
+            "name": "Log10kDPS/k8s_CRI-Containerd_no_attr_ops - RAM Avg (MiB)",
+            "value": 55,
+            "unit": "MiB"
+          },
+          {
+            "name": "Log10kDPS/k8s_CRI-Containerd_no_attr_ops - Ram Max (MiB)",
+            "value": 81,
+            "unit": "MiB"
+          },
+          {
+            "name": "Log10kDPS/k8s_CRI-Containerd_no_attr_ops - Sent Span Count",
+            "value": 149900,
+            "unit": "1"
+          },
+          {
+            "name": "Log10kDPS/k8s_CRI-Containerd_no_attr_ops - Received Span Count",
+            "value": 149900,
+            "unit": "1"
+          },
+          {
+            "name": "Log10kDPS/CRI-Containerd - Cpu Percentage Average",
+            "value": 13.732437649735562,
+            "unit": "%"
+          },
+          {
+            "name": "Log10kDPS/CRI-Containerd - Cpu Percentage Max",
+            "value": 15.330048037608666,
+            "unit": "%"
+          },
+          {
+            "name": "Log10kDPS/CRI-Containerd - RAM Avg (MiB)",
+            "value": 53,
+            "unit": "MiB"
+          },
+          {
+            "name": "Log10kDPS/CRI-Containerd - Ram Max (MiB)",
+            "value": 77,
+            "unit": "MiB"
+          },
+          {
+            "name": "Log10kDPS/CRI-Containerd - Sent Span Count",
+            "value": 149900,
+            "unit": "1"
+          },
+          {
+            "name": "Log10kDPS/CRI-Containerd - Received Span Count",
+            "value": 149900,
+            "unit": "1"
+          },
+          {
+            "name": "Log10kDPS/syslog-tcp-batch-1 - Cpu Percentage Average",
+            "value": 14.998714590161338,
+            "unit": "%"
+          },
+          {
+            "name": "Log10kDPS/syslog-tcp-batch-1 - Cpu Percentage Max",
+            "value": 16.330867176419286,
+            "unit": "%"
+          },
+          {
+            "name": "Log10kDPS/syslog-tcp-batch-1 - RAM Avg (MiB)",
+            "value": 51,
+            "unit": "MiB"
+          },
+          {
+            "name": "Log10kDPS/syslog-tcp-batch-1 - Ram Max (MiB)",
+            "value": 75,
+            "unit": "MiB"
+          },
+          {
+            "name": "Log10kDPS/syslog-tcp-batch-1 - Sent Span Count",
+            "value": 150000,
+            "unit": "1"
+          },
+          {
+            "name": "Log10kDPS/syslog-tcp-batch-1 - Received Span Count",
+            "value": 150000,
+            "unit": "1"
+          },
+          {
+            "name": "Log10kDPS/syslog-tcp-batch-100 - Cpu Percentage Average",
+            "value": 5.533009052156734,
+            "unit": "%"
+          },
+          {
+            "name": "Log10kDPS/syslog-tcp-batch-100 - Cpu Percentage Max",
+            "value": 7.663979851602232,
+            "unit": "%"
+          },
+          {
+            "name": "Log10kDPS/syslog-tcp-batch-100 - RAM Avg (MiB)",
+            "value": 53,
+            "unit": "MiB"
+          },
+          {
+            "name": "Log10kDPS/syslog-tcp-batch-100 - Ram Max (MiB)",
+            "value": 76,
+            "unit": "MiB"
+          },
+          {
+            "name": "Log10kDPS/syslog-tcp-batch-100 - Sent Span Count",
+            "value": 150000,
+            "unit": "1"
+          },
+          {
+            "name": "Log10kDPS/syslog-tcp-batch-100 - Received Span Count",
+            "value": 150000,
+            "unit": "1"
+          },
+          {
+            "name": "Log10kDPS/FluentForward-SplunkHEC - Cpu Percentage Average",
+            "value": 21.931212225439253,
+            "unit": "%"
+          },
+          {
+            "name": "Log10kDPS/FluentForward-SplunkHEC - Cpu Percentage Max",
+            "value": 23.997656372880186,
+            "unit": "%"
+          },
+          {
+            "name": "Log10kDPS/FluentForward-SplunkHEC - RAM Avg (MiB)",
+            "value": 53,
+            "unit": "MiB"
+          },
+          {
+            "name": "Log10kDPS/FluentForward-SplunkHEC - Ram Max (MiB)",
+            "value": 77,
+            "unit": "MiB"
+          },
+          {
+            "name": "Log10kDPS/FluentForward-SplunkHEC - Sent Span Count",
+            "value": 146300,
+            "unit": "1"
+          },
+          {
+            "name": "Log10kDPS/FluentForward-SplunkHEC - Received Span Count",
+            "value": 146300,
+            "unit": "1"
+          },
+          {
+            "name": "Log10kDPS/tcp-batch-1 - Cpu Percentage Average",
+            "value": 14.865637984339001,
+            "unit": "%"
+          },
+          {
+            "name": "Log10kDPS/tcp-batch-1 - Cpu Percentage Max",
+            "value": 16.327179766224063,
+            "unit": "%"
+          },
+          {
+            "name": "Log10kDPS/tcp-batch-1 - RAM Avg (MiB)",
+            "value": 53,
+            "unit": "MiB"
+          },
+          {
+            "name": "Log10kDPS/tcp-batch-1 - Ram Max (MiB)",
+            "value": 76,
+            "unit": "MiB"
+          },
+          {
+            "name": "Log10kDPS/tcp-batch-1 - Sent Span Count",
+            "value": 150000,
+            "unit": "1"
+          },
+          {
+            "name": "Log10kDPS/tcp-batch-1 - Received Span Count",
+            "value": 150000,
+            "unit": "1"
+          },
+          {
+            "name": "Log10kDPS/tcp-batch-100 - Cpu Percentage Average",
+            "value": 5.399705432029449,
+            "unit": "%"
+          },
+          {
+            "name": "Log10kDPS/tcp-batch-100 - Cpu Percentage Max",
+            "value": 7.6659139582410205,
+            "unit": "%"
+          },
+          {
+            "name": "Log10kDPS/tcp-batch-100 - RAM Avg (MiB)",
+            "value": 53,
+            "unit": "MiB"
+          },
+          {
+            "name": "Log10kDPS/tcp-batch-100 - Ram Max (MiB)",
+            "value": 75,
+            "unit": "MiB"
+          },
+          {
+            "name": "Log10kDPS/tcp-batch-100 - Sent Span Count",
+            "value": 150000,
+            "unit": "1"
+          },
+          {
+            "name": "Log10kDPS/tcp-batch-100 - Received Span Count",
+            "value": 150000,
+            "unit": "1"
+          },
+          {
+            "name": "IdleMode - Cpu Percentage Average",
+            "value": 0.5332477462524133,
+            "unit": "%"
+          },
+          {
+            "name": "IdleMode - Cpu Percentage Max",
+            "value": 2.6656328258543986,
+            "unit": "%"
+          },
+          {
+            "name": "IdleMode - RAM Avg (MiB)",
+            "value": 45,
+            "unit": "MiB"
+          },
+          {
+            "name": "IdleMode - Ram Max (MiB)",
+            "value": 64,
+            "unit": "MiB"
+          },
+          {
+            "name": "IdleMode - Sent Span Count",
+            "value": 0,
+            "unit": "1"
+          },
+          {
+            "name": "IdleMode - Received Span Count",
+            "value": 0,
+            "unit": "1"
+          },
+          {
+            "name": "Metric10kDPS/OpenCensus - Cpu Percentage Average",
+            "value": 39.39588549634515,
+            "unit": "%"
+          },
+          {
+            "name": "Metric10kDPS/OpenCensus - Cpu Percentage Max",
+            "value": 39.66780371781504,
+            "unit": "%"
+          },
+          {
+            "name": "Metric10kDPS/OpenCensus - RAM Avg (MiB)",
+            "value": 53,
+            "unit": "MiB"
+          },
+          {
+            "name": "Metric10kDPS/OpenCensus - Ram Max (MiB)",
+            "value": 76,
+            "unit": "MiB"
+          },
+          {
+            "name": "Metric10kDPS/OpenCensus - Sent Span Count",
+            "value": 1050000,
+            "unit": "1"
+          },
+          {
+            "name": "Metric10kDPS/OpenCensus - Received Span Count",
+            "value": 1050000,
+            "unit": "1"
+          },
+          {
+            "name": "Metric10kDPS/OTLP - Cpu Percentage Average",
+            "value": 23.59790387371219,
+            "unit": "%"
+          },
+          {
+            "name": "Metric10kDPS/OTLP - Cpu Percentage Max",
+            "value": 25.664496665034978,
+            "unit": "%"
+          },
+          {
+            "name": "Metric10kDPS/OTLP - RAM Avg (MiB)",
+            "value": 54,
+            "unit": "MiB"
+          },
+          {
+            "name": "Metric10kDPS/OTLP - Ram Max (MiB)",
+            "value": 77,
+            "unit": "MiB"
+          },
+          {
+            "name": "Metric10kDPS/OTLP - Sent Span Count",
+            "value": 1049300,
+            "unit": "1"
+          },
+          {
+            "name": "Metric10kDPS/OTLP - Received Span Count",
+            "value": 1049300,
+            "unit": "1"
+          },
+          {
+            "name": "Metric10kDPS/OTLP-HTTP - Cpu Percentage Average",
+            "value": 22.265086025163907,
+            "unit": "%"
+          },
+          {
+            "name": "Metric10kDPS/OTLP-HTTP - Cpu Percentage Max",
+            "value": 23.997155609146596,
+            "unit": "%"
+          },
+          {
+            "name": "Metric10kDPS/OTLP-HTTP - RAM Avg (MiB)",
+            "value": 51,
+            "unit": "MiB"
+          },
+          {
+            "name": "Metric10kDPS/OTLP-HTTP - Ram Max (MiB)",
+            "value": 72,
+            "unit": "MiB"
+          },
+          {
+            "name": "Metric10kDPS/OTLP-HTTP - Sent Span Count",
+            "value": 1050000,
+            "unit": "1"
+          },
+          {
+            "name": "Metric10kDPS/OTLP-HTTP - Received Span Count",
+            "value": 1050000,
+            "unit": "1"
+          },
+          {
+            "name": "Metric10kDPS/SignalFx - Cpu Percentage Average",
+            "value": 52.595505591324375,
+            "unit": "%"
+          },
+          {
+            "name": "Metric10kDPS/SignalFx - Cpu Percentage Max",
+            "value": 54.315571525867895,
+            "unit": "%"
+          },
+          {
+            "name": "Metric10kDPS/SignalFx - RAM Avg (MiB)",
+            "value": 55,
+            "unit": "MiB"
+          },
+          {
+            "name": "Metric10kDPS/SignalFx - Ram Max (MiB)",
+            "value": 78,
+            "unit": "MiB"
+          },
+          {
+            "name": "Metric10kDPS/SignalFx - Sent Span Count",
+            "value": 1048600,
+            "unit": "1"
+          },
+          {
+            "name": "Metric10kDPS/SignalFx - Received Span Count",
+            "value": 1048600,
+            "unit": "1"
+          },
+          {
+            "name": "MetricsFromFile - Cpu Percentage Average",
+            "value": 33.99878678729228,
+            "unit": "%"
+          },
+          {
+            "name": "MetricsFromFile - Cpu Percentage Max",
+            "value": 35.323608955729476,
+            "unit": "%"
+          },
+          {
+            "name": "MetricsFromFile - RAM Avg (MiB)",
+            "value": 54,
+            "unit": "MiB"
+          },
+          {
+            "name": "MetricsFromFile - Ram Max (MiB)",
+            "value": 76,
+            "unit": "MiB"
+          },
+          {
+            "name": "MetricsFromFile - Sent Span Count",
+            "value": 14942,
+            "unit": "1"
+          },
+          {
+            "name": "MetricsFromFile - Received Span Count",
+            "value": 14942,
+            "unit": "1"
+          },
+          {
+            "name": "MetricResourceProcessor/update_and_rename_existing_attributes - Cpu Percentage Average",
+            "value": 0,
+            "unit": "%"
+          },
+          {
+            "name": "MetricResourceProcessor/update_and_rename_existing_attributes - Cpu Percentage Max",
+            "value": 0,
+            "unit": "%"
+          },
+          {
+            "name": "MetricResourceProcessor/update_and_rename_existing_attributes - RAM Avg (MiB)",
+            "value": 0,
+            "unit": "MiB"
+          },
+          {
+            "name": "MetricResourceProcessor/update_and_rename_existing_attributes - Ram Max (MiB)",
+            "value": 0,
+            "unit": "MiB"
+          },
+          {
+            "name": "MetricResourceProcessor/update_and_rename_existing_attributes - Sent Span Count",
+            "value": 1,
+            "unit": "1"
+          },
+          {
+            "name": "MetricResourceProcessor/update_and_rename_existing_attributes - Received Span Count",
+            "value": 1,
+            "unit": "1"
+          },
+          {
+            "name": "MetricResourceProcessor/set_attribute_on_empty_resource - Cpu Percentage Average",
+            "value": 0,
+            "unit": "%"
+          },
+          {
+            "name": "MetricResourceProcessor/set_attribute_on_empty_resource - Cpu Percentage Max",
+            "value": 0,
+            "unit": "%"
+          },
+          {
+            "name": "MetricResourceProcessor/set_attribute_on_empty_resource - RAM Avg (MiB)",
+            "value": 0,
+            "unit": "MiB"
+          },
+          {
+            "name": "MetricResourceProcessor/set_attribute_on_empty_resource - Ram Max (MiB)",
+            "value": 0,
+            "unit": "MiB"
+          },
+          {
+            "name": "MetricResourceProcessor/set_attribute_on_empty_resource - Sent Span Count",
+            "value": 1,
+            "unit": "1"
+          },
+          {
+            "name": "MetricResourceProcessor/set_attribute_on_empty_resource - Received Span Count",
+            "value": 1,
+            "unit": "1"
+          },
+          {
+            "name": "Trace10kSPS/JaegerGRPC - Cpu Percentage Average",
+            "value": 13.998454914939382,
+            "unit": "%"
+          },
+          {
+            "name": "Trace10kSPS/JaegerGRPC - Cpu Percentage Max",
+            "value": 15.332729913747578,
+            "unit": "%"
+          },
+          {
+            "name": "Trace10kSPS/JaegerGRPC - RAM Avg (MiB)",
+            "value": 52,
+            "unit": "MiB"
+          },
+          {
+            "name": "Trace10kSPS/JaegerGRPC - Ram Max (MiB)",
+            "value": 77,
+            "unit": "MiB"
+          },
+          {
+            "name": "Trace10kSPS/JaegerGRPC - Sent Span Count",
+            "value": 149800,
+            "unit": "1"
+          },
+          {
+            "name": "Trace10kSPS/JaegerGRPC - Received Span Count",
+            "value": 149800,
+            "unit": "1"
+          },
+          {
+            "name": "Trace10kSPS/OpenCensus - Cpu Percentage Average",
+            "value": 14.19909486639186,
+            "unit": "%"
+          },
+          {
+            "name": "Trace10kSPS/OpenCensus - Cpu Percentage Max",
+            "value": 14.998194887254943,
+            "unit": "%"
+          },
+          {
+            "name": "Trace10kSPS/OpenCensus - RAM Avg (MiB)",
+            "value": 54,
+            "unit": "MiB"
+          },
+          {
+            "name": "Trace10kSPS/OpenCensus - Ram Max (MiB)",
+            "value": 78,
+            "unit": "MiB"
+          },
+          {
+            "name": "Trace10kSPS/OpenCensus - Sent Span Count",
+            "value": 150000,
+            "unit": "1"
+          },
+          {
+            "name": "Trace10kSPS/OpenCensus - Received Span Count",
+            "value": 150000,
+            "unit": "1"
+          },
+          {
+            "name": "Trace10kSPS/OTLP-gRPC - Cpu Percentage Average",
+            "value": 9.132533238184692,
+            "unit": "%"
+          },
+          {
+            "name": "Trace10kSPS/OTLP-gRPC - Cpu Percentage Max",
+            "value": 11.330147820729659,
+            "unit": "%"
+          },
+          {
+            "name": "Trace10kSPS/OTLP-gRPC - RAM Avg (MiB)",
+            "value": 54,
+            "unit": "MiB"
+          },
+          {
+            "name": "Trace10kSPS/OTLP-gRPC - Ram Max (MiB)",
+            "value": 77,
+            "unit": "MiB"
+          },
+          {
+            "name": "Trace10kSPS/OTLP-gRPC - Sent Span Count",
+            "value": 149900,
+            "unit": "1"
+          },
+          {
+            "name": "Trace10kSPS/OTLP-gRPC - Received Span Count",
+            "value": 149900,
+            "unit": "1"
+          },
+          {
+            "name": "Trace10kSPS/OTLP-gRPC-gzip - Cpu Percentage Average",
+            "value": 12.599051713054271,
+            "unit": "%"
+          },
+          {
+            "name": "Trace10kSPS/OTLP-gRPC-gzip - Cpu Percentage Max",
+            "value": 13.99738425281514,
+            "unit": "%"
+          },
+          {
+            "name": "Trace10kSPS/OTLP-gRPC-gzip - RAM Avg (MiB)",
+            "value": 54,
+            "unit": "MiB"
+          },
+          {
+            "name": "Trace10kSPS/OTLP-gRPC-gzip - Ram Max (MiB)",
+            "value": 77,
+            "unit": "MiB"
+          },
+          {
+            "name": "Trace10kSPS/OTLP-gRPC-gzip - Sent Span Count",
+            "value": 149900,
+            "unit": "1"
+          },
+          {
+            "name": "Trace10kSPS/OTLP-gRPC-gzip - Received Span Count",
+            "value": 149900,
+            "unit": "1"
+          },
+          {
+            "name": "Trace10kSPS/OTLP-HTTP - Cpu Percentage Average",
+            "value": 7.066354006882918,
+            "unit": "%"
+          },
+          {
+            "name": "Trace10kSPS/OTLP-HTTP - Cpu Percentage Max",
+            "value": 8.999640026398463,
+            "unit": "%"
+          },
+          {
+            "name": "Trace10kSPS/OTLP-HTTP - RAM Avg (MiB)",
+            "value": 49,
+            "unit": "MiB"
+          },
+          {
+            "name": "Trace10kSPS/OTLP-HTTP - Ram Max (MiB)",
+            "value": 71,
+            "unit": "MiB"
+          },
+          {
+            "name": "Trace10kSPS/OTLP-HTTP - Sent Span Count",
+            "value": 150000,
+            "unit": "1"
+          },
+          {
+            "name": "Trace10kSPS/OTLP-HTTP - Received Span Count",
+            "value": 150000,
+            "unit": "1"
+          },
+          {
+            "name": "Trace10kSPS/OTLP-HTTP-gzip - Cpu Percentage Average",
+            "value": 11.198980279837015,
+            "unit": "%"
+          },
+          {
+            "name": "Trace10kSPS/OTLP-HTTP-gzip - Cpu Percentage Max",
+            "value": 12.662405125779982,
+            "unit": "%"
+          },
+          {
+            "name": "Trace10kSPS/OTLP-HTTP-gzip - RAM Avg (MiB)",
+            "value": 51,
+            "unit": "MiB"
+          },
+          {
+            "name": "Trace10kSPS/OTLP-HTTP-gzip - Ram Max (MiB)",
+            "value": 75,
+            "unit": "MiB"
+          },
+          {
+            "name": "Trace10kSPS/OTLP-HTTP-gzip - Sent Span Count",
+            "value": 150000,
+            "unit": "1"
+          },
+          {
+            "name": "Trace10kSPS/OTLP-HTTP-gzip - Received Span Count",
+            "value": 150000,
+            "unit": "1"
+          },
+          {
+            "name": "Trace10kSPS/SAPM - Cpu Percentage Average",
+            "value": 11.399356147645724,
+            "unit": "%"
+          },
+          {
+            "name": "Trace10kSPS/SAPM - Cpu Percentage Max",
+            "value": 13.996749688784021,
+            "unit": "%"
+          },
+          {
+            "name": "Trace10kSPS/SAPM - RAM Avg (MiB)",
+            "value": 54,
+            "unit": "MiB"
+          },
+          {
+            "name": "Trace10kSPS/SAPM - Ram Max (MiB)",
+            "value": 78,
+            "unit": "MiB"
+          },
+          {
+            "name": "Trace10kSPS/SAPM - Sent Span Count",
+            "value": 149900,
+            "unit": "1"
+          },
+          {
+            "name": "Trace10kSPS/SAPM - Received Span Count",
+            "value": 149900,
+            "unit": "1"
+          },
+          {
+            "name": "Trace10kSPS/SAPM-gzip - Cpu Percentage Average",
+            "value": 15.198709903106003,
+            "unit": "%"
+          },
+          {
+            "name": "Trace10kSPS/SAPM-gzip - Cpu Percentage Max",
+            "value": 17.664804019071678,
+            "unit": "%"
+          },
+          {
+            "name": "Trace10kSPS/SAPM-gzip - RAM Avg (MiB)",
+            "value": 63,
+            "unit": "MiB"
+          },
+          {
+            "name": "Trace10kSPS/SAPM-gzip - Ram Max (MiB)",
+            "value": 90,
+            "unit": "MiB"
+          },
+          {
+            "name": "Trace10kSPS/SAPM-gzip - Sent Span Count",
+            "value": 149800,
+            "unit": "1"
+          },
+          {
+            "name": "Trace10kSPS/SAPM-gzip - Received Span Count",
+            "value": 149800,
+            "unit": "1"
+          },
+          {
+            "name": "Trace10kSPS/SAPM-zstd - Cpu Percentage Average",
+            "value": 10.86590516954451,
+            "unit": "%"
+          },
+          {
+            "name": "Trace10kSPS/SAPM-zstd - Cpu Percentage Max",
+            "value": 14.33069238735604,
+            "unit": "%"
+          },
+          {
+            "name": "Trace10kSPS/SAPM-zstd - RAM Avg (MiB)",
+            "value": 136,
+            "unit": "MiB"
+          },
+          {
+            "name": "Trace10kSPS/SAPM-zstd - Ram Max (MiB)",
+            "value": 221,
+            "unit": "MiB"
+          },
+          {
+            "name": "Trace10kSPS/SAPM-zstd - Sent Span Count",
+            "value": 150000,
+            "unit": "1"
+          },
+          {
+            "name": "Trace10kSPS/SAPM-zstd - Received Span Count",
+            "value": 150000,
+            "unit": "1"
+          },
+          {
+            "name": "Trace10kSPS/Zipkin - Cpu Percentage Average",
+            "value": 31.99913883917556,
+            "unit": "%"
+          },
+          {
+            "name": "Trace10kSPS/Zipkin - Cpu Percentage Max",
+            "value": 32.99335227942706,
+            "unit": "%"
+          },
+          {
+            "name": "Trace10kSPS/Zipkin - RAM Avg (MiB)",
+            "value": 56,
+            "unit": "MiB"
+          },
+          {
+            "name": "Trace10kSPS/Zipkin - Ram Max (MiB)",
+            "value": 81,
+            "unit": "MiB"
+          },
+          {
+            "name": "Trace10kSPS/Zipkin - Sent Span Count",
+            "value": 150000,
+            "unit": "1"
+          },
+          {
+            "name": "Trace10kSPS/Zipkin - Received Span Count",
+            "value": 150000,
+            "unit": "1"
+          },
+          {
+            "name": "TraceAttributesProcessor/JaegerGRPC - Cpu Percentage Average",
+            "value": 0,
+            "unit": "%"
+          },
+          {
+            "name": "TraceAttributesProcessor/JaegerGRPC - Cpu Percentage Max",
+            "value": 0,
+            "unit": "%"
+          },
+          {
+            "name": "TraceAttributesProcessor/JaegerGRPC - RAM Avg (MiB)",
+            "value": 0,
+            "unit": "MiB"
+          },
+          {
+            "name": "TraceAttributesProcessor/JaegerGRPC - Ram Max (MiB)",
+            "value": 0,
+            "unit": "MiB"
+          },
+          {
+            "name": "TraceAttributesProcessor/JaegerGRPC - Sent Span Count",
+            "value": 3,
+            "unit": "1"
+          },
+          {
+            "name": "TraceAttributesProcessor/JaegerGRPC - Received Span Count",
+            "value": 3,
+            "unit": "1"
+          },
+          {
+            "name": "TraceAttributesProcessor/OTLP - Cpu Percentage Average",
+            "value": 0,
+            "unit": "%"
+          },
+          {
+            "name": "TraceAttributesProcessor/OTLP - Cpu Percentage Max",
+            "value": 0,
+            "unit": "%"
+          },
+          {
+            "name": "TraceAttributesProcessor/OTLP - RAM Avg (MiB)",
+            "value": 0,
+            "unit": "MiB"
+          },
+          {
+            "name": "TraceAttributesProcessor/OTLP - Ram Max (MiB)",
+            "value": 0,
+            "unit": "MiB"
+          },
+          {
+            "name": "TraceAttributesProcessor/OTLP - Sent Span Count",
+            "value": 3,
+            "unit": "1"
+          },
+          {
+            "name": "TraceAttributesProcessor/OTLP - Received Span Count",
+            "value": 3,
+            "unit": "1"
+          },
+          {
+            "name": "TraceBallast1kSPSWithAttrs/0*0bytes - Cpu Percentage Average",
+            "value": 9.332168049150527,
+            "unit": "%"
+          },
+          {
+            "name": "TraceBallast1kSPSWithAttrs/0*0bytes - Cpu Percentage Max",
+            "value": 12.665836062247433,
+            "unit": "%"
+          },
+          {
+            "name": "TraceBallast1kSPSWithAttrs/0*0bytes - RAM Avg (MiB)",
+            "value": 90,
+            "unit": "MiB"
+          },
+          {
+            "name": "TraceBallast1kSPSWithAttrs/0*0bytes - Ram Max (MiB)",
+            "value": 145,
+            "unit": "MiB"
+          },
+          {
+            "name": "TraceBallast1kSPSWithAttrs/0*0bytes - Sent Span Count",
+            "value": 14990,
+            "unit": "1"
+          },
+          {
+            "name": "TraceBallast1kSPSWithAttrs/0*0bytes - Received Span Count",
+            "value": 14990,
+            "unit": "1"
+          },
+          {
+            "name": "TraceBallast1kSPSWithAttrs/100*50bytes - Cpu Percentage Average",
+            "value": 22.065474566163942,
+            "unit": "%"
+          },
+          {
+            "name": "TraceBallast1kSPSWithAttrs/100*50bytes - Cpu Percentage Max",
+            "value": 24.664241152306094,
+            "unit": "%"
+          },
+          {
+            "name": "TraceBallast1kSPSWithAttrs/100*50bytes - RAM Avg (MiB)",
+            "value": 440,
+            "unit": "MiB"
+          },
+          {
+            "name": "TraceBallast1kSPSWithAttrs/100*50bytes - Ram Max (MiB)",
+            "value": 830,
+            "unit": "MiB"
+          },
+          {
+            "name": "TraceBallast1kSPSWithAttrs/100*50bytes - Sent Span Count",
+            "value": 15000,
+            "unit": "1"
+          },
+          {
+            "name": "TraceBallast1kSPSWithAttrs/100*50bytes - Received Span Count",
+            "value": 15000,
+            "unit": "1"
+          },
+          {
+            "name": "TraceBallast1kSPSWithAttrs/10*1000bytes - Cpu Percentage Average",
+            "value": 17.132071611081805,
+            "unit": "%"
+          },
+          {
+            "name": "TraceBallast1kSPSWithAttrs/10*1000bytes - Cpu Percentage Max",
+            "value": 19.32701741221682,
+            "unit": "%"
+          },
+          {
+            "name": "TraceBallast1kSPSWithAttrs/10*1000bytes - RAM Avg (MiB)",
+            "value": 347,
+            "unit": "MiB"
+          },
+          {
+            "name": "TraceBallast1kSPSWithAttrs/10*1000bytes - Ram Max (MiB)",
+            "value": 748,
+            "unit": "MiB"
+          },
+          {
+            "name": "TraceBallast1kSPSWithAttrs/10*1000bytes - Sent Span Count",
+            "value": 15000,
+            "unit": "1"
+          },
+          {
+            "name": "TraceBallast1kSPSWithAttrs/10*1000bytes - Received Span Count",
+            "value": 15000,
+            "unit": "1"
+          },
+          {
+            "name": "TraceBallast1kSPSWithAttrs/20*5000bytes - Cpu Percentage Average",
+            "value": 37.397904435850066,
+            "unit": "%"
+          },
+          {
+            "name": "TraceBallast1kSPSWithAttrs/20*5000bytes - Cpu Percentage Max",
+            "value": 39.989455753594534,
+            "unit": "%"
+          },
+          {
+            "name": "TraceBallast1kSPSWithAttrs/20*5000bytes - RAM Avg (MiB)",
+            "value": 488,
+            "unit": "MiB"
+          },
+          {
+            "name": "TraceBallast1kSPSWithAttrs/20*5000bytes - Ram Max (MiB)",
+            "value": 828,
+            "unit": "MiB"
+          },
+          {
+            "name": "TraceBallast1kSPSWithAttrs/20*5000bytes - Sent Span Count",
+            "value": 3530,
+            "unit": "1"
+          },
+          {
+            "name": "TraceBallast1kSPSWithAttrs/20*5000bytes - Received Span Count",
+            "value": 3530,
+            "unit": "1"
+          },
+          {
+            "name": "TraceBallast1kSPSAddAttrs/0*0bytes - Cpu Percentage Average",
+            "value": 14.399053291044222,
+            "unit": "%"
+          },
+          {
+            "name": "TraceBallast1kSPSAddAttrs/0*0bytes - Cpu Percentage Max",
+            "value": 37.32493165295962,
+            "unit": "%"
+          },
+          {
+            "name": "TraceBallast1kSPSAddAttrs/0*0bytes - RAM Avg (MiB)",
+            "value": 804,
+            "unit": "MiB"
+          },
+          {
+            "name": "TraceBallast1kSPSAddAttrs/0*0bytes - Ram Max (MiB)",
+            "value": 1146,
+            "unit": "MiB"
+          },
+          {
+            "name": "TraceBallast1kSPSAddAttrs/0*0bytes - Sent Span Count",
+            "value": 15000,
+            "unit": "1"
+          },
+          {
+            "name": "TraceBallast1kSPSAddAttrs/0*0bytes - Received Span Count",
+            "value": 15000,
+            "unit": "1"
+          },
+          {
+            "name": "TraceBallast1kSPSAddAttrs/100*50bytes - Cpu Percentage Average",
+            "value": 21.132568263920287,
+            "unit": "%"
+          },
+          {
+            "name": "TraceBallast1kSPSAddAttrs/100*50bytes - Cpu Percentage Max",
+            "value": 23.331796778970126,
+            "unit": "%"
+          },
+          {
+            "name": "TraceBallast1kSPSAddAttrs/100*50bytes - RAM Avg (MiB)",
+            "value": 428,
+            "unit": "MiB"
+          },
+          {
+            "name": "TraceBallast1kSPSAddAttrs/100*50bytes - Ram Max (MiB)",
+            "value": 834,
+            "unit": "MiB"
+          },
+          {
+            "name": "TraceBallast1kSPSAddAttrs/100*50bytes - Sent Span Count",
+            "value": 14990,
+            "unit": "1"
+          },
+          {
+            "name": "TraceBallast1kSPSAddAttrs/100*50bytes - Received Span Count",
+            "value": 14990,
+            "unit": "1"
+          },
+          {
+            "name": "TraceBallast1kSPSAddAttrs/10*1000bytes - Cpu Percentage Average",
+            "value": 15.066120560977058,
+            "unit": "%"
+          },
+          {
+            "name": "TraceBallast1kSPSAddAttrs/10*1000bytes - Cpu Percentage Max",
+            "value": 17.33270178745587,
+            "unit": "%"
+          },
+          {
+            "name": "TraceBallast1kSPSAddAttrs/10*1000bytes - RAM Avg (MiB)",
+            "value": 292,
+            "unit": "MiB"
+          },
+          {
+            "name": "TraceBallast1kSPSAddAttrs/10*1000bytes - Ram Max (MiB)",
+            "value": 620,
+            "unit": "MiB"
+          },
+          {
+            "name": "TraceBallast1kSPSAddAttrs/10*1000bytes - Sent Span Count",
+            "value": 15000,
+            "unit": "1"
+          },
+          {
+            "name": "TraceBallast1kSPSAddAttrs/10*1000bytes - Received Span Count",
+            "value": 15000,
+            "unit": "1"
+          },
+          {
+            "name": "TraceBallast1kSPSAddAttrs/20*5000bytes - Cpu Percentage Average",
+            "value": 36.198573491442325,
+            "unit": "%"
+          },
+          {
+            "name": "TraceBallast1kSPSAddAttrs/20*5000bytes - Cpu Percentage Max",
+            "value": 38.331370115550115,
+            "unit": "%"
+          },
+          {
+            "name": "TraceBallast1kSPSAddAttrs/20*5000bytes - RAM Avg (MiB)",
+            "value": 489,
+            "unit": "MiB"
+          },
+          {
+            "name": "TraceBallast1kSPSAddAttrs/20*5000bytes - Ram Max (MiB)",
+            "value": 831,
+            "unit": "MiB"
+          },
+          {
+            "name": "TraceBallast1kSPSAddAttrs/20*5000bytes - Sent Span Count",
+            "value": 2780,
+            "unit": "1"
+          },
+          {
+            "name": "TraceBallast1kSPSAddAttrs/20*5000bytes - Received Span Count",
+            "value": 2780,
+            "unit": "1"
+          },
+          {
+            "name": "TraceNoBackend10kSPS/NoMemoryLimit - Cpu Percentage Average",
+            "value": 39.85143802411351,
+            "unit": "%"
+          },
+          {
+            "name": "TraceNoBackend10kSPS/NoMemoryLimit - Cpu Percentage Max",
+            "value": 43.65211519041583,
+            "unit": "%"
+          },
+          {
+            "name": "TraceNoBackend10kSPS/NoMemoryLimit - RAM Avg (MiB)",
+            "value": 64,
+            "unit": "MiB"
+          },
+          {
+            "name": "TraceNoBackend10kSPS/NoMemoryLimit - Ram Max (MiB)",
+            "value": 91,
+            "unit": "MiB"
+          },
+          {
+            "name": "TraceNoBackend10kSPS/NoMemoryLimit - Sent Span Count",
+            "value": 129010,
+            "unit": "1"
+          },
+          {
+            "name": "TraceNoBackend10kSPS/NoMemoryLimit - Received Span Count",
+            "value": 0,
+            "unit": "1"
+          },
+          {
+            "name": "TraceNoBackend10kSPS/MemoryLimit - Cpu Percentage Average",
+            "value": 43.33079965437386,
+            "unit": "%"
+          },
+          {
+            "name": "TraceNoBackend10kSPS/MemoryLimit - Cpu Percentage Max",
+            "value": 46.330752911162776,
+            "unit": "%"
+          },
+          {
+            "name": "TraceNoBackend10kSPS/MemoryLimit - RAM Avg (MiB)",
+            "value": 55,
+            "unit": "MiB"
+          },
+          {
+            "name": "TraceNoBackend10kSPS/MemoryLimit - Ram Max (MiB)",
+            "value": 78,
+            "unit": "MiB"
+          },
+          {
+            "name": "TraceNoBackend10kSPS/MemoryLimit - Sent Span Count",
+            "value": 126200,
+            "unit": "1"
+          },
+          {
+            "name": "TraceNoBackend10kSPS/MemoryLimit - Received Span Count",
+            "value": 0,
+            "unit": "1"
+          },
+          {
+            "name": "Trace1kSPSWithAttrs/0*0bytes - Cpu Percentage Average",
+            "value": 12.266008890491637,
+            "unit": "%"
+          },
+          {
+            "name": "Trace1kSPSWithAttrs/0*0bytes - Cpu Percentage Max",
+            "value": 14.330401849009496,
+            "unit": "%"
+          },
+          {
+            "name": "Trace1kSPSWithAttrs/0*0bytes - RAM Avg (MiB)",
+            "value": 51,
+            "unit": "MiB"
+          },
+          {
+            "name": "Trace1kSPSWithAttrs/0*0bytes - Ram Max (MiB)",
+            "value": 72,
+            "unit": "MiB"
+          },
+          {
+            "name": "Trace1kSPSWithAttrs/0*0bytes - Sent Span Count",
+            "value": 14990,
+            "unit": "1"
+          },
+          {
+            "name": "Trace1kSPSWithAttrs/0*0bytes - Received Span Count",
+            "value": 14990,
+            "unit": "1"
+          },
+          {
+            "name": "Trace1kSPSWithAttrs/100*50bytes - Cpu Percentage Average",
+            "value": 30.198577590624804,
+            "unit": "%"
+          },
+          {
+            "name": "Trace1kSPSWithAttrs/100*50bytes - Cpu Percentage Max",
+            "value": 32.663621654977256,
+            "unit": "%"
+          },
+          {
+            "name": "Trace1kSPSWithAttrs/100*50bytes - RAM Avg (MiB)",
+            "value": 56,
+            "unit": "MiB"
+          },
+          {
+            "name": "Trace1kSPSWithAttrs/100*50bytes - Ram Max (MiB)",
+            "value": 79,
+            "unit": "MiB"
+          },
+          {
+            "name": "Trace1kSPSWithAttrs/100*50bytes - Sent Span Count",
+            "value": 14990,
+            "unit": "1"
+          },
+          {
+            "name": "Trace1kSPSWithAttrs/100*50bytes - Received Span Count",
+            "value": 14990,
+            "unit": "1"
+          },
+          {
+            "name": "Trace1kSPSWithAttrs/10*1000bytes - Cpu Percentage Average",
+            "value": 21.19892789390026,
+            "unit": "%"
+          },
+          {
+            "name": "Trace1kSPSWithAttrs/10*1000bytes - Cpu Percentage Max",
+            "value": 22.985309445144942,
+            "unit": "%"
+          },
+          {
+            "name": "Trace1kSPSWithAttrs/10*1000bytes - RAM Avg (MiB)",
+            "value": 57,
+            "unit": "MiB"
+          },
+          {
+            "name": "Trace1kSPSWithAttrs/10*1000bytes - Ram Max (MiB)",
+            "value": 81,
+            "unit": "MiB"
+          },
+          {
+            "name": "Trace1kSPSWithAttrs/10*1000bytes - Sent Span Count",
+            "value": 15000,
+            "unit": "1"
+          },
+          {
+            "name": "Trace1kSPSWithAttrs/10*1000bytes - Received Span Count",
+            "value": 15000,
+            "unit": "1"
+          },
+          {
+            "name": "Trace1kSPSWithAttrs/20*5000bytes - Cpu Percentage Average",
+            "value": 36.86366771391018,
+            "unit": "%"
+          },
+          {
+            "name": "Trace1kSPSWithAttrs/20*5000bytes - Cpu Percentage Max",
+            "value": 37.648184281995604,
+            "unit": "%"
+          },
+          {
+            "name": "Trace1kSPSWithAttrs/20*5000bytes - RAM Avg (MiB)",
+            "value": 59,
+            "unit": "MiB"
+          },
+          {
+            "name": "Trace1kSPSWithAttrs/20*5000bytes - Ram Max (MiB)",
+            "value": 86,
+            "unit": "MiB"
+          },
+          {
+            "name": "Trace1kSPSWithAttrs/20*5000bytes - Sent Span Count",
+            "value": 2910,
+            "unit": "1"
+          },
+          {
+            "name": "Trace1kSPSWithAttrs/20*5000bytes - Received Span Count",
+            "value": 2910,
             "unit": "1"
           }
         ]
