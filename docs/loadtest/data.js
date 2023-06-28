@@ -42,13 +42,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 81,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/OTLP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/OTLP - Dropped Span Count"
           },
           {
@@ -72,13 +72,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 75,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/OTLP-HTTP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/OTLP-HTTP - Dropped Span Count"
           },
           {
@@ -102,13 +102,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 83,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/filelog - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/filelog - Dropped Span Count"
           },
           {
@@ -132,13 +132,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 80,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/filelog_checkpoints - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/filelog_checkpoints - Dropped Span Count"
           },
           {
@@ -162,13 +162,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 87,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/kubernetes_containers - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/kubernetes_containers - Dropped Span Count"
           },
           {
@@ -192,13 +192,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 83,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/k8s_CRI-Containerd - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/k8s_CRI-Containerd - Dropped Span Count"
           },
           {
@@ -222,13 +222,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 82,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/k8s_CRI-Containerd_no_attr_ops - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/k8s_CRI-Containerd_no_attr_ops - Dropped Span Count"
           },
           {
@@ -252,13 +252,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 80,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/CRI-Containerd - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/CRI-Containerd - Dropped Span Count"
           },
           {
@@ -282,13 +282,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/syslog-tcp-batch-1 - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/syslog-tcp-batch-1 - Dropped Span Count"
           },
           {
@@ -312,13 +312,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/syslog-tcp-batch-100 - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/syslog-tcp-batch-100 - Dropped Span Count"
           },
           {
@@ -342,13 +342,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 78,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/FluentForward-SplunkHEC - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/FluentForward-SplunkHEC - Dropped Span Count"
           },
           {
@@ -372,13 +372,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 80,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/tcp-batch-1 - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/tcp-batch-1 - Dropped Span Count"
           },
           {
@@ -402,13 +402,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/tcp-batch-100 - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/tcp-batch-100 - Dropped Span Count"
           },
           {
@@ -432,13 +432,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 63,
-            "unit": "",
+            "unit": "MiB",
             "extra": "IdleMode - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "IdleMode - Dropped Span Count"
           },
           {
@@ -462,13 +462,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 80,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Metric10kDPS/OpenCensus - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Metric10kDPS/OpenCensus - Dropped Span Count"
           },
           {
@@ -492,13 +492,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 81,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Metric10kDPS/OTLP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Metric10kDPS/OTLP - Dropped Span Count"
           },
           {
@@ -522,13 +522,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 76,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Metric10kDPS/OTLP-HTTP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Metric10kDPS/OTLP-HTTP - Dropped Span Count"
           },
           {
@@ -552,13 +552,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 80,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Metric10kDPS/SignalFx - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Metric10kDPS/SignalFx - Dropped Span Count"
           },
           {
@@ -582,13 +582,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "MetricsFromFile - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "MetricsFromFile - Dropped Span Count"
           },
           {
@@ -612,13 +612,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 0,
-            "unit": "",
+            "unit": "MiB",
             "extra": "MetricResourceProcessor/update_and_rename_existing_attributes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "MetricResourceProcessor/update_and_rename_existing_attributes - Dropped Span Count"
           },
           {
@@ -642,13 +642,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 0,
-            "unit": "",
+            "unit": "MiB",
             "extra": "MetricResourceProcessor/set_attribute_on_empty_resource - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "MetricResourceProcessor/set_attribute_on_empty_resource - Dropped Span Count"
           },
           {
@@ -672,13 +672,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/JaegerGRPC - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/JaegerGRPC - Dropped Span Count"
           },
           {
@@ -702,13 +702,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 80,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/OpenCensus - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/OpenCensus - Dropped Span Count"
           },
           {
@@ -732,13 +732,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 81,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/OTLP-gRPC - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/OTLP-gRPC - Dropped Span Count"
           },
           {
@@ -762,13 +762,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 81,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/OTLP-gRPC-gzip - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/OTLP-gRPC-gzip - Dropped Span Count"
           },
           {
@@ -792,13 +792,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 74,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/OTLP-HTTP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/OTLP-HTTP - Dropped Span Count"
           },
           {
@@ -822,13 +822,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 76,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/OTLP-HTTP-gzip - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/OTLP-HTTP-gzip - Dropped Span Count"
           },
           {
@@ -852,13 +852,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 78,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/SAPM - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/SAPM - Dropped Span Count"
           },
           {
@@ -882,13 +882,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 89,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/SAPM-gzip - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/SAPM-gzip - Dropped Span Count"
           },
           {
@@ -912,13 +912,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 255,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/SAPM-zstd - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/SAPM-zstd - Dropped Span Count"
           },
           {
@@ -942,13 +942,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 85,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/Zipkin - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/Zipkin - Dropped Span Count"
           },
           {
@@ -972,13 +972,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 0,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceAttributesProcessor/JaegerGRPC - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceAttributesProcessor/JaegerGRPC - Dropped Span Count"
           },
           {
@@ -1002,13 +1002,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 0,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceAttributesProcessor/OTLP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceAttributesProcessor/OTLP - Dropped Span Count"
           },
           {
@@ -1032,13 +1032,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 146,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSWithAttrs/0*0bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSWithAttrs/0*0bytes - Dropped Span Count"
           },
           {
@@ -1062,13 +1062,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 829,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSWithAttrs/100*50bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSWithAttrs/100*50bytes - Dropped Span Count"
           },
           {
@@ -1092,13 +1092,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 747,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSWithAttrs/10*1000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSWithAttrs/10*1000bytes - Dropped Span Count"
           },
           {
@@ -1122,13 +1122,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 832,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSWithAttrs/20*5000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSWithAttrs/20*5000bytes - Dropped Span Count"
           },
           {
@@ -1152,13 +1152,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 152,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSAddAttrs/0*0bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSAddAttrs/0*0bytes - Dropped Span Count"
           },
           {
@@ -1182,13 +1182,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 831,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSAddAttrs/100*50bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSAddAttrs/100*50bytes - Dropped Span Count"
           },
           {
@@ -1212,13 +1212,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 620,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSAddAttrs/10*1000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSAddAttrs/10*1000bytes - Dropped Span Count"
           },
           {
@@ -1242,13 +1242,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 831,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSAddAttrs/20*5000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSAddAttrs/20*5000bytes - Dropped Span Count"
           },
           {
@@ -1272,13 +1272,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 94,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceNoBackend10kSPS/NoMemoryLimit - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 132870,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceNoBackend10kSPS/NoMemoryLimit - Dropped Span Count"
           },
           {
@@ -1302,13 +1302,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceNoBackend10kSPS/MemoryLimit - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 130130,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceNoBackend10kSPS/MemoryLimit - Dropped Span Count"
           },
           {
@@ -1332,13 +1332,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 78,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace1kSPSWithAttrs/0*0bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace1kSPSWithAttrs/0*0bytes - Dropped Span Count"
           },
           {
@@ -1362,13 +1362,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 81,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace1kSPSWithAttrs/100*50bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace1kSPSWithAttrs/100*50bytes - Dropped Span Count"
           },
           {
@@ -1392,13 +1392,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 80,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace1kSPSWithAttrs/10*1000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace1kSPSWithAttrs/10*1000bytes - Dropped Span Count"
           },
           {
@@ -1422,13 +1422,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 89,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace1kSPSWithAttrs/20*5000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace1kSPSWithAttrs/20*5000bytes - Dropped Span Count"
           }
         ]
@@ -1472,13 +1472,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 81,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/OTLP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/OTLP - Dropped Span Count"
           },
           {
@@ -1502,13 +1502,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 75,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/OTLP-HTTP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/OTLP-HTTP - Dropped Span Count"
           },
           {
@@ -1532,13 +1532,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 83,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/filelog - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/filelog - Dropped Span Count"
           },
           {
@@ -1562,13 +1562,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 80,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/filelog_checkpoints - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/filelog_checkpoints - Dropped Span Count"
           },
           {
@@ -1592,13 +1592,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 87,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/kubernetes_containers - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/kubernetes_containers - Dropped Span Count"
           },
           {
@@ -1622,13 +1622,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 83,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/k8s_CRI-Containerd - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/k8s_CRI-Containerd - Dropped Span Count"
           },
           {
@@ -1652,13 +1652,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 82,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/k8s_CRI-Containerd_no_attr_ops - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/k8s_CRI-Containerd_no_attr_ops - Dropped Span Count"
           },
           {
@@ -1682,13 +1682,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 80,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/CRI-Containerd - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/CRI-Containerd - Dropped Span Count"
           },
           {
@@ -1712,13 +1712,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/syslog-tcp-batch-1 - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/syslog-tcp-batch-1 - Dropped Span Count"
           },
           {
@@ -1742,13 +1742,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/syslog-tcp-batch-100 - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/syslog-tcp-batch-100 - Dropped Span Count"
           },
           {
@@ -1772,13 +1772,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 78,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/FluentForward-SplunkHEC - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/FluentForward-SplunkHEC - Dropped Span Count"
           },
           {
@@ -1802,13 +1802,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 80,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/tcp-batch-1 - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/tcp-batch-1 - Dropped Span Count"
           },
           {
@@ -1832,13 +1832,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/tcp-batch-100 - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/tcp-batch-100 - Dropped Span Count"
           },
           {
@@ -1862,13 +1862,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 63,
-            "unit": "",
+            "unit": "MiB",
             "extra": "IdleMode - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "IdleMode - Dropped Span Count"
           },
           {
@@ -1892,13 +1892,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 80,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Metric10kDPS/OpenCensus - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Metric10kDPS/OpenCensus - Dropped Span Count"
           },
           {
@@ -1922,13 +1922,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 81,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Metric10kDPS/OTLP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Metric10kDPS/OTLP - Dropped Span Count"
           },
           {
@@ -1952,13 +1952,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 76,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Metric10kDPS/OTLP-HTTP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Metric10kDPS/OTLP-HTTP - Dropped Span Count"
           },
           {
@@ -1982,13 +1982,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 80,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Metric10kDPS/SignalFx - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Metric10kDPS/SignalFx - Dropped Span Count"
           },
           {
@@ -2012,13 +2012,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "MetricsFromFile - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "MetricsFromFile - Dropped Span Count"
           },
           {
@@ -2042,13 +2042,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 0,
-            "unit": "",
+            "unit": "MiB",
             "extra": "MetricResourceProcessor/update_and_rename_existing_attributes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "MetricResourceProcessor/update_and_rename_existing_attributes - Dropped Span Count"
           },
           {
@@ -2072,13 +2072,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 0,
-            "unit": "",
+            "unit": "MiB",
             "extra": "MetricResourceProcessor/set_attribute_on_empty_resource - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "MetricResourceProcessor/set_attribute_on_empty_resource - Dropped Span Count"
           },
           {
@@ -2102,13 +2102,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/JaegerGRPC - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/JaegerGRPC - Dropped Span Count"
           },
           {
@@ -2132,13 +2132,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 80,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/OpenCensus - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/OpenCensus - Dropped Span Count"
           },
           {
@@ -2162,13 +2162,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 81,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/OTLP-gRPC - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/OTLP-gRPC - Dropped Span Count"
           },
           {
@@ -2192,13 +2192,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 81,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/OTLP-gRPC-gzip - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/OTLP-gRPC-gzip - Dropped Span Count"
           },
           {
@@ -2222,13 +2222,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 74,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/OTLP-HTTP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/OTLP-HTTP - Dropped Span Count"
           },
           {
@@ -2252,13 +2252,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 76,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/OTLP-HTTP-gzip - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/OTLP-HTTP-gzip - Dropped Span Count"
           },
           {
@@ -2282,13 +2282,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 78,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/SAPM - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/SAPM - Dropped Span Count"
           },
           {
@@ -2312,13 +2312,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 89,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/SAPM-gzip - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/SAPM-gzip - Dropped Span Count"
           },
           {
@@ -2342,13 +2342,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 255,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/SAPM-zstd - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/SAPM-zstd - Dropped Span Count"
           },
           {
@@ -2372,13 +2372,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 85,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/Zipkin - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/Zipkin - Dropped Span Count"
           },
           {
@@ -2402,13 +2402,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 0,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceAttributesProcessor/JaegerGRPC - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceAttributesProcessor/JaegerGRPC - Dropped Span Count"
           },
           {
@@ -2432,13 +2432,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 0,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceAttributesProcessor/OTLP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceAttributesProcessor/OTLP - Dropped Span Count"
           },
           {
@@ -2462,13 +2462,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 146,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSWithAttrs/0*0bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSWithAttrs/0*0bytes - Dropped Span Count"
           },
           {
@@ -2492,13 +2492,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 829,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSWithAttrs/100*50bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSWithAttrs/100*50bytes - Dropped Span Count"
           },
           {
@@ -2522,13 +2522,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 747,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSWithAttrs/10*1000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSWithAttrs/10*1000bytes - Dropped Span Count"
           },
           {
@@ -2552,13 +2552,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 832,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSWithAttrs/20*5000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSWithAttrs/20*5000bytes - Dropped Span Count"
           },
           {
@@ -2582,13 +2582,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 152,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSAddAttrs/0*0bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSAddAttrs/0*0bytes - Dropped Span Count"
           },
           {
@@ -2612,13 +2612,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 831,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSAddAttrs/100*50bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSAddAttrs/100*50bytes - Dropped Span Count"
           },
           {
@@ -2642,13 +2642,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 620,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSAddAttrs/10*1000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSAddAttrs/10*1000bytes - Dropped Span Count"
           },
           {
@@ -2672,13 +2672,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 831,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSAddAttrs/20*5000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSAddAttrs/20*5000bytes - Dropped Span Count"
           },
           {
@@ -2702,13 +2702,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 94,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceNoBackend10kSPS/NoMemoryLimit - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 132870,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceNoBackend10kSPS/NoMemoryLimit - Dropped Span Count"
           },
           {
@@ -2732,13 +2732,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceNoBackend10kSPS/MemoryLimit - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 130130,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceNoBackend10kSPS/MemoryLimit - Dropped Span Count"
           },
           {
@@ -2762,13 +2762,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 78,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace1kSPSWithAttrs/0*0bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace1kSPSWithAttrs/0*0bytes - Dropped Span Count"
           },
           {
@@ -2792,13 +2792,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 81,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace1kSPSWithAttrs/100*50bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace1kSPSWithAttrs/100*50bytes - Dropped Span Count"
           },
           {
@@ -2822,13 +2822,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 80,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace1kSPSWithAttrs/10*1000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace1kSPSWithAttrs/10*1000bytes - Dropped Span Count"
           },
           {
@@ -2852,13 +2852,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 89,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace1kSPSWithAttrs/20*5000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace1kSPSWithAttrs/20*5000bytes - Dropped Span Count"
           }
         ]
@@ -2902,13 +2902,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/OTLP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/OTLP - Dropped Span Count"
           },
           {
@@ -2932,13 +2932,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 77,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/OTLP-HTTP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/OTLP-HTTP - Dropped Span Count"
           },
           {
@@ -2962,13 +2962,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 82,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/filelog - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/filelog - Dropped Span Count"
           },
           {
@@ -2992,13 +2992,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/filelog_checkpoints - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/filelog_checkpoints - Dropped Span Count"
           },
           {
@@ -3022,13 +3022,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 88,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/kubernetes_containers - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/kubernetes_containers - Dropped Span Count"
           },
           {
@@ -3052,13 +3052,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 84,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/k8s_CRI-Containerd - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/k8s_CRI-Containerd - Dropped Span Count"
           },
           {
@@ -3082,13 +3082,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 83,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/k8s_CRI-Containerd_no_attr_ops - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/k8s_CRI-Containerd_no_attr_ops - Dropped Span Count"
           },
           {
@@ -3112,13 +3112,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 82,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/CRI-Containerd - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/CRI-Containerd - Dropped Span Count"
           },
           {
@@ -3142,13 +3142,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 80,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/syslog-tcp-batch-1 - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/syslog-tcp-batch-1 - Dropped Span Count"
           },
           {
@@ -3172,13 +3172,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/syslog-tcp-batch-100 - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/syslog-tcp-batch-100 - Dropped Span Count"
           },
           {
@@ -3202,13 +3202,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 77,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/FluentForward-SplunkHEC - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/FluentForward-SplunkHEC - Dropped Span Count"
           },
           {
@@ -3232,13 +3232,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/tcp-batch-1 - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/tcp-batch-1 - Dropped Span Count"
           },
           {
@@ -3262,13 +3262,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 78,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/tcp-batch-100 - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/tcp-batch-100 - Dropped Span Count"
           },
           {
@@ -3292,13 +3292,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 64,
-            "unit": "",
+            "unit": "MiB",
             "extra": "IdleMode - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "IdleMode - Dropped Span Count"
           },
           {
@@ -3322,13 +3322,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Metric10kDPS/OpenCensus - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Metric10kDPS/OpenCensus - Dropped Span Count"
           },
           {
@@ -3352,13 +3352,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 81,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Metric10kDPS/OTLP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Metric10kDPS/OTLP - Dropped Span Count"
           },
           {
@@ -3382,13 +3382,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 76,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Metric10kDPS/OTLP-HTTP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Metric10kDPS/OTLP-HTTP - Dropped Span Count"
           },
           {
@@ -3412,13 +3412,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 80,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Metric10kDPS/SignalFx - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Metric10kDPS/SignalFx - Dropped Span Count"
           },
           {
@@ -3442,13 +3442,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "MetricsFromFile - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "MetricsFromFile - Dropped Span Count"
           },
           {
@@ -3472,13 +3472,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 0,
-            "unit": "",
+            "unit": "MiB",
             "extra": "MetricResourceProcessor/update_and_rename_existing_attributes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "MetricResourceProcessor/update_and_rename_existing_attributes - Dropped Span Count"
           },
           {
@@ -3502,13 +3502,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 0,
-            "unit": "",
+            "unit": "MiB",
             "extra": "MetricResourceProcessor/set_attribute_on_empty_resource - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "MetricResourceProcessor/set_attribute_on_empty_resource - Dropped Span Count"
           },
           {
@@ -3532,13 +3532,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/JaegerGRPC - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/JaegerGRPC - Dropped Span Count"
           },
           {
@@ -3562,13 +3562,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/OpenCensus - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/OpenCensus - Dropped Span Count"
           },
           {
@@ -3592,13 +3592,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 81,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/OTLP-gRPC - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/OTLP-gRPC - Dropped Span Count"
           },
           {
@@ -3622,13 +3622,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 81,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/OTLP-gRPC-gzip - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/OTLP-gRPC-gzip - Dropped Span Count"
           },
           {
@@ -3652,13 +3652,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 74,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/OTLP-HTTP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/OTLP-HTTP - Dropped Span Count"
           },
           {
@@ -3682,13 +3682,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 78,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/OTLP-HTTP-gzip - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/OTLP-HTTP-gzip - Dropped Span Count"
           },
           {
@@ -3712,13 +3712,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 80,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/SAPM - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/SAPM - Dropped Span Count"
           },
           {
@@ -3742,13 +3742,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 92,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/SAPM-gzip - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/SAPM-gzip - Dropped Span Count"
           },
           {
@@ -3772,13 +3772,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 233,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/SAPM-zstd - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/SAPM-zstd - Dropped Span Count"
           },
           {
@@ -3802,13 +3802,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 84,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/Zipkin - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/Zipkin - Dropped Span Count"
           },
           {
@@ -3832,13 +3832,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 0,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceAttributesProcessor/JaegerGRPC - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceAttributesProcessor/JaegerGRPC - Dropped Span Count"
           },
           {
@@ -3862,13 +3862,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 0,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceAttributesProcessor/OTLP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceAttributesProcessor/OTLP - Dropped Span Count"
           },
           {
@@ -3892,13 +3892,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 144,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSWithAttrs/0*0bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSWithAttrs/0*0bytes - Dropped Span Count"
           },
           {
@@ -3922,13 +3922,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 833,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSWithAttrs/100*50bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSWithAttrs/100*50bytes - Dropped Span Count"
           },
           {
@@ -3952,13 +3952,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 749,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSWithAttrs/10*1000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSWithAttrs/10*1000bytes - Dropped Span Count"
           },
           {
@@ -3982,13 +3982,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 829,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSWithAttrs/20*5000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSWithAttrs/20*5000bytes - Dropped Span Count"
           },
           {
@@ -4012,13 +4012,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 153,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSAddAttrs/0*0bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSAddAttrs/0*0bytes - Dropped Span Count"
           },
           {
@@ -4042,13 +4042,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 832,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSAddAttrs/100*50bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSAddAttrs/100*50bytes - Dropped Span Count"
           },
           {
@@ -4072,13 +4072,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 617,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSAddAttrs/10*1000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSAddAttrs/10*1000bytes - Dropped Span Count"
           },
           {
@@ -4102,13 +4102,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 829,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSAddAttrs/20*5000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSAddAttrs/20*5000bytes - Dropped Span Count"
           },
           {
@@ -4132,13 +4132,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 92,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceNoBackend10kSPS/NoMemoryLimit - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 139860,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceNoBackend10kSPS/NoMemoryLimit - Dropped Span Count"
           },
           {
@@ -4162,13 +4162,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 80,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceNoBackend10kSPS/MemoryLimit - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 138520,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceNoBackend10kSPS/MemoryLimit - Dropped Span Count"
           },
           {
@@ -4192,13 +4192,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 76,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace1kSPSWithAttrs/0*0bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace1kSPSWithAttrs/0*0bytes - Dropped Span Count"
           },
           {
@@ -4222,13 +4222,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 82,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace1kSPSWithAttrs/100*50bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace1kSPSWithAttrs/100*50bytes - Dropped Span Count"
           },
           {
@@ -4252,13 +4252,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 82,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace1kSPSWithAttrs/10*1000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace1kSPSWithAttrs/10*1000bytes - Dropped Span Count"
           },
           {
@@ -4282,13 +4282,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 90,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace1kSPSWithAttrs/20*5000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace1kSPSWithAttrs/20*5000bytes - Dropped Span Count"
           }
         ]
@@ -4332,13 +4332,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/OTLP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/OTLP - Dropped Span Count"
           },
           {
@@ -4362,13 +4362,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 77,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/OTLP-HTTP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/OTLP-HTTP - Dropped Span Count"
           },
           {
@@ -4392,13 +4392,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 82,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/filelog - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/filelog - Dropped Span Count"
           },
           {
@@ -4422,13 +4422,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/filelog_checkpoints - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/filelog_checkpoints - Dropped Span Count"
           },
           {
@@ -4452,13 +4452,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 88,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/kubernetes_containers - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/kubernetes_containers - Dropped Span Count"
           },
           {
@@ -4482,13 +4482,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 84,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/k8s_CRI-Containerd - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/k8s_CRI-Containerd - Dropped Span Count"
           },
           {
@@ -4512,13 +4512,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 83,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/k8s_CRI-Containerd_no_attr_ops - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/k8s_CRI-Containerd_no_attr_ops - Dropped Span Count"
           },
           {
@@ -4542,13 +4542,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 82,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/CRI-Containerd - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/CRI-Containerd - Dropped Span Count"
           },
           {
@@ -4572,13 +4572,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 80,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/syslog-tcp-batch-1 - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/syslog-tcp-batch-1 - Dropped Span Count"
           },
           {
@@ -4602,13 +4602,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/syslog-tcp-batch-100 - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/syslog-tcp-batch-100 - Dropped Span Count"
           },
           {
@@ -4632,13 +4632,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 77,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/FluentForward-SplunkHEC - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/FluentForward-SplunkHEC - Dropped Span Count"
           },
           {
@@ -4662,13 +4662,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/tcp-batch-1 - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/tcp-batch-1 - Dropped Span Count"
           },
           {
@@ -4692,13 +4692,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 78,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/tcp-batch-100 - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/tcp-batch-100 - Dropped Span Count"
           },
           {
@@ -4722,13 +4722,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 64,
-            "unit": "",
+            "unit": "MiB",
             "extra": "IdleMode - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "IdleMode - Dropped Span Count"
           },
           {
@@ -4752,13 +4752,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Metric10kDPS/OpenCensus - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Metric10kDPS/OpenCensus - Dropped Span Count"
           },
           {
@@ -4782,13 +4782,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 81,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Metric10kDPS/OTLP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Metric10kDPS/OTLP - Dropped Span Count"
           },
           {
@@ -4812,13 +4812,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 76,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Metric10kDPS/OTLP-HTTP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Metric10kDPS/OTLP-HTTP - Dropped Span Count"
           },
           {
@@ -4842,13 +4842,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 80,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Metric10kDPS/SignalFx - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Metric10kDPS/SignalFx - Dropped Span Count"
           },
           {
@@ -4872,13 +4872,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "MetricsFromFile - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "MetricsFromFile - Dropped Span Count"
           },
           {
@@ -4902,13 +4902,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 0,
-            "unit": "",
+            "unit": "MiB",
             "extra": "MetricResourceProcessor/update_and_rename_existing_attributes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "MetricResourceProcessor/update_and_rename_existing_attributes - Dropped Span Count"
           },
           {
@@ -4932,13 +4932,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 0,
-            "unit": "",
+            "unit": "MiB",
             "extra": "MetricResourceProcessor/set_attribute_on_empty_resource - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "MetricResourceProcessor/set_attribute_on_empty_resource - Dropped Span Count"
           },
           {
@@ -4962,13 +4962,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/JaegerGRPC - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/JaegerGRPC - Dropped Span Count"
           },
           {
@@ -4992,13 +4992,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/OpenCensus - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/OpenCensus - Dropped Span Count"
           },
           {
@@ -5022,13 +5022,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 81,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/OTLP-gRPC - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/OTLP-gRPC - Dropped Span Count"
           },
           {
@@ -5052,13 +5052,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 81,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/OTLP-gRPC-gzip - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/OTLP-gRPC-gzip - Dropped Span Count"
           },
           {
@@ -5082,13 +5082,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 74,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/OTLP-HTTP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/OTLP-HTTP - Dropped Span Count"
           },
           {
@@ -5112,13 +5112,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 78,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/OTLP-HTTP-gzip - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/OTLP-HTTP-gzip - Dropped Span Count"
           },
           {
@@ -5142,13 +5142,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 80,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/SAPM - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/SAPM - Dropped Span Count"
           },
           {
@@ -5172,13 +5172,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 92,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/SAPM-gzip - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/SAPM-gzip - Dropped Span Count"
           },
           {
@@ -5202,13 +5202,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 233,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/SAPM-zstd - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/SAPM-zstd - Dropped Span Count"
           },
           {
@@ -5232,13 +5232,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 84,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/Zipkin - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/Zipkin - Dropped Span Count"
           },
           {
@@ -5262,13 +5262,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 0,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceAttributesProcessor/JaegerGRPC - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceAttributesProcessor/JaegerGRPC - Dropped Span Count"
           },
           {
@@ -5292,13 +5292,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 0,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceAttributesProcessor/OTLP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceAttributesProcessor/OTLP - Dropped Span Count"
           },
           {
@@ -5322,13 +5322,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 144,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSWithAttrs/0*0bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSWithAttrs/0*0bytes - Dropped Span Count"
           },
           {
@@ -5352,13 +5352,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 833,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSWithAttrs/100*50bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSWithAttrs/100*50bytes - Dropped Span Count"
           },
           {
@@ -5382,13 +5382,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 749,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSWithAttrs/10*1000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSWithAttrs/10*1000bytes - Dropped Span Count"
           },
           {
@@ -5412,13 +5412,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 829,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSWithAttrs/20*5000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSWithAttrs/20*5000bytes - Dropped Span Count"
           },
           {
@@ -5442,13 +5442,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 153,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSAddAttrs/0*0bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSAddAttrs/0*0bytes - Dropped Span Count"
           },
           {
@@ -5472,13 +5472,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 832,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSAddAttrs/100*50bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSAddAttrs/100*50bytes - Dropped Span Count"
           },
           {
@@ -5502,13 +5502,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 617,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSAddAttrs/10*1000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSAddAttrs/10*1000bytes - Dropped Span Count"
           },
           {
@@ -5532,13 +5532,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 829,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSAddAttrs/20*5000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSAddAttrs/20*5000bytes - Dropped Span Count"
           },
           {
@@ -5562,13 +5562,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 92,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceNoBackend10kSPS/NoMemoryLimit - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 139860,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceNoBackend10kSPS/NoMemoryLimit - Dropped Span Count"
           },
           {
@@ -5592,13 +5592,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 80,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceNoBackend10kSPS/MemoryLimit - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 138520,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceNoBackend10kSPS/MemoryLimit - Dropped Span Count"
           },
           {
@@ -5622,13 +5622,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 76,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace1kSPSWithAttrs/0*0bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace1kSPSWithAttrs/0*0bytes - Dropped Span Count"
           },
           {
@@ -5652,13 +5652,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 82,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace1kSPSWithAttrs/100*50bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace1kSPSWithAttrs/100*50bytes - Dropped Span Count"
           },
           {
@@ -5682,13 +5682,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 82,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace1kSPSWithAttrs/10*1000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace1kSPSWithAttrs/10*1000bytes - Dropped Span Count"
           },
           {
@@ -5712,13 +5712,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 90,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace1kSPSWithAttrs/20*5000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace1kSPSWithAttrs/20*5000bytes - Dropped Span Count"
           }
         ]
@@ -5762,13 +5762,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 82,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/OTLP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/OTLP - Dropped Span Count"
           },
           {
@@ -5792,13 +5792,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 76,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/OTLP-HTTP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/OTLP-HTTP - Dropped Span Count"
           },
           {
@@ -5822,13 +5822,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 83,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/filelog - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/filelog - Dropped Span Count"
           },
           {
@@ -5852,13 +5852,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 82,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/filelog_checkpoints - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/filelog_checkpoints - Dropped Span Count"
           },
           {
@@ -5882,13 +5882,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 84,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/kubernetes_containers - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/kubernetes_containers - Dropped Span Count"
           },
           {
@@ -5912,13 +5912,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 82,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/k8s_CRI-Containerd - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/k8s_CRI-Containerd - Dropped Span Count"
           },
           {
@@ -5942,13 +5942,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 85,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/k8s_CRI-Containerd_no_attr_ops - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/k8s_CRI-Containerd_no_attr_ops - Dropped Span Count"
           },
           {
@@ -5972,13 +5972,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 85,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/CRI-Containerd - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/CRI-Containerd - Dropped Span Count"
           },
           {
@@ -6002,13 +6002,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 78,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/syslog-tcp-batch-1 - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/syslog-tcp-batch-1 - Dropped Span Count"
           },
           {
@@ -6032,13 +6032,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/syslog-tcp-batch-100 - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/syslog-tcp-batch-100 - Dropped Span Count"
           },
           {
@@ -6062,13 +6062,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/FluentForward-SplunkHEC - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/FluentForward-SplunkHEC - Dropped Span Count"
           },
           {
@@ -6092,13 +6092,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/tcp-batch-1 - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/tcp-batch-1 - Dropped Span Count"
           },
           {
@@ -6122,13 +6122,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 78,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/tcp-batch-100 - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/tcp-batch-100 - Dropped Span Count"
           },
           {
@@ -6152,13 +6152,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 64,
-            "unit": "",
+            "unit": "MiB",
             "extra": "IdleMode - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "IdleMode - Dropped Span Count"
           },
           {
@@ -6182,13 +6182,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Metric10kDPS/OpenCensus - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Metric10kDPS/OpenCensus - Dropped Span Count"
           },
           {
@@ -6212,13 +6212,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 81,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Metric10kDPS/OTLP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Metric10kDPS/OTLP - Dropped Span Count"
           },
           {
@@ -6242,13 +6242,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 76,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Metric10kDPS/OTLP-HTTP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Metric10kDPS/OTLP-HTTP - Dropped Span Count"
           },
           {
@@ -6272,13 +6272,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Metric10kDPS/SignalFx - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Metric10kDPS/SignalFx - Dropped Span Count"
           },
           {
@@ -6302,13 +6302,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 78,
-            "unit": "",
+            "unit": "MiB",
             "extra": "MetricsFromFile - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "MetricsFromFile - Dropped Span Count"
           },
           {
@@ -6332,13 +6332,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 0,
-            "unit": "",
+            "unit": "MiB",
             "extra": "MetricResourceProcessor/update_and_rename_existing_attributes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "MetricResourceProcessor/update_and_rename_existing_attributes - Dropped Span Count"
           },
           {
@@ -6362,13 +6362,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 0,
-            "unit": "",
+            "unit": "MiB",
             "extra": "MetricResourceProcessor/set_attribute_on_empty_resource - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "MetricResourceProcessor/set_attribute_on_empty_resource - Dropped Span Count"
           },
           {
@@ -6392,13 +6392,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 80,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/JaegerGRPC - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/JaegerGRPC - Dropped Span Count"
           },
           {
@@ -6422,13 +6422,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 80,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/OpenCensus - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/OpenCensus - Dropped Span Count"
           },
           {
@@ -6452,13 +6452,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 80,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/OTLP-gRPC - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/OTLP-gRPC - Dropped Span Count"
           },
           {
@@ -6482,13 +6482,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/OTLP-gRPC-gzip - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/OTLP-gRPC-gzip - Dropped Span Count"
           },
           {
@@ -6512,13 +6512,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 74,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/OTLP-HTTP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/OTLP-HTTP - Dropped Span Count"
           },
           {
@@ -6542,13 +6542,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 78,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/OTLP-HTTP-gzip - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/OTLP-HTTP-gzip - Dropped Span Count"
           },
           {
@@ -6572,13 +6572,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 80,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/SAPM - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/SAPM - Dropped Span Count"
           },
           {
@@ -6602,13 +6602,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 90,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/SAPM-gzip - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/SAPM-gzip - Dropped Span Count"
           },
           {
@@ -6632,13 +6632,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 220,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/SAPM-zstd - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/SAPM-zstd - Dropped Span Count"
           },
           {
@@ -6662,13 +6662,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 86,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/Zipkin - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/Zipkin - Dropped Span Count"
           },
           {
@@ -6692,13 +6692,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 0,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceAttributesProcessor/JaegerGRPC - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceAttributesProcessor/JaegerGRPC - Dropped Span Count"
           },
           {
@@ -6722,13 +6722,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 0,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceAttributesProcessor/OTLP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceAttributesProcessor/OTLP - Dropped Span Count"
           },
           {
@@ -6752,13 +6752,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 143,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSWithAttrs/0*0bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSWithAttrs/0*0bytes - Dropped Span Count"
           },
           {
@@ -6782,13 +6782,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 831,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSWithAttrs/100*50bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSWithAttrs/100*50bytes - Dropped Span Count"
           },
           {
@@ -6812,13 +6812,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 749,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSWithAttrs/10*1000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSWithAttrs/10*1000bytes - Dropped Span Count"
           },
           {
@@ -6842,13 +6842,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 844,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSWithAttrs/20*5000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSWithAttrs/20*5000bytes - Dropped Span Count"
           },
           {
@@ -6872,13 +6872,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 153,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSAddAttrs/0*0bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSAddAttrs/0*0bytes - Dropped Span Count"
           },
           {
@@ -6902,13 +6902,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 830,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSAddAttrs/100*50bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSAddAttrs/100*50bytes - Dropped Span Count"
           },
           {
@@ -6932,13 +6932,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 619,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSAddAttrs/10*1000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSAddAttrs/10*1000bytes - Dropped Span Count"
           },
           {
@@ -6962,13 +6962,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 848,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSAddAttrs/20*5000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSAddAttrs/20*5000bytes - Dropped Span Count"
           },
           {
@@ -6992,13 +6992,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 91,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceNoBackend10kSPS/NoMemoryLimit - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 140940,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceNoBackend10kSPS/NoMemoryLimit - Dropped Span Count"
           },
           {
@@ -7022,13 +7022,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 78,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceNoBackend10kSPS/MemoryLimit - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 140100,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceNoBackend10kSPS/MemoryLimit - Dropped Span Count"
           },
           {
@@ -7052,13 +7052,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 78,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace1kSPSWithAttrs/0*0bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace1kSPSWithAttrs/0*0bytes - Dropped Span Count"
           },
           {
@@ -7082,13 +7082,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 82,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace1kSPSWithAttrs/100*50bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace1kSPSWithAttrs/100*50bytes - Dropped Span Count"
           },
           {
@@ -7112,13 +7112,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 81,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace1kSPSWithAttrs/10*1000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace1kSPSWithAttrs/10*1000bytes - Dropped Span Count"
           },
           {
@@ -7142,13 +7142,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 87,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace1kSPSWithAttrs/20*5000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace1kSPSWithAttrs/20*5000bytes - Dropped Span Count"
           }
         ]
@@ -7192,13 +7192,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 82,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/OTLP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/OTLP - Dropped Span Count"
           },
           {
@@ -7222,13 +7222,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 76,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/OTLP-HTTP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/OTLP-HTTP - Dropped Span Count"
           },
           {
@@ -7252,13 +7252,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 83,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/filelog - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/filelog - Dropped Span Count"
           },
           {
@@ -7282,13 +7282,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 82,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/filelog_checkpoints - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/filelog_checkpoints - Dropped Span Count"
           },
           {
@@ -7312,13 +7312,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 84,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/kubernetes_containers - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/kubernetes_containers - Dropped Span Count"
           },
           {
@@ -7342,13 +7342,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 82,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/k8s_CRI-Containerd - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/k8s_CRI-Containerd - Dropped Span Count"
           },
           {
@@ -7372,13 +7372,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 85,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/k8s_CRI-Containerd_no_attr_ops - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/k8s_CRI-Containerd_no_attr_ops - Dropped Span Count"
           },
           {
@@ -7402,13 +7402,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 85,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/CRI-Containerd - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/CRI-Containerd - Dropped Span Count"
           },
           {
@@ -7432,13 +7432,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 78,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/syslog-tcp-batch-1 - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/syslog-tcp-batch-1 - Dropped Span Count"
           },
           {
@@ -7462,13 +7462,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/syslog-tcp-batch-100 - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/syslog-tcp-batch-100 - Dropped Span Count"
           },
           {
@@ -7492,13 +7492,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/FluentForward-SplunkHEC - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/FluentForward-SplunkHEC - Dropped Span Count"
           },
           {
@@ -7522,13 +7522,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/tcp-batch-1 - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/tcp-batch-1 - Dropped Span Count"
           },
           {
@@ -7552,13 +7552,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 78,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/tcp-batch-100 - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/tcp-batch-100 - Dropped Span Count"
           },
           {
@@ -7582,13 +7582,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 64,
-            "unit": "",
+            "unit": "MiB",
             "extra": "IdleMode - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "IdleMode - Dropped Span Count"
           },
           {
@@ -7612,13 +7612,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Metric10kDPS/OpenCensus - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Metric10kDPS/OpenCensus - Dropped Span Count"
           },
           {
@@ -7642,13 +7642,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 81,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Metric10kDPS/OTLP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Metric10kDPS/OTLP - Dropped Span Count"
           },
           {
@@ -7672,13 +7672,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 76,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Metric10kDPS/OTLP-HTTP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Metric10kDPS/OTLP-HTTP - Dropped Span Count"
           },
           {
@@ -7702,13 +7702,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Metric10kDPS/SignalFx - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Metric10kDPS/SignalFx - Dropped Span Count"
           },
           {
@@ -7732,13 +7732,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 78,
-            "unit": "",
+            "unit": "MiB",
             "extra": "MetricsFromFile - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "MetricsFromFile - Dropped Span Count"
           },
           {
@@ -7762,13 +7762,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 0,
-            "unit": "",
+            "unit": "MiB",
             "extra": "MetricResourceProcessor/update_and_rename_existing_attributes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "MetricResourceProcessor/update_and_rename_existing_attributes - Dropped Span Count"
           },
           {
@@ -7792,13 +7792,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 0,
-            "unit": "",
+            "unit": "MiB",
             "extra": "MetricResourceProcessor/set_attribute_on_empty_resource - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "MetricResourceProcessor/set_attribute_on_empty_resource - Dropped Span Count"
           },
           {
@@ -7822,13 +7822,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 80,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/JaegerGRPC - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/JaegerGRPC - Dropped Span Count"
           },
           {
@@ -7852,13 +7852,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 80,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/OpenCensus - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/OpenCensus - Dropped Span Count"
           },
           {
@@ -7882,13 +7882,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 80,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/OTLP-gRPC - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/OTLP-gRPC - Dropped Span Count"
           },
           {
@@ -7912,13 +7912,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/OTLP-gRPC-gzip - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/OTLP-gRPC-gzip - Dropped Span Count"
           },
           {
@@ -7942,13 +7942,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 74,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/OTLP-HTTP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/OTLP-HTTP - Dropped Span Count"
           },
           {
@@ -7972,13 +7972,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 78,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/OTLP-HTTP-gzip - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/OTLP-HTTP-gzip - Dropped Span Count"
           },
           {
@@ -8002,13 +8002,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 80,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/SAPM - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/SAPM - Dropped Span Count"
           },
           {
@@ -8032,13 +8032,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 90,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/SAPM-gzip - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/SAPM-gzip - Dropped Span Count"
           },
           {
@@ -8062,13 +8062,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 220,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/SAPM-zstd - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/SAPM-zstd - Dropped Span Count"
           },
           {
@@ -8092,13 +8092,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 86,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/Zipkin - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/Zipkin - Dropped Span Count"
           },
           {
@@ -8122,13 +8122,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 0,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceAttributesProcessor/JaegerGRPC - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceAttributesProcessor/JaegerGRPC - Dropped Span Count"
           },
           {
@@ -8152,13 +8152,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 0,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceAttributesProcessor/OTLP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceAttributesProcessor/OTLP - Dropped Span Count"
           },
           {
@@ -8182,13 +8182,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 143,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSWithAttrs/0*0bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSWithAttrs/0*0bytes - Dropped Span Count"
           },
           {
@@ -8212,13 +8212,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 831,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSWithAttrs/100*50bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSWithAttrs/100*50bytes - Dropped Span Count"
           },
           {
@@ -8242,13 +8242,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 749,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSWithAttrs/10*1000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSWithAttrs/10*1000bytes - Dropped Span Count"
           },
           {
@@ -8272,13 +8272,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 844,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSWithAttrs/20*5000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSWithAttrs/20*5000bytes - Dropped Span Count"
           },
           {
@@ -8302,13 +8302,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 153,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSAddAttrs/0*0bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSAddAttrs/0*0bytes - Dropped Span Count"
           },
           {
@@ -8332,13 +8332,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 830,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSAddAttrs/100*50bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSAddAttrs/100*50bytes - Dropped Span Count"
           },
           {
@@ -8362,13 +8362,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 619,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSAddAttrs/10*1000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSAddAttrs/10*1000bytes - Dropped Span Count"
           },
           {
@@ -8392,13 +8392,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 848,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSAddAttrs/20*5000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSAddAttrs/20*5000bytes - Dropped Span Count"
           },
           {
@@ -8422,13 +8422,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 91,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceNoBackend10kSPS/NoMemoryLimit - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 140940,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceNoBackend10kSPS/NoMemoryLimit - Dropped Span Count"
           },
           {
@@ -8452,13 +8452,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 78,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceNoBackend10kSPS/MemoryLimit - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 140100,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceNoBackend10kSPS/MemoryLimit - Dropped Span Count"
           },
           {
@@ -8482,13 +8482,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 78,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace1kSPSWithAttrs/0*0bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace1kSPSWithAttrs/0*0bytes - Dropped Span Count"
           },
           {
@@ -8512,13 +8512,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 82,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace1kSPSWithAttrs/100*50bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace1kSPSWithAttrs/100*50bytes - Dropped Span Count"
           },
           {
@@ -8542,13 +8542,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 81,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace1kSPSWithAttrs/10*1000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace1kSPSWithAttrs/10*1000bytes - Dropped Span Count"
           },
           {
@@ -8572,13 +8572,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 87,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace1kSPSWithAttrs/20*5000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace1kSPSWithAttrs/20*5000bytes - Dropped Span Count"
           }
         ]
@@ -8622,13 +8622,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 80,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/OTLP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/OTLP - Dropped Span Count"
           },
           {
@@ -8652,13 +8652,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 73,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/OTLP-HTTP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/OTLP-HTTP - Dropped Span Count"
           },
           {
@@ -8682,13 +8682,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 84,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/filelog - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/filelog - Dropped Span Count"
           },
           {
@@ -8712,13 +8712,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 84,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/filelog_checkpoints - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/filelog_checkpoints - Dropped Span Count"
           },
           {
@@ -8742,13 +8742,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 85,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/kubernetes_containers - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/kubernetes_containers - Dropped Span Count"
           },
           {
@@ -8772,13 +8772,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 88,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/k8s_CRI-Containerd - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/k8s_CRI-Containerd - Dropped Span Count"
           },
           {
@@ -8802,13 +8802,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 82,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/k8s_CRI-Containerd_no_attr_ops - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/k8s_CRI-Containerd_no_attr_ops - Dropped Span Count"
           },
           {
@@ -8832,13 +8832,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 85,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/CRI-Containerd - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/CRI-Containerd - Dropped Span Count"
           },
           {
@@ -8862,13 +8862,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/syslog-tcp-batch-1 - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/syslog-tcp-batch-1 - Dropped Span Count"
           },
           {
@@ -8892,13 +8892,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/syslog-tcp-batch-100 - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/syslog-tcp-batch-100 - Dropped Span Count"
           },
           {
@@ -8922,13 +8922,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 83,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/FluentForward-SplunkHEC - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/FluentForward-SplunkHEC - Dropped Span Count"
           },
           {
@@ -8952,13 +8952,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 78,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/tcp-batch-1 - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/tcp-batch-1 - Dropped Span Count"
           },
           {
@@ -8982,13 +8982,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 75,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/tcp-batch-100 - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/tcp-batch-100 - Dropped Span Count"
           },
           {
@@ -9012,13 +9012,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 62,
-            "unit": "",
+            "unit": "MiB",
             "extra": "IdleMode - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "IdleMode - Dropped Span Count"
           },
           {
@@ -9042,13 +9042,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 81,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Metric10kDPS/OpenCensus - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Metric10kDPS/OpenCensus - Dropped Span Count"
           },
           {
@@ -9072,13 +9072,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 80,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Metric10kDPS/OTLP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Metric10kDPS/OTLP - Dropped Span Count"
           },
           {
@@ -9102,13 +9102,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 75,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Metric10kDPS/OTLP-HTTP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Metric10kDPS/OTLP-HTTP - Dropped Span Count"
           },
           {
@@ -9132,13 +9132,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 80,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Metric10kDPS/SignalFx - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Metric10kDPS/SignalFx - Dropped Span Count"
           },
           {
@@ -9162,13 +9162,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 81,
-            "unit": "",
+            "unit": "MiB",
             "extra": "MetricsFromFile - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "MetricsFromFile - Dropped Span Count"
           },
           {
@@ -9192,13 +9192,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 0,
-            "unit": "",
+            "unit": "MiB",
             "extra": "MetricResourceProcessor/update_and_rename_existing_attributes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "MetricResourceProcessor/update_and_rename_existing_attributes - Dropped Span Count"
           },
           {
@@ -9222,13 +9222,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 0,
-            "unit": "",
+            "unit": "MiB",
             "extra": "MetricResourceProcessor/set_attribute_on_empty_resource - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "MetricResourceProcessor/set_attribute_on_empty_resource - Dropped Span Count"
           },
           {
@@ -9252,13 +9252,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 80,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/JaegerGRPC - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/JaegerGRPC - Dropped Span Count"
           },
           {
@@ -9282,13 +9282,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 82,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/OpenCensus - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/OpenCensus - Dropped Span Count"
           },
           {
@@ -9312,13 +9312,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 81,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/OTLP-gRPC - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/OTLP-gRPC - Dropped Span Count"
           },
           {
@@ -9342,13 +9342,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 83,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/OTLP-gRPC-gzip - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/OTLP-gRPC-gzip - Dropped Span Count"
           },
           {
@@ -9372,13 +9372,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 74,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/OTLP-HTTP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/OTLP-HTTP - Dropped Span Count"
           },
           {
@@ -9402,13 +9402,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/OTLP-HTTP-gzip - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/OTLP-HTTP-gzip - Dropped Span Count"
           },
           {
@@ -9432,13 +9432,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 81,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/SAPM - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/SAPM - Dropped Span Count"
           },
           {
@@ -9462,13 +9462,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 91,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/SAPM-gzip - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/SAPM-gzip - Dropped Span Count"
           },
           {
@@ -9492,13 +9492,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 253,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/SAPM-zstd - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/SAPM-zstd - Dropped Span Count"
           },
           {
@@ -9522,13 +9522,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 85,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/Zipkin - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/Zipkin - Dropped Span Count"
           },
           {
@@ -9552,13 +9552,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 0,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceAttributesProcessor/JaegerGRPC - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceAttributesProcessor/JaegerGRPC - Dropped Span Count"
           },
           {
@@ -9582,13 +9582,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 0,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceAttributesProcessor/OTLP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceAttributesProcessor/OTLP - Dropped Span Count"
           },
           {
@@ -9612,13 +9612,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 145,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSWithAttrs/0*0bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSWithAttrs/0*0bytes - Dropped Span Count"
           },
           {
@@ -9642,13 +9642,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 829,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSWithAttrs/100*50bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSWithAttrs/100*50bytes - Dropped Span Count"
           },
           {
@@ -9672,13 +9672,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 751,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSWithAttrs/10*1000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSWithAttrs/10*1000bytes - Dropped Span Count"
           },
           {
@@ -9702,13 +9702,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 830,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSWithAttrs/20*5000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSWithAttrs/20*5000bytes - Dropped Span Count"
           },
           {
@@ -9732,13 +9732,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 152,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSAddAttrs/0*0bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSAddAttrs/0*0bytes - Dropped Span Count"
           },
           {
@@ -9762,13 +9762,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 832,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSAddAttrs/100*50bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSAddAttrs/100*50bytes - Dropped Span Count"
           },
           {
@@ -9792,13 +9792,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 621,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSAddAttrs/10*1000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSAddAttrs/10*1000bytes - Dropped Span Count"
           },
           {
@@ -9822,13 +9822,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 834,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSAddAttrs/20*5000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSAddAttrs/20*5000bytes - Dropped Span Count"
           },
           {
@@ -9852,13 +9852,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 90,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceNoBackend10kSPS/NoMemoryLimit - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 141040,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceNoBackend10kSPS/NoMemoryLimit - Dropped Span Count"
           },
           {
@@ -9882,13 +9882,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 78,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceNoBackend10kSPS/MemoryLimit - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 138480,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceNoBackend10kSPS/MemoryLimit - Dropped Span Count"
           },
           {
@@ -9912,13 +9912,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 76,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace1kSPSWithAttrs/0*0bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace1kSPSWithAttrs/0*0bytes - Dropped Span Count"
           },
           {
@@ -9942,13 +9942,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 80,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace1kSPSWithAttrs/100*50bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace1kSPSWithAttrs/100*50bytes - Dropped Span Count"
           },
           {
@@ -9972,13 +9972,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 81,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace1kSPSWithAttrs/10*1000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace1kSPSWithAttrs/10*1000bytes - Dropped Span Count"
           },
           {
@@ -10002,13 +10002,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 87,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace1kSPSWithAttrs/20*5000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace1kSPSWithAttrs/20*5000bytes - Dropped Span Count"
           }
         ]
@@ -10052,13 +10052,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 80,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/OTLP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/OTLP - Dropped Span Count"
           },
           {
@@ -10082,13 +10082,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 73,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/OTLP-HTTP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/OTLP-HTTP - Dropped Span Count"
           },
           {
@@ -10112,13 +10112,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 84,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/filelog - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/filelog - Dropped Span Count"
           },
           {
@@ -10142,13 +10142,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 84,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/filelog_checkpoints - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/filelog_checkpoints - Dropped Span Count"
           },
           {
@@ -10172,13 +10172,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 85,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/kubernetes_containers - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/kubernetes_containers - Dropped Span Count"
           },
           {
@@ -10202,13 +10202,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 88,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/k8s_CRI-Containerd - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/k8s_CRI-Containerd - Dropped Span Count"
           },
           {
@@ -10232,13 +10232,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 82,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/k8s_CRI-Containerd_no_attr_ops - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/k8s_CRI-Containerd_no_attr_ops - Dropped Span Count"
           },
           {
@@ -10262,13 +10262,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 85,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/CRI-Containerd - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/CRI-Containerd - Dropped Span Count"
           },
           {
@@ -10292,13 +10292,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/syslog-tcp-batch-1 - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/syslog-tcp-batch-1 - Dropped Span Count"
           },
           {
@@ -10322,13 +10322,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/syslog-tcp-batch-100 - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/syslog-tcp-batch-100 - Dropped Span Count"
           },
           {
@@ -10352,13 +10352,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 83,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/FluentForward-SplunkHEC - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/FluentForward-SplunkHEC - Dropped Span Count"
           },
           {
@@ -10382,13 +10382,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 78,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/tcp-batch-1 - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/tcp-batch-1 - Dropped Span Count"
           },
           {
@@ -10412,13 +10412,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 75,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Log10kDPS/tcp-batch-100 - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Log10kDPS/tcp-batch-100 - Dropped Span Count"
           },
           {
@@ -10442,13 +10442,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 62,
-            "unit": "",
+            "unit": "MiB",
             "extra": "IdleMode - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "IdleMode - Dropped Span Count"
           },
           {
@@ -10472,13 +10472,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 81,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Metric10kDPS/OpenCensus - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Metric10kDPS/OpenCensus - Dropped Span Count"
           },
           {
@@ -10502,13 +10502,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 80,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Metric10kDPS/OTLP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Metric10kDPS/OTLP - Dropped Span Count"
           },
           {
@@ -10532,13 +10532,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 75,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Metric10kDPS/OTLP-HTTP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Metric10kDPS/OTLP-HTTP - Dropped Span Count"
           },
           {
@@ -10562,13 +10562,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 80,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Metric10kDPS/SignalFx - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Metric10kDPS/SignalFx - Dropped Span Count"
           },
           {
@@ -10592,13 +10592,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 81,
-            "unit": "",
+            "unit": "MiB",
             "extra": "MetricsFromFile - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "MetricsFromFile - Dropped Span Count"
           },
           {
@@ -10622,13 +10622,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 0,
-            "unit": "",
+            "unit": "MiB",
             "extra": "MetricResourceProcessor/update_and_rename_existing_attributes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "MetricResourceProcessor/update_and_rename_existing_attributes - Dropped Span Count"
           },
           {
@@ -10652,13 +10652,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 0,
-            "unit": "",
+            "unit": "MiB",
             "extra": "MetricResourceProcessor/set_attribute_on_empty_resource - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "MetricResourceProcessor/set_attribute_on_empty_resource - Dropped Span Count"
           },
           {
@@ -10682,13 +10682,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 80,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/JaegerGRPC - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/JaegerGRPC - Dropped Span Count"
           },
           {
@@ -10712,13 +10712,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 82,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/OpenCensus - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/OpenCensus - Dropped Span Count"
           },
           {
@@ -10742,13 +10742,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 81,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/OTLP-gRPC - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/OTLP-gRPC - Dropped Span Count"
           },
           {
@@ -10772,13 +10772,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 83,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/OTLP-gRPC-gzip - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/OTLP-gRPC-gzip - Dropped Span Count"
           },
           {
@@ -10802,13 +10802,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 74,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/OTLP-HTTP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/OTLP-HTTP - Dropped Span Count"
           },
           {
@@ -10832,13 +10832,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 79,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/OTLP-HTTP-gzip - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/OTLP-HTTP-gzip - Dropped Span Count"
           },
           {
@@ -10862,13 +10862,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 81,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/SAPM - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/SAPM - Dropped Span Count"
           },
           {
@@ -10892,13 +10892,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 91,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/SAPM-gzip - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/SAPM-gzip - Dropped Span Count"
           },
           {
@@ -10922,13 +10922,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 253,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/SAPM-zstd - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/SAPM-zstd - Dropped Span Count"
           },
           {
@@ -10952,13 +10952,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 85,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace10kSPS/Zipkin - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace10kSPS/Zipkin - Dropped Span Count"
           },
           {
@@ -10982,13 +10982,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 0,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceAttributesProcessor/JaegerGRPC - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceAttributesProcessor/JaegerGRPC - Dropped Span Count"
           },
           {
@@ -11012,13 +11012,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 0,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceAttributesProcessor/OTLP - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceAttributesProcessor/OTLP - Dropped Span Count"
           },
           {
@@ -11042,13 +11042,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 145,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSWithAttrs/0*0bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSWithAttrs/0*0bytes - Dropped Span Count"
           },
           {
@@ -11072,13 +11072,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 829,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSWithAttrs/100*50bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSWithAttrs/100*50bytes - Dropped Span Count"
           },
           {
@@ -11102,13 +11102,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 751,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSWithAttrs/10*1000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSWithAttrs/10*1000bytes - Dropped Span Count"
           },
           {
@@ -11132,13 +11132,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 830,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSWithAttrs/20*5000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSWithAttrs/20*5000bytes - Dropped Span Count"
           },
           {
@@ -11162,13 +11162,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 152,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSAddAttrs/0*0bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSAddAttrs/0*0bytes - Dropped Span Count"
           },
           {
@@ -11192,13 +11192,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 832,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSAddAttrs/100*50bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSAddAttrs/100*50bytes - Dropped Span Count"
           },
           {
@@ -11222,13 +11222,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 621,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSAddAttrs/10*1000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSAddAttrs/10*1000bytes - Dropped Span Count"
           },
           {
@@ -11252,13 +11252,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 834,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceBallast1kSPSAddAttrs/20*5000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceBallast1kSPSAddAttrs/20*5000bytes - Dropped Span Count"
           },
           {
@@ -11282,13 +11282,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 90,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceNoBackend10kSPS/NoMemoryLimit - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 141040,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceNoBackend10kSPS/NoMemoryLimit - Dropped Span Count"
           },
           {
@@ -11312,13 +11312,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 78,
-            "unit": "",
+            "unit": "MiB",
             "extra": "TraceNoBackend10kSPS/MemoryLimit - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 138480,
-            "unit": "1",
+            "unit": "spans",
             "extra": "TraceNoBackend10kSPS/MemoryLimit - Dropped Span Count"
           },
           {
@@ -11342,13 +11342,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 76,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace1kSPSWithAttrs/0*0bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace1kSPSWithAttrs/0*0bytes - Dropped Span Count"
           },
           {
@@ -11372,13 +11372,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 80,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace1kSPSWithAttrs/100*50bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace1kSPSWithAttrs/100*50bytes - Dropped Span Count"
           },
           {
@@ -11402,13 +11402,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 81,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace1kSPSWithAttrs/10*1000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace1kSPSWithAttrs/10*1000bytes - Dropped Span Count"
           },
           {
@@ -11432,13 +11432,13 @@ window.BENCHMARK_DATA = {
           {
             "name": "ram_mib_max",
             "value": 87,
-            "unit": "",
+            "unit": "MiB",
             "extra": "Trace1kSPSWithAttrs/20*5000bytes - RAM (MiB)"
           },
           {
             "name": "dropped_span_count",
             "value": 0,
-            "unit": "1",
+            "unit": "spans",
             "extra": "Trace1kSPSWithAttrs/20*5000bytes - Dropped Span Count"
           }
         ]
