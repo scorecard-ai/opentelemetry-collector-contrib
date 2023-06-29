@@ -119,6 +119,7 @@ jobs:
   update-benchmarks:
     runs-on: ubuntu-latest
     needs: [loadtest]
+    if: github.event_name != 'pull_request'
     steps:
       - uses: actions/checkout@v3
       - uses: actions/download-artifact@v3
@@ -134,7 +135,6 @@ jobs:
           gh-pages-branch: gh-pages
           github-token: ${{ secrets.GITHUB_TOKEN }}
           benchmark-data-dir-path: "docs/loadtest"
-          auto-push: true # TODO: this should only push on updates to main
           alert-threshold: '200%'
           summary-always: true
-          comment-on-alert: true
+          auto-push: true
