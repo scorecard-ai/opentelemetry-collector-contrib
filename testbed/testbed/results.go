@@ -23,11 +23,13 @@ type TestResultsSummary interface {
 	Save()
 }
 
-// BenchmarkResult holds the results of a single performance benchmark.
+// BenchmarkResult holds the results of a benchmark to be stored by
+// benchmark-action
 type benchmarkResult struct {
 	Name  string  `json:"name"`
 	Unit  string  `json:"unit"`
 	Value float64 `json:"value"`
+	Range string  `json:"range,omitempty"`
 	Extra string  `json:"extra,omitempty"`
 }
 
@@ -146,7 +148,8 @@ func (r *PerformanceResults) Add(_ string, result interface{}) {
 	})
 }
 
-// saveBenchmarks writes benchmarks to file as json
+// saveBenchmarks writes benchmarks to file as json to be stored by
+// benchmark-action
 func (r *PerformanceResults) saveBenchmarks() {
 	path := path.Join(r.resultsDir, "benchmarks.json")
 	j, _ := json.MarshalIndent(r.benchmarkResults, "", "  ")
