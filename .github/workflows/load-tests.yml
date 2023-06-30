@@ -134,6 +134,13 @@ jobs:
           gh-pages-branch: gh-pages
           github-token: ${{ secrets.GITHUB_TOKEN }}
           benchmark-data-dir-path: "docs/benchmarks/loadtests"
-          auto-push: true
+          auto-push: false
       - name: Post-process
-        run: echo "postprocessing..."
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git status
+          git diff
+          git switch gh-pages
+          git status
+          echo "pp complete"
