@@ -143,4 +143,5 @@ jobs:
           git diff
           git switch gh-pages
           git status
+          ls results
           echo "pp complete"
