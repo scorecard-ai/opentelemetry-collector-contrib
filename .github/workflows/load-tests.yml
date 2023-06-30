@@ -119,7 +119,6 @@ jobs:
   update-benchmarks:
     runs-on: ubuntu-latest
     needs: [loadtest]
-    if: github.event_name != 'pull_request'
     steps:
       - uses: actions/checkout@v3
       - uses: actions/download-artifact@v3
@@ -127,6 +126,7 @@ jobs:
           name: benchmark-results
           path: results
       - run: jq -s 'map(.[])' results/*.json > output.json
+      - run: echo "the ref ${{github.head_ref}} the sha ${{github.sha}}"
       - uses: benchmark-action/github-action-benchmark@v1
         with:
           tool: 'customSmallerIsBetter'
@@ -135,3 +135,5 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           benchmark-data-dir-path: "docs/benchmarks/loadtests"
           auto-push: true
+      - name: Post-process
+        run: echo "postprocessing..."
