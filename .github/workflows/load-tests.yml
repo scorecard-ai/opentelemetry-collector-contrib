@@ -140,9 +140,10 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git status
+          git log
           git switch gh-pages
           git status
           git diff
           ls results
-          cat output.json
+          git log
           echo "pp complete"
