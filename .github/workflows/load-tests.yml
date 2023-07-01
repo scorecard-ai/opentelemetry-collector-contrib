@@ -139,8 +139,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          echo "repository url: ${{ github.repositoryUrl }}"
+          echo "repository: ${{ github.repository }}"
+          echo "server url: ${{ github.server_url }}"
+          echo "owner: ${{ github.repository_owner }}"
+          echo "combined: ${{github.server_url}}/${{github.repository}}.git"
           git switch gh-pages
-          git log
-          git remote -vv
-          git push ***github.com/mwear/opentelemetry-collector-contrib.git gh-pages:gh-pages --no-verify
+          git log -n 10
+          git -c user.name=github-action-benchmark -c user.email=github@users.noreply.github.com -c http.https://github.com/.extraheader= push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git gh-pages:gh-pages --no-verify
           echo "pp complete"
