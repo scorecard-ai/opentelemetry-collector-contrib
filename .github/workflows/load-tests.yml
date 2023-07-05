@@ -119,6 +119,7 @@ jobs:
   update-benchmarks:
     runs-on: ubuntu-latest
     needs: [loadtest]
+    if: github.event_name != 'pull_request'
     steps:
       - uses: actions/checkout@v3
       - uses: actions/download-artifact@v3
@@ -135,7 +136,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           benchmark-data-dir-path: "docs/benchmarks/loadtests"
           auto-push: false
-      - name: Post-process
+      - name: Upload Results
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
