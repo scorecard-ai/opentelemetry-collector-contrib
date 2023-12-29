@@ -1,7 +1,9 @@
-package grpc
+// Copyright The OpenTelemetry Authors
+// SPDX-License-Identifier: Apache-2.0
+
+package status
 
 import (
-	"fmt"
 	"sync"
 	"time"
 
@@ -11,39 +13,15 @@ import (
 var extsID = component.NewID("extensions")
 var extsIDMap = map[component.ID]struct{}{extsID: {}}
 
-type statusAggregator struct {
+type aggregatorBase struct {
 	startTimestamp        time.Time
 	aggregateStatus       *component.StatusEvent
 	aggregateStatusesByID map[component.ID]*component.StatusEvent
 	componentStatusesByID map[component.ID]map[*component.InstanceID]*component.StatusEvent
-	verbose               bool
 	mu                    sync.RWMutex
 }
 
-func (a *statusAggregator) CollectorStatus() *component.StatusEvent {
-	a.mu.RLock()
-	defer a.mu.RUnlock()
-	return a.aggregateStatus
-}
-
-func (a *statusAggregator) PipelineStatus(name string) (*component.StatusEvent, error) {
-	// TODO: add cache
-	compID := component.ID{}
-	if err := compID.UnmarshalText([]byte(name)); err != nil {
-		return nil, err
-	}
-
-	a.mu.RLock()
-	defer a.mu.RUnlock()
-
-	if ev, ok := a.aggregateStatusesByID[compID]; ok {
-		return ev, nil
-	}
-
-	return nil, fmt.Errorf("pipeline not found: %s", name)
-}
-
-func (a *statusAggregator) RecordStatus(source *component.InstanceID, event *component.StatusEvent) {
+func (a *aggregatorBase) RecordStatus(source *component.InstanceID, event *component.StatusEvent) {
 	compIDs := source.PipelineIDs
 	// extensions are treated as a pseudo-pipeline
 	if source.Kind == component.KindExtension {
@@ -67,13 +45,12 @@ func (a *statusAggregator) RecordStatus(source *component.InstanceID, event *com
 	a.aggregateStatus = component.AggregateStatusEvent(a.aggregateStatusesByID)
 }
 
-func newStatusAggregator() *statusAggregator {
-	return &statusAggregator{
+func newAggregatorBase() *aggregatorBase {
+	return &aggregatorBase{
 		startTimestamp:        time.Now(),
 		aggregateStatus:       &component.StatusEvent{},
 		aggregateStatusesByID: make(map[component.ID]*component.StatusEvent),
 		componentStatusesByID: make(map[component.ID]map[*component.InstanceID]*component.StatusEvent),
-		verbose:               true,
 		mu:                    sync.RWMutex{},
 	}
 }

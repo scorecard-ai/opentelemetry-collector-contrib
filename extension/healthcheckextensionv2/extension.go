@@ -100,21 +100,21 @@ func newExtension(config Config, set extension.CreateSettings) (*healthCheckExte
 	var sinks []eventSink
 
 	if config.EventsSettings.Enabled {
-		e, err := events.New(&config.EventsSettings.ExporterSettings, set)
+		exp, err := events.NewExporter(&config.EventsSettings.ExporterSettings, set)
 		if err != nil {
 			return nil, err
 		}
-		sinks = append(sinks, e)
+		sinks = append(sinks, exp)
 	}
 
 	if config.GRPCSettings.Enabled {
-		g := grpc.NewServer(config.GRPCSettings, set.TelemetrySettings)
-		sinks = append(sinks, g)
+		srvGRPC := grpc.NewServer(config.GRPCSettings, set.TelemetrySettings)
+		sinks = append(sinks, srvGRPC)
 	}
 
 	if config.HTTPSettings.Enabled() {
-		h := http.New(config.HTTPSettings, set.TelemetrySettings)
-		sinks = append(sinks, h)
+		srvHTTP := http.NewServer(config.HTTPSettings, set.TelemetrySettings)
+		sinks = append(sinks, srvHTTP)
 	}
 
 	hc := &healthCheckExtension{

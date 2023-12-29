@@ -4,6 +4,7 @@ import (
 	"context"
 	"errors"
 
+	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/status"
 	"go.opentelemetry.io/collector/component"
 	"go.opentelemetry.io/collector/confmap"
 	"go.uber.org/zap"
@@ -16,7 +17,7 @@ import (
 type Server struct {
 	healthpb.UnimplementedHealthServer
 	serverGRPC *grpc.Server
-	aggregator *statusAggregator
+	aggregator *status.AggregatorGRPC
 	settings   Settings
 	telemetry  component.TelemetrySettings
 	doneCh     chan struct{}
@@ -26,7 +27,7 @@ func NewServer(settings Settings, telemetry component.TelemetrySettings) *Server
 	return &Server{
 		settings:   settings,
 		telemetry:  telemetry,
-		aggregator: newStatusAggregator(),
+		aggregator: status.NewAggregatorGRPC(),
 		doneCh:     make(chan struct{}),
 	}
 }

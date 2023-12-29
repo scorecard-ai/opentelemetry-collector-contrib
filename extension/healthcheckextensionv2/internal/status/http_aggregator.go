@@ -1,26 +1,18 @@
 // Copyright The OpenTelemetry Authors
 // SPDX-License-Identifier: Apache-2.0
 
-package status // import "github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/status"
+package status
 
 import (
 	"fmt"
-	"sync"
 	"time"
 
 	"go.opentelemetry.io/collector/component"
 )
 
-var extsID = component.NewID("extensions")
-var extsIDMap = map[component.ID]struct{}{extsID: {}}
-
-type Aggregator struct {
-	startTimestamp        time.Time
-	aggregateStatus       *component.StatusEvent
-	aggregateStatusesByID map[component.ID]*component.StatusEvent
-	componentStatusesByID map[component.ID]map[*component.InstanceID]*component.StatusEvent
-	verbose               bool
-	mu                    sync.RWMutex
+type AggregatorHTTP struct {
+	*aggregatorBase
+	verbose bool
 }
 
 type SerializableStatus struct {
@@ -54,7 +46,7 @@ func toSerializableEvent(ev *component.StatusEvent) *SerializableEvent {
 	return se
 }
 
-func (a *Aggregator) Current() *SerializableStatus {
+func (a *AggregatorHTTP) Current() *SerializableStatus {
 	a.mu.RLock()
 	defer a.mu.RUnlock()
 
@@ -89,38 +81,10 @@ func (a *Aggregator) Current() *SerializableStatus {
 	return s
 }
 
-func (a *Aggregator) RecordStatus(source *component.InstanceID, event *component.StatusEvent) {
-	compIDs := source.PipelineIDs
-	// extensions are treated as a pseudo-pipeline
-	if source.Kind == component.KindExtension {
-		compIDs = extsIDMap
-	}
-
-	a.mu.Lock()
-	defer a.mu.Unlock()
-
-	for compID := range compIDs {
-		var compStatuses map[*component.InstanceID]*component.StatusEvent
-		compStatuses, ok := a.componentStatusesByID[compID]
-		if !ok {
-			compStatuses = make(map[*component.InstanceID]*component.StatusEvent)
-		}
-		compStatuses[source] = event
-		a.componentStatusesByID[compID] = compStatuses
-		a.aggregateStatusesByID[compID] = component.AggregateStatusEvent(compStatuses)
-	}
-
-	a.aggregateStatus = component.AggregateStatusEvent(a.aggregateStatusesByID)
-}
-
-func NewAggregator() *Aggregator {
-	return &Aggregator{
-		startTimestamp:        time.Now(),
-		aggregateStatus:       &component.StatusEvent{},
-		aggregateStatusesByID: make(map[component.ID]*component.StatusEvent),
-		componentStatusesByID: make(map[component.ID]map[*component.InstanceID]*component.StatusEvent),
-		verbose:               true,
-		mu:                    sync.RWMutex{},
+func NewAggregatorHTTP() *AggregatorHTTP {
+	return &AggregatorHTTP{
+		aggregatorBase: newAggregatorBase(),
+		verbose:        true, // TODO: set via config
 	}
 }
 

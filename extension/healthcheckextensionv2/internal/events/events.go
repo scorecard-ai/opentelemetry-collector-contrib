@@ -1,7 +1,7 @@
 // Copyright The OpenTelemetry Authors
 // SPDX-License-Identifier: Apache-2.0
 
-package events // import "github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/events"
+package events
 
 import (
 	"context"
@@ -22,28 +22,28 @@ const (
 	scopeName = "otelcol/healthcheckextensionv2"
 )
 
-type HealthEvents struct {
-	resource pcommon.Resource
-	scope    pcommon.InstrumentationScope
-	exporter exporter.Logs
+type Exporter struct {
+	resource     pcommon.Resource
+	scope        pcommon.InstrumentationScope
+	exporterOTLP exporter.Logs
 }
 
-func (he *HealthEvents) Start(ctx context.Context, host component.Host) error {
-	return he.exporter.Start(ctx, host)
+func (e *Exporter) Start(ctx context.Context, host component.Host) error {
+	return e.exporterOTLP.Start(ctx, host)
 }
 
-func (he *HealthEvents) Shutdown(ctx context.Context) error {
-	return he.exporter.Shutdown(ctx)
+func (e *Exporter) Shutdown(ctx context.Context) error {
+	return e.exporterOTLP.Shutdown(ctx)
 }
 
-func (he *HealthEvents) OnStatusChange(source *component.InstanceID, event *component.StatusEvent) error {
+func (e *Exporter) OnStatusChange(source *component.InstanceID, event *component.StatusEvent) error {
 	ld := plog.NewLogs()
 
 	rl := ld.ResourceLogs().AppendEmpty()
-	he.resource.CopyTo(rl.Resource())
+	e.resource.CopyTo(rl.Resource())
 
 	sl := rl.ScopeLogs().AppendEmpty()
-	he.scope.CopyTo(sl.Scope())
+	e.scope.CopyTo(sl.Scope())
 
 	lr := sl.LogRecords().AppendEmpty()
 	lr.SetTimestamp(pcommon.NewTimestampFromTime(event.Timestamp()))
@@ -60,17 +60,17 @@ func (he *HealthEvents) OnStatusChange(source *component.InstanceID, event *comp
 		bm.PutStr("component.error", event.Err().Error())
 	}
 
-	return he.exporter.ConsumeLogs(context.Background(), ld)
+	return e.exporterOTLP.ConsumeLogs(context.Background(), ld)
 }
 
-func (he *HealthEvents) OnConfigChange(conf *confmap.Conf) error {
+func (e *Exporter) OnConfigChange(conf *confmap.Conf) error {
 	ld := plog.NewLogs()
 
 	rl := ld.ResourceLogs().AppendEmpty()
-	he.resource.CopyTo(rl.Resource())
+	e.resource.CopyTo(rl.Resource())
 
 	sl := rl.ScopeLogs().AppendEmpty()
-	he.scope.CopyTo(sl.Scope())
+	e.scope.CopyTo(sl.Scope())
 
 	lr := sl.LogRecords().AppendEmpty()
 	lr.SetTimestamp(pcommon.NewTimestampFromTime(time.Now()))
@@ -83,11 +83,11 @@ func (he *HealthEvents) OnConfigChange(conf *confmap.Conf) error {
 	bm := lr.Body().SetEmptyMap()
 	copyToPMap(conf.ToStringMap(), bm)
 
-	return he.exporter.ConsumeLogs(context.Background(), ld)
+	return e.exporterOTLP.ConsumeLogs(context.Background(), ld)
 }
 
-func New(cfg *otlpexporter.Config, set extension.CreateSettings) (*HealthEvents, error) {
-	exp, err := newExporter(cfg)
+func NewExporter(cfg *otlpexporter.Config, set extension.CreateSettings) (*Exporter, error) {
+	exp, err := newOTLPExporter(cfg)
 	if err != nil {
 		return nil, err
 	}
@@ -96,14 +96,14 @@ func New(cfg *otlpexporter.Config, set extension.CreateSettings) (*HealthEvents,
 	sco.SetName(scopeName)
 	sco.SetVersion(set.BuildInfo.Version)
 
-	return &HealthEvents{
-		resource: set.TelemetrySettings.Resource,
-		scope:    sco,
-		exporter: exp,
+	return &Exporter{
+		resource:     set.TelemetrySettings.Resource,
+		scope:        sco,
+		exporterOTLP: exp,
 	}, nil
 }
 
-func newExporter(cfg *otlpexporter.Config) (exporter.Logs, error) {
+func newOTLPExporter(cfg *otlpexporter.Config) (exporter.Logs, error) {
 	factory := otlpexporter.NewFactory()
 	// TODO: figure out what should go here
 	set := exporter.CreateSettings{
