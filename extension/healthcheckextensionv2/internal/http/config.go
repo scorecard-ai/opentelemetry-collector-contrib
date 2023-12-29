@@ -12,6 +12,7 @@ type Settings struct {
 	Status PathSettings `mapstructure:"status"`
 }
 
+// TODO: fix enabled consistency between subcomps
 func (s Settings) Enabled() bool {
 	return s.Config.Enabled || s.Status.Enabled
 }

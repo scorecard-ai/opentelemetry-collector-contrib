@@ -7,6 +7,7 @@ import (
 	"context"
 
 	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/events"
+	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/grpc"
 	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/http"
 	"go.opentelemetry.io/collector/component"
 	"go.opentelemetry.io/collector/confmap"
@@ -104,6 +105,11 @@ func newExtension(config Config, set extension.CreateSettings) (*healthCheckExte
 			return nil, err
 		}
 		sinks = append(sinks, e)
+	}
+
+	if config.GRPCSettings.Enabled {
+		g := grpc.NewServer(config.GRPCSettings, set.TelemetrySettings)
+		sinks = append(sinks, g)
 	}
 
 	if config.HTTPSettings.Enabled() {
