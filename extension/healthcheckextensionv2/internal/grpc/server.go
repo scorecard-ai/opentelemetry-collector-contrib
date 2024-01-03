@@ -17,7 +17,7 @@ import (
 type Server struct {
 	healthpb.UnimplementedHealthServer
 	serverGRPC *grpc.Server
-	aggregator *status.AggregatorGRPC
+	aggregator *status.Aggregator
 	settings   Settings
 	telemetry  component.TelemetrySettings
 	doneCh     chan struct{}
@@ -27,7 +27,7 @@ func NewServer(settings Settings, telemetry component.TelemetrySettings) *Server
 	return &Server{
 		settings:   settings,
 		telemetry:  telemetry,
-		aggregator: status.NewAggregatorGRPC(),
+		aggregator: status.NewAggregator(),
 		doneCh:     make(chan struct{}),
 	}
 }

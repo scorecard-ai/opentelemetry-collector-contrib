@@ -26,7 +26,7 @@ type Server struct {
 
 	mu         sync.RWMutex
 	colconf    []byte
-	aggregator *status.AggregatorHTTP
+	aggregator *status.Aggregator
 	done       chan struct{}
 }
 
@@ -34,7 +34,7 @@ func NewServer(settings Settings, telemetry component.TelemetrySettings) *Server
 	srv := &Server{
 		telemetry:  telemetry,
 		settings:   settings.HTTPServerSettings,
-		aggregator: status.NewAggregatorHTTP(),
+		aggregator: status.NewAggregator(),
 		done:       make(chan struct{}),
 	}
 

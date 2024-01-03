@@ -23,12 +23,13 @@ var responseCodes = map[component.Status]int{
 
 func (s *Server) statusHandler() http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, _ *http.Request) {
-		current := s.aggregator.Current()
+		details := s.aggregator.CollectorStatusDetailed()
+		sst := toSerializableStatus(details)
 
 		w.Header().Set("Content-Type", "application/json")
-		w.WriteHeader(responseCodes[current.Status()])
+		w.WriteHeader(responseCodes[sst.Status()])
 
-		body, _ := json.Marshal(current)
+		body, _ := json.Marshal(sst)
 		_, _ = w.Write(body)
 	})
 }
