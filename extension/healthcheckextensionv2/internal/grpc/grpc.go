@@ -38,3 +38,43 @@ func (s *Server) Check(ctx context.Context, req *healthpb.HealthCheckRequest) (*
 		Status: statusToServingStatusMap[ev.Status()],
 	}, nil
 }
+
+func (s *Server) Watch(req *healthpb.HealthCheckRequest, stream healthpb.Health_WatchServer) error {
+	sub, err := s.aggregator.Subscribe(req.Service)
+	if err != nil {
+		return err
+	}
+	defer s.aggregator.Unsubscribe(sub)
+
+	var lastEvent *component.StatusEvent
+
+	for {
+		select {
+		case ev, ok := <-sub:
+			if !ok {
+				return status.Error(codes.Canceled, "Server shutting down.")
+			}
+
+			var sst healthpb.HealthCheckResponse_ServingStatus
+
+			switch {
+			case ev == nil:
+				sst = healthpb.HealthCheckResponse_SERVICE_UNKNOWN
+			case lastEvent != nil && lastEvent.Status() == ev.Status():
+				lastEvent = ev
+				continue
+			default:
+				sst = statusToServingStatusMap[ev.Status()]
+			}
+
+			lastEvent = ev
+
+			err := stream.Send(&healthpb.HealthCheckResponse{Status: sst})
+			if err != nil {
+				return status.Error(codes.Canceled, "Stream has ended.")
+			}
+		case <-stream.Context().Done():
+			return status.Error(codes.Canceled, "Stream has ended.")
+		}
+	}
+}

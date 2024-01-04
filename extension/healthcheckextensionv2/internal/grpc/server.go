@@ -62,6 +62,7 @@ func (s *Server) Start(ctx context.Context, host component.Host) error {
 }
 
 func (s *Server) Shutdown(ctx context.Context) error {
+	s.aggregator.Close()
 	s.serverGRPC.GracefulStop()
 	<-s.doneCh
 	return nil

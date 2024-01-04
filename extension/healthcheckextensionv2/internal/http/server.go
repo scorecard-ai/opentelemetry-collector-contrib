@@ -72,6 +72,7 @@ func (s *Server) Start(ctx context.Context, host component.Host) error {
 }
 
 func (s *Server) Shutdown(ctx context.Context) error {
+	s.aggregator.Close()
 	s.serverHTTP.Close()
 	<-s.done
 	return nil
