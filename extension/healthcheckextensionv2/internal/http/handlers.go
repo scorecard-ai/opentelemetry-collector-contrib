@@ -22,9 +22,21 @@ var responseCodes = map[component.Status]int{
 }
 
 func (s *Server) statusHandler() http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, _ *http.Request) {
-		details := s.aggregator.CollectorStatusDetailed()
-		sst := toSerializableStatus(details)
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		var sst *serializableStatus
+		pipeline := r.URL.Query().Get("pipeline")
+
+		if pipeline == "" {
+			details := s.aggregator.CollectorStatusDetailed()
+			sst = toCollectorSerializableStatus(details)
+		} else {
+			details, err := s.aggregator.PipelineStatusDetailed(pipeline)
+			if err != nil {
+				w.WriteHeader(http.StatusNotFound)
+				return
+			}
+			sst = toPipelineSerializableStatus(details)
+		}
 
 		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(responseCodes[sst.Status()])
@@ -37,18 +49,18 @@ func (s *Server) statusHandler() http.Handler {
 func (s *Server) configHandler() http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, _ *http.Request) {
 		conf := func() []byte {
-			defer s.mu.RUnlock()
 			s.mu.RLock()
+			defer s.mu.RUnlock()
 			return s.colconf
 		}()
 
-		status := http.StatusOK
 		if len(conf) == 0 {
-			status = http.StatusServiceUnavailable
+			w.WriteHeader(http.StatusServiceUnavailable)
+			return
 		}
 
 		w.Header().Set("Content-Type", "application/json")
-		w.WriteHeader(status)
+		w.WriteHeader(http.StatusOK)
 		_, _ = w.Write(conf)
 	})
 }

@@ -44,8 +44,7 @@ func toSerializableEvent(ev *component.StatusEvent) *serializableEvent {
 
 var extsKey = "extensions"
 
-func toSerializableStatus(details *status.CollectorStatusDetails) *serializableStatus {
-
+func toCollectorSerializableStatus(details *status.CollectorStatusDetails) *serializableStatus {
 	s := &serializableStatus{
 		StartTimestamp:    &details.StartTimestamp,
 		serializableEvent: toSerializableEvent(details.OverallStatus),
@@ -67,6 +66,23 @@ func toSerializableStatus(details *status.CollectorStatusDetails) *serializableS
 			cs.ComponentStatuses[key] = &serializableStatus{
 				serializableEvent: toSerializableEvent(ev),
 			}
+		}
+	}
+
+	return s
+}
+
+func toPipelineSerializableStatus(details *status.PipelineStatusDetails) *serializableStatus {
+	s := &serializableStatus{
+		StartTimestamp:    &details.StartTimestamp,
+		serializableEvent: toSerializableEvent(details.OverallStatus),
+		ComponentStatuses: make(map[string]*serializableStatus),
+	}
+
+	for instance, ev := range details.ComponentStatusMap {
+		key := fmt.Sprintf("%s:%s", kindToString(instance.Kind), instance.ID)
+		s.ComponentStatuses[key] = &serializableStatus{
+			serializableEvent: toSerializableEvent(ev),
 		}
 	}
 
