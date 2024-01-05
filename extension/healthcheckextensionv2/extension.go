@@ -17,11 +17,11 @@ import (
 )
 
 type healthCheckExtension struct {
-	config    Config
-	telemetry component.TelemetrySettings
-	sinks     []eventSink
-	eventCh   chan eventSourcePair
-	doneCh    chan struct{}
+	config        Config
+	telemetry     component.TelemetrySettings
+	subcomponents []component.Component
+	eventCh       chan eventSourcePair
+	doneCh        chan struct{}
 }
 
 type eventSourcePair struct {
@@ -29,17 +29,11 @@ type eventSourcePair struct {
 	event  *component.StatusEvent
 }
 
-type eventSink interface {
-	component.Component
-	OnStatusChange(*component.InstanceID, *component.StatusEvent) error
-	OnConfigChange(*confmap.Conf) error
-}
-
 func (hc *healthCheckExtension) Start(ctx context.Context, host component.Host) error {
 	hc.telemetry.Logger.Info("Starting healthcheck extension V2", zap.Any("config", hc.config))
 
-	for _, sink := range hc.sinks {
-		if err := sink.Start(ctx, host); err != nil {
+	for _, comp := range hc.subcomponents {
+		if err := comp.Start(ctx, host); err != nil {
 			return err
 		}
 	}
@@ -52,8 +46,10 @@ func (hc *healthCheckExtension) Start(ctx context.Context, host component.Host) 
 				break
 			}
 
-			for _, sink := range hc.sinks {
-				_ = sink.OnStatusChange(esp.source, esp.event)
+			for _, comp := range hc.subcomponents {
+				if sw, ok := comp.(extension.StatusWatcher); ok {
+					sw.ComponentStatusChanged(esp.source, esp.event)
+				}
 			}
 		}
 	}()
@@ -70,8 +66,8 @@ func (hc *healthCheckExtension) Shutdown(ctx context.Context) error {
 	<-hc.doneCh
 
 	var err error
-	for _, sink := range hc.sinks {
-		err = multierr.Append(err, sink.Shutdown(ctx))
+	for _, comp := range hc.subcomponents {
+		err = multierr.Append(err, comp.Shutdown(ctx))
 	}
 
 	return err
@@ -88,41 +84,43 @@ func (hc *healthCheckExtension) ComponentStatusChanged(source *component.Instanc
 	hc.eventCh <- eventSourcePair{source: source, event: event}
 }
 
-func (hc *healthCheckExtension) NotifyConfig(_ context.Context, conf *confmap.Conf) error {
+func (hc *healthCheckExtension) NotifyConfig(ctx context.Context, conf *confmap.Conf) error {
 	var err error
-	for _, sink := range hc.sinks {
-		err = multierr.Append(err, sink.OnConfigChange(conf))
+	for _, comp := range hc.subcomponents {
+		if cw, ok := comp.(extension.ConfigWatcher); ok {
+			err = multierr.Append(err, cw.NotifyConfig(ctx, conf))
+		}
 	}
 	return err
 }
 
 func newExtension(config Config, set extension.CreateSettings) (*healthCheckExtension, error) {
-	var sinks []eventSink
+	var subcomps []component.Component
 
 	if config.EventsSettings.Enabled {
 		exp, err := events.NewExporter(&config.EventsSettings.ExporterSettings, set)
 		if err != nil {
 			return nil, err
 		}
-		sinks = append(sinks, exp)
+		subcomps = append(subcomps, exp)
 	}
 
 	if config.GRPCSettings.Enabled {
 		srvGRPC := grpc.NewServer(config.GRPCSettings, set.TelemetrySettings, config.FailureDuration)
-		sinks = append(sinks, srvGRPC)
+		subcomps = append(subcomps, srvGRPC)
 	}
 
 	if config.HTTPSettings.Enabled() {
 		srvHTTP := http.NewServer(config.HTTPSettings, set.TelemetrySettings, config.FailureDuration)
-		sinks = append(sinks, srvHTTP)
+		subcomps = append(subcomps, srvHTTP)
 	}
 
 	hc := &healthCheckExtension{
-		config:    config,
-		sinks:     sinks,
-		telemetry: set.TelemetrySettings,
-		eventCh:   make(chan eventSourcePair, 100),
-		doneCh:    make(chan struct{}),
+		config:        config,
+		subcomponents: subcomps,
+		telemetry:     set.TelemetrySettings,
+		eventCh:       make(chan eventSourcePair, 100),
+		doneCh:        make(chan struct{}),
 	}
 
 	return hc, nil

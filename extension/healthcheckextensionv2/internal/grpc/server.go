@@ -7,7 +7,6 @@ import (
 
 	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/status"
 	"go.opentelemetry.io/collector/component"
-	"go.opentelemetry.io/collector/confmap"
 	"go.uber.org/zap"
 
 	"google.golang.org/grpc"
@@ -74,12 +73,6 @@ func (s *Server) Shutdown(ctx context.Context) error {
 	return nil
 }
 
-func (s *Server) OnStatusChange(source *component.InstanceID, event *component.StatusEvent) error {
+func (s *Server) ComponentStatusChanged(source *component.InstanceID, event *component.StatusEvent) {
 	s.aggregator.RecordStatus(source, event)
-	return nil
-}
-
-// TODO: Refactor extension to use optional interfaces so we can remove this
-func (s *Server) OnConfigChange(*confmap.Conf) error {
-	return nil
 }

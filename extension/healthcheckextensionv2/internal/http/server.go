@@ -84,12 +84,11 @@ func (s *Server) Shutdown(ctx context.Context) error {
 	return nil
 }
 
-func (s *Server) OnStatusChange(source *component.InstanceID, event *component.StatusEvent) error {
+func (s *Server) ComponentStatusChanged(source *component.InstanceID, event *component.StatusEvent) {
 	s.aggregator.RecordStatus(source, event)
-	return nil
 }
 
-func (s *Server) OnConfigChange(conf *confmap.Conf) error {
+func (s *Server) NotifyConfig(_ context.Context, conf *confmap.Conf) error {
 	s.mu.Lock()
 	defer s.mu.Unlock()
 
