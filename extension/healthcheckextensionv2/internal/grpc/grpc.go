@@ -2,6 +2,7 @@ package grpc
 
 import (
 	"context"
+	"time"
 
 	"go.opentelemetry.io/collector/component"
 	"google.golang.org/grpc/codes"
@@ -35,7 +36,7 @@ func (s *Server) Check(ctx context.Context, req *healthpb.HealthCheckRequest) (*
 	}
 
 	return &healthpb.HealthCheckResponse{
-		Status: statusToServingStatusMap[ev.Status()],
+		Status: s.toServingStatus(ev),
 	}, nil
 }
 
@@ -46,7 +47,10 @@ func (s *Server) Watch(req *healthpb.HealthCheckRequest, stream healthpb.Health_
 	}
 	defer s.aggregator.Unsubscribe(sub)
 
-	var lastEvent *component.StatusEvent
+	var lastServingStatus healthpb.HealthCheckResponse_ServingStatus = -1
+
+	failureTicker := time.NewTicker(s.failureDuration)
+	failureTicker.Stop()
 
 	for {
 		select {
@@ -60,16 +64,38 @@ func (s *Server) Watch(req *healthpb.HealthCheckRequest, stream healthpb.Health_
 			switch {
 			case ev == nil:
 				sst = healthpb.HealthCheckResponse_SERVICE_UNKNOWN
-			case lastEvent != nil && lastEvent.Status() == ev.Status():
-				lastEvent = ev
-				continue
+			case ev.Status() == component.StatusRecoverableError:
+				failureTicker.Reset(s.failureDuration)
+				sst = lastServingStatus
+				if lastServingStatus == -1 {
+					sst = healthpb.HealthCheckResponse_SERVING
+				}
 			default:
+				failureTicker.Stop()
 				sst = statusToServingStatusMap[ev.Status()]
 			}
 
-			lastEvent = ev
+			if lastServingStatus == sst {
+				continue
+			}
+
+			lastServingStatus = sst
 
 			err := stream.Send(&healthpb.HealthCheckResponse{Status: sst})
+			if err != nil {
+				return status.Error(codes.Canceled, "Stream has ended.")
+			}
+		case <-failureTicker.C:
+			failureTicker.Stop()
+			if lastServingStatus == healthpb.HealthCheckResponse_NOT_SERVING {
+				continue
+			}
+			lastServingStatus = healthpb.HealthCheckResponse_NOT_SERVING
+			err := stream.Send(
+				&healthpb.HealthCheckResponse{
+					Status: healthpb.HealthCheckResponse_NOT_SERVING,
+				},
+			)
 			if err != nil {
 				return status.Error(codes.Canceled, "Stream has ended.")
 			}
@@ -77,4 +103,12 @@ func (s *Server) Watch(req *healthpb.HealthCheckRequest, stream healthpb.Health_
 			return status.Error(codes.Canceled, "Stream has ended.")
 		}
 	}
+}
+
+func (s *Server) toServingStatus(ev *component.StatusEvent) healthpb.HealthCheckResponse_ServingStatus {
+	if ev.Status() == component.StatusRecoverableError &&
+		time.Now().Compare(ev.Timestamp().Add(s.failureDuration)) == 1 {
+		return healthpb.HealthCheckResponse_NOT_SERVING
+	}
+	return statusToServingStatusMap[ev.Status()]
 }

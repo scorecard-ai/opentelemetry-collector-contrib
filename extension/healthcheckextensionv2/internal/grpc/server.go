@@ -3,6 +3,7 @@ package grpc
 import (
 	"context"
 	"errors"
+	"time"
 
 	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/status"
 	"go.opentelemetry.io/collector/component"
@@ -16,19 +17,24 @@ import (
 
 type Server struct {
 	healthpb.UnimplementedHealthServer
-	serverGRPC *grpc.Server
-	aggregator *status.Aggregator
-	settings   Settings
-	telemetry  component.TelemetrySettings
-	doneCh     chan struct{}
+	serverGRPC      *grpc.Server
+	aggregator      *status.Aggregator
+	settings        Settings
+	telemetry       component.TelemetrySettings
+	failureDuration time.Duration
+	doneCh          chan struct{}
 }
 
-func NewServer(settings Settings, telemetry component.TelemetrySettings) *Server {
+func NewServer(
+	settings Settings,
+	telemetry component.TelemetrySettings,
+	failureDuration time.Duration) *Server {
 	return &Server{
-		settings:   settings,
-		telemetry:  telemetry,
-		aggregator: status.NewAggregator(),
-		doneCh:     make(chan struct{}),
+		settings:        settings,
+		telemetry:       telemetry,
+		aggregator:      status.NewAggregator(),
+		failureDuration: failureDuration,
+		doneCh:          make(chan struct{}),
 	}
 }
 

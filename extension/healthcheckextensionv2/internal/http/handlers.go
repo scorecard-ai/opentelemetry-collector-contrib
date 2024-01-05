@@ -6,6 +6,7 @@ package http
 import (
 	"encoding/json"
 	"net/http"
+	"time"
 
 	"go.opentelemetry.io/collector/component"
 )
@@ -14,8 +15,8 @@ var responseCodes = map[component.Status]int{
 	component.StatusNone:             http.StatusServiceUnavailable,
 	component.StatusStarting:         http.StatusServiceUnavailable,
 	component.StatusOK:               http.StatusOK,
-	component.StatusRecoverableError: http.StatusServiceUnavailable,
-	component.StatusPermanentError:   http.StatusBadRequest,
+	component.StatusRecoverableError: http.StatusOK,
+	component.StatusPermanentError:   http.StatusServiceUnavailable,
 	component.StatusFatalError:       http.StatusInternalServerError,
 	component.StatusStopping:         http.StatusServiceUnavailable,
 	component.StatusStopped:          http.StatusServiceUnavailable,
@@ -39,7 +40,7 @@ func (s *Server) statusHandler() http.Handler {
 		}
 
 		w.Header().Set("Content-Type", "application/json")
-		w.WriteHeader(responseCodes[sst.Status()])
+		w.WriteHeader(s.toHTTPStatus(sst))
 
 		body, _ := json.Marshal(sst)
 		_, _ = w.Write(body)
@@ -63,4 +64,12 @@ func (s *Server) configHandler() http.Handler {
 		w.WriteHeader(http.StatusOK)
 		_, _ = w.Write(conf)
 	})
+}
+
+func (s *Server) toHTTPStatus(sst *serializableStatus) int {
+	if sst.status == component.StatusRecoverableError &&
+		time.Now().Compare(sst.Timestamp.Add(s.failureDuration)) == 1 {
+		return http.StatusServiceUnavailable
+	}
+	return responseCodes[sst.status]
 }

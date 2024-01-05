@@ -5,6 +5,7 @@ package healthcheckextensionv2 // import "github.com/open-telemetry/opentelemetr
 
 import (
 	"context"
+	"time"
 
 	"go.opentelemetry.io/collector/component"
 	"go.opentelemetry.io/collector/config/confighttp"
@@ -33,6 +34,7 @@ func NewFactory() extension.Factory {
 
 func createDefaultConfig() component.Config {
 	return &Config{
+		FailureDuration: time.Minute,
 		HTTPSettings: http.Settings{
 			HTTPServerSettings: confighttp.HTTPServerSettings{
 				Endpoint: defaultEndpoint,

@@ -10,6 +10,7 @@ import (
 	"fmt"
 	"net/http"
 	"sync"
+	"time"
 
 	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/status"
 	"go.opentelemetry.io/collector/component"
@@ -18,8 +19,9 @@ import (
 )
 
 type Server struct {
-	telemetry component.TelemetrySettings
-	settings  confighttp.HTTPServerSettings
+	telemetry       component.TelemetrySettings
+	settings        confighttp.HTTPServerSettings
+	failureDuration time.Duration
 
 	mux        *http.ServeMux
 	serverHTTP *http.Server
@@ -30,12 +32,16 @@ type Server struct {
 	done       chan struct{}
 }
 
-func NewServer(settings Settings, telemetry component.TelemetrySettings) *Server {
+func NewServer(
+	settings Settings,
+	telemetry component.TelemetrySettings,
+	failureDuration time.Duration) *Server {
 	srv := &Server{
-		telemetry:  telemetry,
-		settings:   settings.HTTPServerSettings,
-		aggregator: status.NewAggregator(),
-		done:       make(chan struct{}),
+		telemetry:       telemetry,
+		settings:        settings.HTTPServerSettings,
+		aggregator:      status.NewAggregator(),
+		failureDuration: failureDuration,
+		done:            make(chan struct{}),
 	}
 
 	srv.mux = http.NewServeMux()
