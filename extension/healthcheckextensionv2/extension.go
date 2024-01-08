@@ -5,10 +5,14 @@ package healthcheckextensionv2 // import "github.com/open-telemetry/opentelemetr
 
 import (
 	"context"
+	"fmt"
+	"sort"
+	"sync"
 
 	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/events"
 	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/grpc"
 	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/http"
+	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/status"
 	"go.opentelemetry.io/collector/component"
 	"go.opentelemetry.io/collector/confmap"
 	"go.opentelemetry.io/collector/extension"
@@ -19,8 +23,11 @@ import (
 type healthCheckExtension struct {
 	config        Config
 	telemetry     component.TelemetrySettings
+	aggregator    *status.Aggregator
 	subcomponents []component.Component
-	eventCh       chan eventSourcePair
+	mu            sync.Mutex
+	isReady       bool
+	eventQueue    []eventSourcePair
 	doneCh        chan struct{}
 }
 
@@ -38,32 +45,19 @@ func (hc *healthCheckExtension) Start(ctx context.Context, host component.Host) 
 		}
 	}
 
-	go func() {
-		defer close(hc.doneCh)
-		for {
-			esp, ok := <-hc.eventCh
-			if !ok {
-				break
-			}
-
-			for _, comp := range hc.subcomponents {
-				if sw, ok := comp.(extension.StatusWatcher); ok {
-					sw.ComponentStatusChanged(esp.source, esp.event)
-				}
-			}
-		}
-	}()
-
 	return nil
 }
 
 func (hc *healthCheckExtension) Shutdown(ctx context.Context) error {
 	// preemptively send the stopped event, so it can be exported before shutdown
 	_ = hc.telemetry.ReportComponentStatus(component.NewStatusEvent(component.StatusStopped))
+	hc.mu.Lock()
+	hc.isReady = false
+	hc.mu.Unlock()
 
-	//close and drain chan
-	close(hc.eventCh)
-	<-hc.doneCh
+	hc.aggregator.Close()
+
+	//<-hc.doneCh
 
 	var err error
 	for _, comp := range hc.subcomponents {
@@ -73,15 +67,24 @@ func (hc *healthCheckExtension) Shutdown(ctx context.Context) error {
 	return err
 }
 
+// TODO: thread safety
 func (hc *healthCheckExtension) ComponentStatusChanged(source *component.InstanceID, event *component.StatusEvent) {
-	defer func() {
-		// There can be a race during shutdown where events arrive after the
-		// extension has shutdown and the channel has been closed.
-		if r := recover(); r != nil {
-			hc.telemetry.Logger.Info("healthcheck: discarding event received after shutdown")
+	fmt.Printf("component status changed: %v %s\n", source, event.Status())
+
+	queued := func() bool {
+		hc.mu.Lock()
+		defer hc.mu.Unlock()
+		if !hc.isReady {
+			fmt.Printf("queueing event: %v\n", event)
+			hc.eventQueue = append(hc.eventQueue, eventSourcePair{source: source, event: event})
+			return true
 		}
+		return false
 	}()
-	hc.eventCh <- eventSourcePair{source: source, event: event}
+
+	if !queued {
+		hc.aggregator.RecordStatus(source, event)
+	}
 }
 
 func (hc *healthCheckExtension) NotifyConfig(ctx context.Context, conf *confmap.Conf) error {
@@ -105,13 +108,20 @@ func newExtension(config Config, set extension.CreateSettings) (*healthCheckExte
 		subcomps = append(subcomps, exp)
 	}
 
+	aggregator := status.NewAggregator()
+
 	if config.GRPCSettings.Enabled {
-		srvGRPC := grpc.NewServer(config.GRPCSettings, set.TelemetrySettings, config.FailureDuration)
+		srvGRPC := grpc.NewServer(
+			config.GRPCSettings,
+			set.TelemetrySettings,
+			config.FailureDuration,
+			aggregator,
+		)
 		subcomps = append(subcomps, srvGRPC)
 	}
 
 	if config.HTTPSettings.Enabled() {
-		srvHTTP := http.NewServer(config.HTTPSettings, set.TelemetrySettings, config.FailureDuration)
+		srvHTTP := http.NewServer(config.HTTPSettings, set.TelemetrySettings, config.FailureDuration, aggregator)
 		subcomps = append(subcomps, srvHTTP)
 	}
 
@@ -119,9 +129,32 @@ func newExtension(config Config, set extension.CreateSettings) (*healthCheckExte
 		config:        config,
 		subcomponents: subcomps,
 		telemetry:     set.TelemetrySettings,
-		eventCh:       make(chan eventSourcePair, 100),
+		aggregator:    aggregator,
 		doneCh:        make(chan struct{}),
 	}
 
 	return hc, nil
+}
+
+func (hc *healthCheckExtension) Ready() error {
+	hc.mu.Lock()
+	hc.isReady = true
+	queue := hc.eventQueue
+	hc.eventQueue = nil
+	hc.mu.Unlock()
+
+	sort.SliceStable(queue, func(i int, j int) bool {
+		return queue[i].event.Status() < queue[j].event.Status()
+	})
+
+	for _, esp := range queue {
+		fmt.Printf("draining queue: %v %s\n", esp.source, esp.event.Status().String())
+		hc.aggregator.RecordStatus(esp.source, esp.event)
+	}
+
+	return nil
+}
+
+func (hc *healthCheckExtension) NotReady() error {
+	return nil
 }

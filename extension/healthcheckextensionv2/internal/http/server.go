@@ -26,8 +26,9 @@ type Server struct {
 	mux        *http.ServeMux
 	serverHTTP *http.Server
 
-	mu         sync.RWMutex
-	colconf    []byte
+	mu      sync.RWMutex
+	colconf []byte
+
 	aggregator *status.Aggregator
 	done       chan struct{}
 }
@@ -35,11 +36,13 @@ type Server struct {
 func NewServer(
 	settings Settings,
 	telemetry component.TelemetrySettings,
-	failureDuration time.Duration) *Server {
+	failureDuration time.Duration,
+	aggregator *status.Aggregator,
+) *Server {
 	srv := &Server{
 		telemetry:       telemetry,
 		settings:        settings.HTTPServerSettings,
-		aggregator:      status.NewAggregator(),
+		aggregator:      aggregator,
 		failureDuration: failureDuration,
 		done:            make(chan struct{}),
 	}
@@ -78,14 +81,9 @@ func (s *Server) Start(ctx context.Context, host component.Host) error {
 }
 
 func (s *Server) Shutdown(ctx context.Context) error {
-	s.aggregator.Close()
 	s.serverHTTP.Close()
 	<-s.done
 	return nil
-}
-
-func (s *Server) ComponentStatusChanged(source *component.InstanceID, event *component.StatusEvent) {
-	s.aggregator.RecordStatus(source, event)
 }
 
 func (s *Server) NotifyConfig(_ context.Context, conf *confmap.Conf) error {

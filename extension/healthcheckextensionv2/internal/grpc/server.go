@@ -27,11 +27,13 @@ type Server struct {
 func NewServer(
 	settings Settings,
 	telemetry component.TelemetrySettings,
-	failureDuration time.Duration) *Server {
+	failureDuration time.Duration,
+	aggregator *status.Aggregator,
+) *Server {
 	return &Server{
 		settings:        settings,
 		telemetry:       telemetry,
-		aggregator:      status.NewAggregator(),
+		aggregator:      aggregator,
 		failureDuration: failureDuration,
 		doneCh:          make(chan struct{}),
 	}
@@ -67,12 +69,7 @@ func (s *Server) Start(ctx context.Context, host component.Host) error {
 }
 
 func (s *Server) Shutdown(ctx context.Context) error {
-	s.aggregator.Close()
 	s.serverGRPC.GracefulStop()
 	<-s.doneCh
 	return nil
-}
-
-func (s *Server) ComponentStatusChanged(source *component.InstanceID, event *component.StatusEvent) {
-	s.aggregator.RecordStatus(source, event)
 }
