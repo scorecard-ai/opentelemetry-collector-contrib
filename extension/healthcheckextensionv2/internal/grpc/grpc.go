@@ -66,7 +66,7 @@ func (s *Server) Watch(req *healthpb.HealthCheckRequest, stream healthpb.Health_
 			case ev == nil:
 				sst = healthpb.HealthCheckResponse_SERVICE_UNKNOWN
 			case ev.Status() == component.StatusRecoverableError:
-				fmt.Printf("recoverable error: setting timer: %s", ev.Err().Error())
+				fmt.Printf("recoverable error: setting timer: %s\n", ev.Err().Error())
 				failureTicker.Reset(s.failureDuration)
 				sst = lastServingStatus
 				if lastServingStatus == -1 {

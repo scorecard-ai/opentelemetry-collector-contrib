@@ -6,8 +6,6 @@ package healthcheckextensionv2 // import "github.com/open-telemetry/opentelemetr
 import (
 	"context"
 	"fmt"
-	"sort"
-	"sync"
 
 	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/events"
 	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/grpc"
@@ -25,10 +23,8 @@ type healthCheckExtension struct {
 	telemetry     component.TelemetrySettings
 	aggregator    *status.Aggregator
 	subcomponents []component.Component
-	mu            sync.Mutex
-	isReady       bool
-	eventQueue    []eventSourcePair
-	doneCh        chan struct{}
+	eventCh       chan *eventSourcePair
+	readyCh       chan struct{}
 }
 
 type eventSourcePair struct {
@@ -51,13 +47,9 @@ func (hc *healthCheckExtension) Start(ctx context.Context, host component.Host) 
 func (hc *healthCheckExtension) Shutdown(ctx context.Context) error {
 	// preemptively send the stopped event, so it can be exported before shutdown
 	_ = hc.telemetry.ReportComponentStatus(component.NewStatusEvent(component.StatusStopped))
-	hc.mu.Lock()
-	hc.isReady = false
-	hc.mu.Unlock()
 
+	close(hc.eventCh)
 	hc.aggregator.Close()
-
-	//<-hc.doneCh
 
 	var err error
 	for _, comp := range hc.subcomponents {
@@ -67,24 +59,17 @@ func (hc *healthCheckExtension) Shutdown(ctx context.Context) error {
 	return err
 }
 
-// TODO: thread safety
 func (hc *healthCheckExtension) ComponentStatusChanged(source *component.InstanceID, event *component.StatusEvent) {
-	fmt.Printf("component status changed: %v %s\n", source, event.Status())
-
-	queued := func() bool {
-		hc.mu.Lock()
-		defer hc.mu.Unlock()
-		if !hc.isReady {
-			fmt.Printf("queueing event: %v\n", event)
-			hc.eventQueue = append(hc.eventQueue, eventSourcePair{source: source, event: event})
-			return true
+	defer func() {
+		// There can be late arriving events after shutdown. We need to close
+		// the event channel so that this function doesn't block, but attempting
+		// to write to a closed channel will panic; log and recover.
+		if r := recover(); r != nil {
+			hc.telemetry.Logger.Info("healthcheck: discarding event received after shutdown")
 		}
-		return false
 	}()
-
-	if !queued {
-		hc.aggregator.RecordStatus(source, event)
-	}
+	fmt.Printf("component status changed: %v %s\n", source, event.Status())
+	hc.eventCh <- &eventSourcePair{source: source, event: event}
 }
 
 func (hc *healthCheckExtension) NotifyConfig(ctx context.Context, conf *confmap.Conf) error {
@@ -130,28 +115,47 @@ func newExtension(config Config, set extension.CreateSettings) (*healthCheckExte
 		subcomponents: subcomps,
 		telemetry:     set.TelemetrySettings,
 		aggregator:    aggregator,
-		doneCh:        make(chan struct{}),
+		eventCh:       make(chan *eventSourcePair),
+		readyCh:       make(chan struct{}),
 	}
+
+	// Start processing events in the background so that our status watcher doesn't
+	// block others before the extension starts.
+	go hc.eventLoop()
 
 	return hc, nil
 }
 
-func (hc *healthCheckExtension) Ready() error {
-	hc.mu.Lock()
-	hc.isReady = true
-	queue := hc.eventQueue
-	hc.eventQueue = nil
-	hc.mu.Unlock()
-
-	sort.SliceStable(queue, func(i int, j int) bool {
-		return queue[i].event.Status() < queue[j].event.Status()
-	})
-
-	for _, esp := range queue {
-		fmt.Printf("draining queue: %v %s\n", esp.source, esp.event.Status().String())
-		hc.aggregator.RecordStatus(esp.source, esp.event)
+func (hc *healthCheckExtension) eventLoop() {
+	var eventQueue []*eventSourcePair
+	for loop := true; loop; {
+		select {
+		case esp := <-hc.eventCh:
+			if esp.event.Status() != component.StatusStarting {
+				eventQueue = append(eventQueue, esp)
+				continue
+			}
+			hc.aggregator.RecordStatus(esp.source, esp.event)
+		case <-hc.readyCh:
+			for _, esp := range eventQueue {
+				hc.aggregator.RecordStatus(esp.source, esp.event)
+			}
+			eventQueue = nil
+			loop = false
+		}
 	}
 
+	for {
+		esp, ok := <-hc.eventCh
+		if !ok {
+			break
+		}
+		hc.aggregator.RecordStatus(esp.source, esp.event)
+	}
+}
+
+func (hc *healthCheckExtension) Ready() error {
+	close(hc.readyCh)
 	return nil
 }
 
