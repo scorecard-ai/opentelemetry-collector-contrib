@@ -30,7 +30,7 @@ var extsIDMap = map[component.ID]struct{}{extsID: {}}
 
 // The emtpy string is an alias for the overall collector health when subscribing to
 // status events.
-const collectorAlias = ""
+const emptyStream = ""
 
 // CollectorID is used as a key in the subscriptions map
 var collectorID = component.NewID("__collector__")
@@ -161,7 +161,7 @@ func (a *Aggregator) Subscribe(name string) (<-chan *component.StatusEvent, erro
 	var compID component.ID
 	var ev *component.StatusEvent
 
-	if name == collectorAlias {
+	if name == emptyStream {
 		compID = collectorID
 		ev = a.overallStatus
 	} else {
