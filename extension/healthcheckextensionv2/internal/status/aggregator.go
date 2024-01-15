@@ -45,6 +45,12 @@ type Aggregator struct {
 	subscriptions      map[component.ID][]chan *component.StatusEvent
 }
 
+func (a *Aggregator) StartTimestamp() time.Time {
+	a.mu.RLock()
+	defer a.mu.RUnlock()
+	return a.startTimestamp
+}
+
 func (a *Aggregator) CollectorStatus() *component.StatusEvent {
 	a.mu.RLock()
 	defer a.mu.RUnlock()

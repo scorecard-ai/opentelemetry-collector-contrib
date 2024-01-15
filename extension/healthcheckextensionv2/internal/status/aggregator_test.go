@@ -1,22 +1,24 @@
-package status
+package status_test
 
 import (
 	"testing"
 
+	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/status"
+	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/testhelpers"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"go.opentelemetry.io/collector/component"
 )
 
 func TestCollectorStatus(t *testing.T) {
-	agg := NewAggregator()
-	traces := newPipelineMetadata("traces")
+	agg := status.NewAggregator()
+	traces := testhelpers.NewPipelineMetadata("traces")
 
 	t.Run("zero value", func(t *testing.T) {
 		assert.Equal(t, component.StatusNone, agg.CollectorStatus().Status())
 	})
 
-	seedAggregator(agg, traces.InstanceIDs(), component.StatusOK)
+	testhelpers.SeedAggregator(agg, traces.InstanceIDs(), component.StatusOK)
 
 	t.Run("pipeline statuses all successful", func(t *testing.T) {
 		assert.Equal(t, component.StatusOK, agg.CollectorStatus().Status())
@@ -37,8 +39,8 @@ func TestCollectorStatus(t *testing.T) {
 }
 
 func TestCollectorStatusDetailed(t *testing.T) {
-	agg := NewAggregator()
-	traces := newPipelineMetadata("traces")
+	agg := status.NewAggregator()
+	traces := testhelpers.NewPipelineMetadata("traces")
 
 	t.Run("zero value", func(t *testing.T) {
 		dst := agg.CollectorStatusDetailed()
@@ -48,7 +50,7 @@ func TestCollectorStatusDetailed(t *testing.T) {
 	})
 
 	// Seed aggregator with succesful statuses for pipeline.
-	seedAggregator(agg, traces.InstanceIDs(), component.StatusOK)
+	testhelpers.SeedAggregator(agg, traces.InstanceIDs(), component.StatusOK)
 
 	t.Run("pipeline statuses all successful", func(t *testing.T) {
 		dst := agg.CollectorStatusDetailed()
@@ -104,8 +106,8 @@ func TestCollectorStatusDetailed(t *testing.T) {
 }
 
 func TestPipelineStatus(t *testing.T) {
-	agg := NewAggregator()
-	traces := newPipelineMetadata("traces")
+	agg := status.NewAggregator()
+	traces := testhelpers.NewPipelineMetadata("traces")
 
 	t.Run("non existent pipeline", func(t *testing.T) {
 		st, err := agg.PipelineStatus("doesnotexist")
@@ -113,12 +115,12 @@ func TestPipelineStatus(t *testing.T) {
 		assert.Error(t, err)
 	})
 
-	seedAggregator(agg, traces.InstanceIDs(), component.StatusOK)
+	testhelpers.SeedAggregator(agg, traces.InstanceIDs(), component.StatusOK)
 
 	t.Run("pipeline exists / status successful", func(t *testing.T) {
 		st, err := agg.PipelineStatus(traces.PipelineID.String())
 		require.NoError(t, err)
-		assertEventsMatch(t, component.StatusOK, agg.overallStatus, st)
+		assertEventsMatch(t, component.StatusOK, agg.CollectorStatus(), st)
 	})
 
 	agg.RecordStatus(
@@ -139,8 +141,8 @@ func TestPipelineStatus(t *testing.T) {
 }
 
 func TestPipelineStatusDetailed(t *testing.T) {
-	agg := NewAggregator()
-	traces := newPipelineMetadata("traces")
+	agg := status.NewAggregator()
+	traces := testhelpers.NewPipelineMetadata("traces")
 
 	t.Run("non existent pipeline", func(t *testing.T) {
 		dst, err := agg.PipelineStatusDetailed("doesnotexist")
@@ -148,7 +150,7 @@ func TestPipelineStatusDetailed(t *testing.T) {
 		assert.Error(t, err)
 	})
 
-	seedAggregator(agg, traces.InstanceIDs(), component.StatusOK)
+	testhelpers.SeedAggregator(agg, traces.InstanceIDs(), component.StatusOK)
 
 	t.Run("pipeline exists / status successful", func(t *testing.T) {
 		dst, err := agg.PipelineStatusDetailed(traces.PipelineID.String())
@@ -200,11 +202,11 @@ func TestPipelineStatusDetailed(t *testing.T) {
 }
 
 func TestStreaming(t *testing.T) {
-	agg := NewAggregator()
+	agg := status.NewAggregator()
 	defer agg.Close()
 
-	traces := newPipelineMetadata("traces")
-	metrics := newPipelineMetadata("metrics")
+	traces := testhelpers.NewPipelineMetadata("traces")
+	metrics := testhelpers.NewPipelineMetadata("metrics")
 
 	traceEvents, err := agg.Subscribe(traces.PipelineID.String())
 	require.NoError(t, err)
@@ -218,17 +220,17 @@ func TestStreaming(t *testing.T) {
 	assert.NotNil(t, <-allEvents)
 
 	// Start pipelines
-	seedAggregator(agg, traces.InstanceIDs(), component.StatusStarting)
+	testhelpers.SeedAggregator(agg, traces.InstanceIDs(), component.StatusStarting)
 	assertEventsRecvdMatch(t, component.StatusStarting, traceEvents, allEvents)
-	seedAggregator(agg, metrics.InstanceIDs(), component.StatusStarting)
+	testhelpers.SeedAggregator(agg, metrics.InstanceIDs(), component.StatusStarting)
 	assertEventsRecvdMatch(t, component.StatusStarting, metricEvents, allEvents)
 
 	// Successful start
-	seedAggregator(agg, traces.InstanceIDs(), component.StatusOK)
+	testhelpers.SeedAggregator(agg, traces.InstanceIDs(), component.StatusOK)
 	assertEventsRecvdMatch(t, component.StatusOK, traceEvents)
 	// All is still in StatusStarting until the metrics pipeline reports OK
 	assertEventsRecvdMatch(t, component.StatusStarting, allEvents)
-	seedAggregator(agg, metrics.InstanceIDs(), component.StatusOK)
+	testhelpers.SeedAggregator(agg, metrics.InstanceIDs(), component.StatusOK)
 	assertEventsRecvdMatch(t, component.StatusOK, metricEvents, allEvents)
 
 	// Traces Pipeline RecoverableError
@@ -249,69 +251,17 @@ func TestStreaming(t *testing.T) {
 	)
 
 	// Stopping
-	seedAggregator(agg, traces.InstanceIDs(), component.StatusStopping)
+	testhelpers.SeedAggregator(agg, traces.InstanceIDs(), component.StatusStopping)
 	assertEventsRecvdMatch(t, component.StatusStopping, traceEvents, allEvents)
-	seedAggregator(agg, metrics.InstanceIDs(), component.StatusStopping)
+	testhelpers.SeedAggregator(agg, metrics.InstanceIDs(), component.StatusStopping)
 	assertEventsRecvdMatch(t, component.StatusStopping, metricEvents, allEvents)
 
 	// Stopped
-	seedAggregator(agg, traces.InstanceIDs(), component.StatusStopped)
+	testhelpers.SeedAggregator(agg, traces.InstanceIDs(), component.StatusStopped)
 	// All is not stopped until the metrics pipeline is stopped
 	assertEventsRecvdMatch(t, component.StatusStopped, traceEvents)
-	seedAggregator(agg, metrics.InstanceIDs(), component.StatusStopped)
+	testhelpers.SeedAggregator(agg, metrics.InstanceIDs(), component.StatusStopped)
 	assertEventsRecvdMatch(t, component.StatusStopped, metricEvents, allEvents)
-}
-
-type pipelineMetadata struct {
-	PipelineID  component.ID
-	ReceiverID  *component.InstanceID
-	ProcessorID *component.InstanceID
-	ExporterID  *component.InstanceID
-}
-
-func (p *pipelineMetadata) InstanceIDs() []*component.InstanceID {
-	return []*component.InstanceID{p.ReceiverID, p.ProcessorID, p.ExporterID}
-}
-
-func newPipelineMetadata(typeVal component.Type) *pipelineMetadata {
-	pipelineID := component.NewID(typeVal)
-	return &pipelineMetadata{
-		PipelineID: pipelineID,
-		ReceiverID: &component.InstanceID{
-			ID:   component.NewIDWithName(typeVal, "in"),
-			Kind: component.KindExporter,
-			PipelineIDs: map[component.ID]struct{}{
-				pipelineID: {},
-			},
-		},
-		ProcessorID: &component.InstanceID{
-			ID:   component.NewID("batch"),
-			Kind: component.KindProcessor,
-			PipelineIDs: map[component.ID]struct{}{
-				pipelineID: {},
-			},
-		},
-		ExporterID: &component.InstanceID{
-			ID:   component.NewIDWithName(typeVal, "out"),
-			Kind: component.KindExporter,
-			PipelineIDs: map[component.ID]struct{}{
-				pipelineID: {},
-			},
-		},
-	}
-}
-
-// seedAggregator records a status event for each instanceID
-func seedAggregator(
-	agg *Aggregator,
-	instanceIDs []*component.InstanceID,
-	statuses ...component.Status,
-) {
-	for _, st := range statuses {
-		for _, id := range instanceIDs {
-			agg.RecordStatus(id, component.NewStatusEvent(st))
-		}
-	}
 }
 
 // assertEventMatches ensures one or more events share the expected status and are

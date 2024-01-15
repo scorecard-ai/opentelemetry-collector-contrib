@@ -13,26 +13,39 @@ import (
 
 type serializableStatus struct {
 	StartTimestamp *time.Time `json:"start_time,omitempty"`
-	*serializableEvent
+	*SerializableEvent
 	ComponentStatuses map[string]*serializableStatus `json:"components,omitempty"`
 }
 
-type serializableEvent struct {
-	Healthy      bool `json:"healthy"`
-	status       component.Status
+// SerializableEvent is exported for json.Unmarshal
+type SerializableEvent struct {
+	Healthy      bool      `json:"healthy"`
 	StatusString string    `json:"status"`
 	Error        string    `json:"error,omitempty"`
 	Timestamp    time.Time `json:"status_time"`
 }
 
-func (ev *serializableEvent) Status() component.Status {
-	return ev.status
+var stringToStatusMap = map[string]component.Status{
+	"StatusNone":             component.StatusNone,
+	"StatusStarting":         component.StatusStarting,
+	"StatusOK":               component.StatusOK,
+	"StatusRecoverableError": component.StatusRecoverableError,
+	"StatusPermanentError":   component.StatusPermanentError,
+	"StatusFatalError":       component.StatusFatalError,
+	"StatusStopping":         component.StatusStopping,
+	"StatusStopped":          component.StatusStopped,
 }
 
-func toSerializableEvent(ev *component.StatusEvent) *serializableEvent {
-	se := &serializableEvent{
+func (ev *SerializableEvent) Status() component.Status {
+	if st, ok := stringToStatusMap[ev.StatusString]; ok {
+		return st
+	}
+	return component.StatusNone
+}
+
+func toSerializableEvent(ev *component.StatusEvent) *SerializableEvent {
+	se := &SerializableEvent{
 		Healthy:      !component.StatusIsError(ev.Status()),
-		status:       ev.Status(),
 		StatusString: ev.Status().String(),
 		Timestamp:    ev.Timestamp(),
 	}
@@ -44,10 +57,17 @@ func toSerializableEvent(ev *component.StatusEvent) *serializableEvent {
 
 var extsKey = "extensions"
 
+func toSimpleSerializableStatus(startTime *time.Time, ev *component.StatusEvent) *serializableStatus {
+	return &serializableStatus{
+		StartTimestamp:    startTime,
+		SerializableEvent: toSerializableEvent(ev),
+	}
+}
+
 func toCollectorSerializableStatus(details *status.CollectorStatusDetails) *serializableStatus {
 	s := &serializableStatus{
 		StartTimestamp:    &details.StartTimestamp,
-		serializableEvent: toSerializableEvent(details.OverallStatus),
+		SerializableEvent: toSerializableEvent(details.OverallStatus),
 		ComponentStatuses: make(map[string]*serializableStatus),
 	}
 
@@ -57,14 +77,14 @@ func toCollectorSerializableStatus(details *status.CollectorStatusDetails) *seri
 			key = "pipeline:" + key
 		}
 		cs := &serializableStatus{
-			serializableEvent: toSerializableEvent(ev),
+			SerializableEvent: toSerializableEvent(ev),
 			ComponentStatuses: make(map[string]*serializableStatus),
 		}
 		s.ComponentStatuses[key] = cs
 		for instance, ev := range details.ComponentStatusMap[compID] {
 			key := fmt.Sprintf("%s:%s", kindToString(instance.Kind), instance.ID)
 			cs.ComponentStatuses[key] = &serializableStatus{
-				serializableEvent: toSerializableEvent(ev),
+				SerializableEvent: toSerializableEvent(ev),
 			}
 		}
 	}
@@ -75,14 +95,14 @@ func toCollectorSerializableStatus(details *status.CollectorStatusDetails) *seri
 func toPipelineSerializableStatus(details *status.PipelineStatusDetails) *serializableStatus {
 	s := &serializableStatus{
 		StartTimestamp:    &details.StartTimestamp,
-		serializableEvent: toSerializableEvent(details.OverallStatus),
+		SerializableEvent: toSerializableEvent(details.OverallStatus),
 		ComponentStatuses: make(map[string]*serializableStatus),
 	}
 
 	for instance, ev := range details.ComponentStatusMap {
 		key := fmt.Sprintf("%s:%s", kindToString(instance.Kind), instance.ID)
 		s.ComponentStatuses[key] = &serializableStatus{
-			serializableEvent: toSerializableEvent(ev),
+			SerializableEvent: toSerializableEvent(ev),
 		}
 	}
 

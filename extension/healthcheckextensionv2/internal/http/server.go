@@ -9,28 +9,24 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
-	"sync"
 	"time"
 
 	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/status"
 	"go.opentelemetry.io/collector/component"
-	"go.opentelemetry.io/collector/config/confighttp"
 	"go.opentelemetry.io/collector/confmap"
+	"go.uber.org/zap"
 )
 
 type Server struct {
 	telemetry       component.TelemetrySettings
-	settings        confighttp.HTTPServerSettings
+	settings        Settings
 	failureDuration time.Duration
-
-	mux        *http.ServeMux
-	serverHTTP *http.Server
-
-	mu      sync.RWMutex
-	colconf []byte
-
-	aggregator *status.Aggregator
-	done       chan struct{}
+	mux             *http.ServeMux
+	serverHTTP      *http.Server
+	confStore       *confStore
+	aggregator      *status.Aggregator
+	startTimestamp  time.Time
+	done            chan struct{}
 }
 
 func NewServer(
@@ -41,8 +37,10 @@ func NewServer(
 ) *Server {
 	srv := &Server{
 		telemetry:       telemetry,
-		settings:        settings.HTTPServerSettings,
+		settings:        settings,
+		confStore:       &confStore{},
 		aggregator:      aggregator,
+		startTimestamp:  aggregator.StartTimestamp(),
 		failureDuration: failureDuration,
 		done:            make(chan struct{}),
 	}
@@ -86,11 +84,11 @@ func (s *Server) Shutdown(ctx context.Context) error {
 	return nil
 }
 
-func (s *Server) NotifyConfig(_ context.Context, conf *confmap.Conf) error {
-	s.mu.Lock()
-	defer s.mu.Unlock()
-
-	var err error
-	s.colconf, err = json.Marshal(conf.ToStringMap())
-	return err
+func (s *Server) NotifyConfig(_ context.Context, conf *confmap.Conf) {
+	confBytes, err := json.Marshal(conf.ToStringMap())
+	if err != nil {
+		s.telemetry.Logger.Warn("could not marshal config", zap.Error(err))
+		return
+	}
+	s.confStore.set(confBytes)
 }

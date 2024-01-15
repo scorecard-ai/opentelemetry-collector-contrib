@@ -8,8 +8,8 @@ import "go.opentelemetry.io/collector/config/confighttp"
 type Settings struct {
 	confighttp.HTTPServerSettings `mapstructure:",squash"`
 
-	Config PathSettings `mapstructure:"config"`
-	Status PathSettings `mapstructure:"status"`
+	Config PathSettings   `mapstructure:"config"`
+	Status StatusSettings `mapstructure:"status"`
 }
 
 // TODO: fix enabled consistency between subcomps
@@ -20,4 +20,9 @@ func (s Settings) Enabled() bool {
 type PathSettings struct {
 	Enabled bool   `mapstructure:"enabled"`
 	Path    string `mapstructure:"path"`
+}
+
+type StatusSettings struct {
+	PathSettings `mapstructure:",squash"`
+	Detailed     bool
 }
