@@ -25,6 +25,7 @@ type healthCheckExtension struct {
 	subcomponents []component.Component
 	eventCh       chan *eventSourcePair
 	readyCh       chan struct{}
+	doneCh        chan struct{}
 }
 
 type eventSourcePair struct {
@@ -48,7 +49,7 @@ func (hc *healthCheckExtension) Shutdown(ctx context.Context) error {
 	// preemptively send the stopped event, so it can be exported before shutdown
 	_ = hc.telemetry.ReportComponentStatus(component.NewStatusEvent(component.StatusStopped))
 
-	close(hc.eventCh)
+	close(hc.doneCh)
 	hc.aggregator.Close()
 
 	var err error
@@ -60,14 +61,6 @@ func (hc *healthCheckExtension) Shutdown(ctx context.Context) error {
 }
 
 func (hc *healthCheckExtension) ComponentStatusChanged(source *component.InstanceID, event *component.StatusEvent) {
-	defer func() {
-		// There can be late arriving events after shutdown. We need to close
-		// the event channel so that this function doesn't block, but attempting
-		// to write to a closed channel will panic; log and recover.
-		if r := recover(); r != nil {
-			hc.telemetry.Logger.Info("healthcheck: discarding event received after shutdown")
-		}
-	}()
 	fmt.Printf("component status changed: %v %s\n", source, event.Status())
 	hc.eventCh <- &eventSourcePair{source: source, event: event}
 }
@@ -82,15 +75,24 @@ func (hc *healthCheckExtension) NotifyConfig(ctx context.Context, conf *confmap.
 	return err
 }
 
+func (hc *healthCheckExtension) Ready() error {
+	close(hc.readyCh)
+	return nil
+}
+
+func (hc *healthCheckExtension) NotReady() error {
+	return nil
+}
+
 func newExtension(config Config, set extension.CreateSettings) (*healthCheckExtension, error) {
-	var subcomps []component.Component
+	var comps []component.Component
 
 	if config.EventsSettings.Enabled {
 		exp, err := events.NewExporter(&config.EventsSettings.ExporterSettings, set)
 		if err != nil {
 			return nil, err
 		}
-		subcomps = append(subcomps, exp)
+		comps = append(comps, exp)
 	}
 
 	aggregator := status.NewAggregator()
@@ -102,21 +104,22 @@ func newExtension(config Config, set extension.CreateSettings) (*healthCheckExte
 			config.FailureDuration,
 			aggregator,
 		)
-		subcomps = append(subcomps, srvGRPC)
+		comps = append(comps, srvGRPC)
 	}
 
 	if config.HTTPSettings.Enabled() {
 		srvHTTP := http.NewServer(config.HTTPSettings, set.TelemetrySettings, config.FailureDuration, aggregator)
-		subcomps = append(subcomps, srvHTTP)
+		comps = append(comps, srvHTTP)
 	}
 
 	hc := &healthCheckExtension{
 		config:        config,
-		subcomponents: subcomps,
+		subcomponents: comps,
 		telemetry:     set.TelemetrySettings,
 		aggregator:    aggregator,
 		eventCh:       make(chan *eventSourcePair),
 		readyCh:       make(chan struct{}),
+		doneCh:        make(chan struct{}),
 	}
 
 	// Start processing events in the background so that our status watcher doesn't
@@ -145,20 +148,17 @@ func (hc *healthCheckExtension) eventLoop() {
 		}
 	}
 
-	for {
-		esp, ok := <-hc.eventCh
-		if !ok {
-			break
+	for loop := true; loop; {
+		select {
+		case esp := <-hc.eventCh:
+			hc.aggregator.RecordStatus(esp.source, esp.event)
+		case <-hc.doneCh:
+			loop = false
 		}
-		hc.aggregator.RecordStatus(esp.source, esp.event)
 	}
-}
 
-func (hc *healthCheckExtension) Ready() error {
-	close(hc.readyCh)
-	return nil
-}
-
-func (hc *healthCheckExtension) NotReady() error {
-	return nil
+	for {
+		<-hc.eventCh
+		hc.telemetry.Logger.Info("healthcheck: discarding event received after shutdown")
+	}
 }

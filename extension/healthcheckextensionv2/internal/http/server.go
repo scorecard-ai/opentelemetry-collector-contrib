@@ -84,11 +84,12 @@ func (s *Server) Shutdown(ctx context.Context) error {
 	return nil
 }
 
-func (s *Server) NotifyConfig(_ context.Context, conf *confmap.Conf) {
+func (s *Server) NotifyConfig(_ context.Context, conf *confmap.Conf) error {
 	confBytes, err := json.Marshal(conf.ToStringMap())
 	if err != nil {
 		s.telemetry.Logger.Warn("could not marshal config", zap.Error(err))
-		return
+		return err
 	}
 	s.confStore.set(confBytes)
+	return nil
 }

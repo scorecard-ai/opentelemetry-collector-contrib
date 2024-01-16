@@ -22,8 +22,6 @@ import (
 	"go.opentelemetry.io/collector/component"
 	"go.opentelemetry.io/collector/component/componenttest"
 	"go.opentelemetry.io/collector/config/confighttp"
-	"go.opentelemetry.io/collector/confmap"
-	"gopkg.in/yaml.v3"
 )
 
 type componentStatusExpectation struct {
@@ -722,7 +720,8 @@ func assertStatusSimple(
 
 func TestConfig(t *testing.T) {
 	var server *Server
-	confFixture := newConfFromFile(t, filepath.Join("testdata", "config.yaml"))
+	confMap, err := testhelpers.NewConfmapFromFile(t, filepath.Join("testdata", "config.yaml"))
+	require.NoError(t, err)
 	confJSON, err := os.ReadFile(filepath.Clean(filepath.Join("testdata", "config.json")))
 	require.NoError(t, err)
 
@@ -769,7 +768,7 @@ func TestConfig(t *testing.T) {
 				},
 			},
 			setup: func() {
-				server.NotifyConfig(context.Background(), confFixture)
+				server.NotifyConfig(context.Background(), confMap)
 			},
 			expectedStatusCode: 200,
 			expectedBody:       confJSON,
@@ -821,14 +820,4 @@ func TestConfig(t *testing.T) {
 		})
 	}
 
-}
-
-func newConfFromFile(t *testing.T, fileName string) *confmap.Conf {
-	content, err := os.ReadFile(filepath.Clean(fileName))
-	require.NoErrorf(t, err, "unable to read the file %v", fileName)
-
-	var data map[string]any
-	require.NoError(t, yaml.Unmarshal(content, &data), "unable to parse yaml")
-
-	return confmap.NewFromStringMap(data)
 }
