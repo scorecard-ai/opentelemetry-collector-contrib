@@ -6,6 +6,7 @@ package healthcheckextensionv2
 import (
 	"context"
 	"testing"
+	"time"
 
 	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/events"
 	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/http"
@@ -20,6 +21,7 @@ import (
 func TestFactory_CreateDefaultConfig(t *testing.T) {
 	cfg := createDefaultConfig()
 	assert.Equal(t, &Config{
+		RecoveryDuration: time.Minute,
 		HTTPSettings: http.Settings{
 			HTTPServerSettings: confighttp.HTTPServerSettings{
 				Endpoint: defaultEndpoint,

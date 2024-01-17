@@ -24,6 +24,39 @@ type PipelineStatusDetails struct {
 	ComponentStatusMap map[*component.InstanceID]*component.StatusEvent
 }
 
+type componentIDCache struct {
+	mu             sync.RWMutex
+	componentIDMap map[string]component.ID
+}
+
+func (c *componentIDCache) lookup(name string) (component.ID, error) {
+	compID, ok := func() (component.ID, bool) {
+		c.mu.RLock()
+		defer c.mu.RUnlock()
+		id, ok := c.componentIDMap[name]
+		return id, ok
+	}()
+
+	if ok {
+		return compID, nil
+	}
+
+	err := compID.UnmarshalText([]byte(name))
+	if err == nil {
+		c.mu.Lock()
+		c.componentIDMap[name] = compID
+		c.mu.Unlock()
+	}
+
+	return compID, err
+}
+
+func newComponentIDCache() *componentIDCache {
+	return &componentIDCache{
+		componentIDMap: make(map[string]component.ID),
+	}
+}
+
 // Extensions are treated as a pseudo pipeline and extsID is used as a map key
 var extsID = component.NewID("extensions")
 var extsIDMap = map[component.ID]struct{}{extsID: {}}
@@ -38,16 +71,14 @@ var collectorID = component.NewID("__collector__")
 type Aggregator struct {
 	mu                 sync.RWMutex
 	startTimestamp     time.Time
+	componentIDCache   *componentIDCache
 	overallStatus      *component.StatusEvent
 	pipelineStatusMap  map[component.ID]*component.StatusEvent
 	componentStatusMap map[component.ID]map[*component.InstanceID]*component.StatusEvent
-	componentIDLookup  map[string]component.ID
 	subscriptions      map[component.ID][]chan *component.StatusEvent
 }
 
 func (a *Aggregator) StartTimestamp() time.Time {
-	a.mu.RLock()
-	defer a.mu.RUnlock()
 	return a.startTimestamp
 }
 
@@ -84,13 +115,13 @@ func (a *Aggregator) CollectorStatusDetailed() *CollectorStatusDetails {
 }
 
 func (a *Aggregator) PipelineStatus(name string) (*component.StatusEvent, error) {
-	a.mu.RLock()
-	defer a.mu.RUnlock()
-
-	compID, err := a.lookupID(name)
+	compID, err := a.componentIDCache.lookup(name)
 	if err != nil {
 		return nil, err
 	}
+
+	a.mu.RLock()
+	defer a.mu.RUnlock()
 
 	ev, ok := a.pipelineStatusMap[compID]
 	if !ok {
@@ -101,13 +132,13 @@ func (a *Aggregator) PipelineStatus(name string) (*component.StatusEvent, error)
 }
 
 func (a *Aggregator) PipelineStatusDetailed(name string) (*PipelineStatusDetails, error) {
-	a.mu.RLock()
-	defer a.mu.RUnlock()
-
-	compID, err := a.lookupID(name)
+	compID, err := a.componentIDCache.lookup(name)
 	if err != nil {
 		return nil, err
 	}
+
+	a.mu.RLock()
+	defer a.mu.RUnlock()
 
 	ev, ok := a.pipelineStatusMap[compID]
 	if !ok {
@@ -172,7 +203,7 @@ func (a *Aggregator) Subscribe(name string) (<-chan *component.StatusEvent, erro
 		ev = a.overallStatus
 	} else {
 		var err error
-		compID, err = a.lookupID(name)
+		compID, err = a.componentIDCache.lookup(name)
 		if err != nil {
 			return nil, err
 		}
@@ -222,19 +253,6 @@ func (a *Aggregator) notifySubscribers(compID component.ID, event *component.Sta
 	}
 }
 
-func (a *Aggregator) lookupID(name string) (component.ID, error) {
-	compID, ok := a.componentIDLookup[name]
-	if ok {
-		return compID, nil
-	}
-
-	err := compID.UnmarshalText([]byte(name))
-	if err == nil {
-		a.componentIDLookup[name] = compID
-	}
-	return compID, err
-}
-
 func NewAggregator() *Aggregator {
 	return &Aggregator{
 		mu:                 sync.RWMutex{},
@@ -242,7 +260,7 @@ func NewAggregator() *Aggregator {
 		overallStatus:      &component.StatusEvent{},
 		pipelineStatusMap:  make(map[component.ID]*component.StatusEvent),
 		componentStatusMap: make(map[component.ID]map[*component.InstanceID]*component.StatusEvent),
-		componentIDLookup:  make(map[string]component.ID),
+		componentIDCache:   newComponentIDCache(),
 		subscriptions:      make(map[component.ID][]chan *component.StatusEvent),
 	}
 }

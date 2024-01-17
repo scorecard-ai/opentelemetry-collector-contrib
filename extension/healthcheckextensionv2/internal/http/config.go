@@ -24,5 +24,5 @@ type PathSettings struct {
 
 type StatusSettings struct {
 	PathSettings `mapstructure:",squash"`
-	Detailed     bool
+	Detailed     bool `mapstructure:"detailed"`
 }

@@ -25,6 +25,7 @@ import (
 )
 
 type componentStatusExpectation struct {
+	healthy      bool
 	status       component.Status
 	err          error
 	nestedStatus map[string]*componentStatusExpectation
@@ -74,9 +75,10 @@ func TestStatus(t *testing.T) {
 							component.StatusStarting,
 						)
 					},
-					expectedStatusCode: 503,
+					expectedStatusCode: http.StatusServiceUnavailable,
 					expectedComponentStatus: &componentStatusExpectation{
-						status: component.StatusStarting,
+						healthy: true,
+						status:  component.StatusStarting,
 					},
 				},
 				{
@@ -87,9 +89,10 @@ func TestStatus(t *testing.T) {
 							component.StatusOK,
 						)
 					},
-					expectedStatusCode: 200,
+					expectedStatusCode: http.StatusOK,
 					expectedComponentStatus: &componentStatusExpectation{
-						status: component.StatusOK,
+						healthy: true,
+						status:  component.StatusOK,
 					},
 				},
 				{
@@ -102,8 +105,9 @@ func TestStatus(t *testing.T) {
 					eventually:         true,
 					expectedStatusCode: http.StatusServiceUnavailable,
 					expectedComponentStatus: &componentStatusExpectation{
-						status: component.StatusRecoverableError,
-						err:    assert.AnError,
+						healthy: false,
+						status:  component.StatusRecoverableError,
+						err:     assert.AnError,
 					},
 				},
 				{
@@ -115,7 +119,8 @@ func TestStatus(t *testing.T) {
 					},
 					expectedStatusCode: http.StatusOK,
 					expectedComponentStatus: &componentStatusExpectation{
-						status: component.StatusOK,
+						healthy: true,
+						status:  component.StatusOK,
 					},
 				},
 			},
@@ -145,21 +150,26 @@ func TestStatus(t *testing.T) {
 							component.StatusStarting,
 						)
 					},
-					expectedStatusCode: 503,
+					expectedStatusCode: http.StatusServiceUnavailable,
 					expectedComponentStatus: &componentStatusExpectation{
-						status: component.StatusStarting,
+						healthy: true,
+						status:  component.StatusStarting,
 						nestedStatus: map[string]*componentStatusExpectation{
 							"pipeline:traces": {
-								status: component.StatusStarting,
+								healthy: true,
+								status:  component.StatusStarting,
 								nestedStatus: map[string]*componentStatusExpectation{
 									"receiver:traces/in": {
-										status: component.StatusStarting,
+										healthy: true,
+										status:  component.StatusStarting,
 									},
 									"processor:batch": {
-										status: component.StatusStarting,
+										healthy: true,
+										status:  component.StatusStarting,
 									},
 									"exporter:traces/out": {
-										status: component.StatusStarting,
+										healthy: true,
+										status:  component.StatusStarting,
 									},
 								},
 							},
@@ -174,21 +184,26 @@ func TestStatus(t *testing.T) {
 							component.StatusOK,
 						)
 					},
-					expectedStatusCode: 200,
+					expectedStatusCode: http.StatusOK,
 					expectedComponentStatus: &componentStatusExpectation{
-						status: component.StatusOK,
+						healthy: true,
+						status:  component.StatusOK,
 						nestedStatus: map[string]*componentStatusExpectation{
 							"pipeline:traces": {
-								status: component.StatusOK,
+								healthy: true,
+								status:  component.StatusOK,
 								nestedStatus: map[string]*componentStatusExpectation{
 									"receiver:traces/in": {
-										status: component.StatusOK,
+										healthy: true,
+										status:  component.StatusOK,
 									},
 									"processor:batch": {
-										status: component.StatusOK,
+										healthy: true,
+										status:  component.StatusOK,
 									},
 									"exporter:traces/out": {
-										status: component.StatusOK,
+										healthy: true,
+										status:  component.StatusOK,
 									},
 								},
 							},
@@ -205,22 +220,27 @@ func TestStatus(t *testing.T) {
 					eventually:         true,
 					expectedStatusCode: http.StatusServiceUnavailable,
 					expectedComponentStatus: &componentStatusExpectation{
-						status: component.StatusRecoverableError,
-						err:    assert.AnError,
+						healthy: false,
+						status:  component.StatusRecoverableError,
+						err:     assert.AnError,
 						nestedStatus: map[string]*componentStatusExpectation{
 							"pipeline:traces": {
-								status: component.StatusRecoverableError,
-								err:    assert.AnError,
+								healthy: false,
+								status:  component.StatusRecoverableError,
+								err:     assert.AnError,
 								nestedStatus: map[string]*componentStatusExpectation{
 									"receiver:traces/in": {
-										status: component.StatusOK,
+										healthy: true,
+										status:  component.StatusOK,
 									},
 									"processor:batch": {
-										status: component.StatusOK,
+										healthy: true,
+										status:  component.StatusOK,
 									},
 									"exporter:traces/out": {
-										status: component.StatusRecoverableError,
-										err:    assert.AnError,
+										healthy: false,
+										status:  component.StatusRecoverableError,
+										err:     assert.AnError,
 									},
 								},
 							},
@@ -236,19 +256,24 @@ func TestStatus(t *testing.T) {
 					},
 					expectedStatusCode: http.StatusOK,
 					expectedComponentStatus: &componentStatusExpectation{
-						status: component.StatusOK,
+						healthy: true,
+						status:  component.StatusOK,
 						nestedStatus: map[string]*componentStatusExpectation{
 							"pipeline:traces": {
-								status: component.StatusOK,
+								healthy: true,
+								status:  component.StatusOK,
 								nestedStatus: map[string]*componentStatusExpectation{
 									"receiver:traces/in": {
-										status: component.StatusOK,
+										healthy: true,
+										status:  component.StatusOK,
 									},
 									"processor:batch": {
-										status: component.StatusOK,
+										healthy: true,
+										status:  component.StatusOK,
 									},
 									"exporter:traces/out": {
-										status: component.StatusOK,
+										healthy: true,
+										status:  component.StatusOK,
 									},
 								},
 							},
@@ -283,9 +308,10 @@ func TestStatus(t *testing.T) {
 						)
 					},
 					queryParams:        "pipeline=traces",
-					expectedStatusCode: 503,
+					expectedStatusCode: http.StatusServiceUnavailable,
 					expectedComponentStatus: &componentStatusExpectation{
-						status: component.StatusStarting,
+						healthy: true,
+						status:  component.StatusStarting,
 					},
 				},
 				{
@@ -297,9 +323,10 @@ func TestStatus(t *testing.T) {
 						)
 					},
 					queryParams:        "pipeline=traces",
-					expectedStatusCode: 200,
+					expectedStatusCode: http.StatusOK,
 					expectedComponentStatus: &componentStatusExpectation{
-						status: component.StatusOK,
+						healthy: true,
+						status:  component.StatusOK,
 					},
 				},
 				{
@@ -313,8 +340,9 @@ func TestStatus(t *testing.T) {
 					eventually:         true,
 					expectedStatusCode: http.StatusServiceUnavailable,
 					expectedComponentStatus: &componentStatusExpectation{
-						status: component.StatusRecoverableError,
-						err:    assert.AnError,
+						healthy: false,
+						status:  component.StatusRecoverableError,
+						err:     assert.AnError,
 					},
 				},
 				{
@@ -327,7 +355,8 @@ func TestStatus(t *testing.T) {
 					queryParams:        "pipeline=traces",
 					expectedStatusCode: http.StatusOK,
 					expectedComponentStatus: &componentStatusExpectation{
-						status: component.StatusOK,
+						healthy: true,
+						status:  component.StatusOK,
 					},
 				},
 			},
@@ -357,18 +386,22 @@ func TestStatus(t *testing.T) {
 						)
 					},
 					queryParams:        "pipeline=traces",
-					expectedStatusCode: 503,
+					expectedStatusCode: http.StatusServiceUnavailable,
 					expectedComponentStatus: &componentStatusExpectation{
-						status: component.StatusStarting,
+						healthy: true,
+						status:  component.StatusStarting,
 						nestedStatus: map[string]*componentStatusExpectation{
 							"receiver:traces/in": {
-								status: component.StatusStarting,
+								healthy: true,
+								status:  component.StatusStarting,
 							},
 							"processor:batch": {
-								status: component.StatusStarting,
+								healthy: true,
+								status:  component.StatusStarting,
 							},
 							"exporter:traces/out": {
-								status: component.StatusStarting,
+								healthy: true,
+								status:  component.StatusStarting,
 							},
 						},
 					},
@@ -382,18 +415,22 @@ func TestStatus(t *testing.T) {
 						)
 					},
 					queryParams:        "pipeline=traces",
-					expectedStatusCode: 200,
+					expectedStatusCode: http.StatusOK,
 					expectedComponentStatus: &componentStatusExpectation{
-						status: component.StatusOK,
+						healthy: true,
+						status:  component.StatusOK,
 						nestedStatus: map[string]*componentStatusExpectation{
 							"receiver:traces/in": {
-								status: component.StatusOK,
+								healthy: true,
+								status:  component.StatusOK,
 							},
 							"processor:batch": {
-								status: component.StatusOK,
+								healthy: true,
+								status:  component.StatusOK,
 							},
 							"exporter:traces/out": {
-								status: component.StatusOK,
+								healthy: true,
+								status:  component.StatusOK,
 							},
 						},
 					},
@@ -409,18 +446,22 @@ func TestStatus(t *testing.T) {
 					eventually:         true,
 					expectedStatusCode: http.StatusServiceUnavailable,
 					expectedComponentStatus: &componentStatusExpectation{
-						status: component.StatusRecoverableError,
-						err:    assert.AnError,
+						healthy: false,
+						status:  component.StatusRecoverableError,
+						err:     assert.AnError,
 						nestedStatus: map[string]*componentStatusExpectation{
 							"receiver:traces/in": {
-								status: component.StatusOK,
+								healthy: true,
+								status:  component.StatusOK,
 							},
 							"processor:batch": {
-								status: component.StatusOK,
+								healthy: true,
+								status:  component.StatusOK,
 							},
 							"exporter:traces/out": {
-								status: component.StatusRecoverableError,
-								err:    assert.AnError,
+								healthy: false,
+								status:  component.StatusRecoverableError,
+								err:     assert.AnError,
 							},
 						},
 					},
@@ -435,16 +476,20 @@ func TestStatus(t *testing.T) {
 					queryParams:        "pipeline=traces",
 					expectedStatusCode: http.StatusOK,
 					expectedComponentStatus: &componentStatusExpectation{
-						status: component.StatusOK,
+						healthy: true,
+						status:  component.StatusOK,
 						nestedStatus: map[string]*componentStatusExpectation{
 							"receiver:traces/in": {
-								status: component.StatusOK,
+								healthy: true,
+								status:  component.StatusOK,
 							},
 							"processor:batch": {
-								status: component.StatusOK,
+								healthy: true,
+								status:  component.StatusOK,
 							},
 							"exporter:traces/out": {
-								status: component.StatusOK,
+								healthy: true,
+								status:  component.StatusOK,
 							},
 						},
 					},
@@ -489,36 +534,45 @@ func TestStatus(t *testing.T) {
 					},
 					expectedStatusCode: http.StatusServiceUnavailable,
 					expectedComponentStatus: &componentStatusExpectation{
-						status: component.StatusPermanentError,
-						err:    assert.AnError,
+						healthy: false,
+						status:  component.StatusPermanentError,
+						err:     assert.AnError,
 						nestedStatus: map[string]*componentStatusExpectation{
 							"pipeline:traces": {
-								status: component.StatusOK,
+								healthy: true,
+								status:  component.StatusOK,
 								nestedStatus: map[string]*componentStatusExpectation{
 									"receiver:traces/in": {
-										status: component.StatusOK,
+										healthy: true,
+										status:  component.StatusOK,
 									},
 									"processor:batch": {
-										status: component.StatusOK,
+										healthy: true,
+										status:  component.StatusOK,
 									},
 									"exporter:traces/out": {
-										status: component.StatusOK,
+										healthy: true,
+										status:  component.StatusOK,
 									},
 								},
 							},
 							"pipeline:metrics": {
-								status: component.StatusPermanentError,
-								err:    assert.AnError,
+								healthy: false,
+								status:  component.StatusPermanentError,
+								err:     assert.AnError,
 								nestedStatus: map[string]*componentStatusExpectation{
 									"receiver:metrics/in": {
-										status: component.StatusOK,
+										healthy: true,
+										status:  component.StatusOK,
 									},
 									"processor:batch": {
-										status: component.StatusOK,
+										healthy: true,
+										status:  component.StatusOK,
 									},
 									"exporter:metrics/out": {
-										status: component.StatusPermanentError,
-										err:    assert.AnError,
+										healthy: false,
+										status:  component.StatusPermanentError,
+										err:     assert.AnError,
 									},
 								},
 							},
@@ -527,38 +581,46 @@ func TestStatus(t *testing.T) {
 				},
 				{
 					queryParams:        "pipeline=traces",
-					expectedStatusCode: 200,
+					expectedStatusCode: http.StatusOK,
 					expectedComponentStatus: &componentStatusExpectation{
-						status: component.StatusOK,
+						healthy: true,
+						status:  component.StatusOK,
 						nestedStatus: map[string]*componentStatusExpectation{
 							"receiver:traces/in": {
-								status: component.StatusOK,
+								healthy: true,
+								status:  component.StatusOK,
 							},
 							"processor:batch": {
-								status: component.StatusOK,
+								healthy: true,
+								status:  component.StatusOK,
 							},
 							"exporter:traces/out": {
-								status: component.StatusOK,
+								healthy: true,
+								status:  component.StatusOK,
 							},
 						},
 					},
 				},
 				{
 					queryParams:        "pipeline=metrics",
-					expectedStatusCode: 503,
+					expectedStatusCode: http.StatusServiceUnavailable,
 					expectedComponentStatus: &componentStatusExpectation{
-						status: component.StatusPermanentError,
-						err:    assert.AnError,
+						healthy: false,
+						status:  component.StatusPermanentError,
+						err:     assert.AnError,
 						nestedStatus: map[string]*componentStatusExpectation{
 							"receiver:metrics/in": {
-								status: component.StatusOK,
+								healthy: true,
+								status:  component.StatusOK,
 							},
 							"processor:batch": {
-								status: component.StatusOK,
+								healthy: true,
+								status:  component.StatusOK,
 							},
 							"exporter:metrics/out": {
-								status: component.StatusPermanentError,
-								err:    assert.AnError,
+								healthy: false,
+								status:  component.StatusPermanentError,
+								err:     assert.AnError,
 							},
 						},
 					},
@@ -591,7 +653,7 @@ func TestStatus(t *testing.T) {
 						)
 					},
 					queryParams:        "pipeline=nonexistent",
-					expectedStatusCode: 404,
+					expectedStatusCode: http.StatusNotFound,
 				},
 			},
 		},
@@ -610,7 +672,7 @@ func TestStatus(t *testing.T) {
 			},
 			teststeps: []teststep{
 				{
-					expectedStatusCode: 404,
+					expectedStatusCode: http.StatusNotFound,
 				},
 			},
 		},
@@ -680,6 +742,7 @@ func assertStatusDetailed(
 	expected *componentStatusExpectation,
 	actual *serializableStatus,
 ) {
+	assert.Equal(t, expected.healthy, actual.Healthy)
 	assert.Equal(t, expected.status, actual.Status())
 	assert.Equal(t, !component.StatusIsError(expected.status), actual.Healthy)
 	if expected.err != nil {
@@ -696,6 +759,7 @@ func assertNestedStatus(
 	for k, expectation := range expected {
 		st, ok := actual[k]
 		require.True(t, ok, "status for key: %s not found", k)
+		assert.Equal(t, expectation.healthy, st.Healthy)
 		assert.Equal(t, expectation.status, st.Status())
 		assert.Equal(t, !component.StatusIsError(expectation.status), st.Healthy)
 		if expectation.err != nil {
@@ -770,7 +834,7 @@ func TestConfig(t *testing.T) {
 			setup: func() {
 				server.NotifyConfig(context.Background(), confMap)
 			},
-			expectedStatusCode: 200,
+			expectedStatusCode: http.StatusOK,
 			expectedBody:       confJSON,
 		},
 		{
@@ -788,7 +852,7 @@ func TestConfig(t *testing.T) {
 					},
 				},
 			},
-			expectedStatusCode: 404,
+			expectedStatusCode: http.StatusNotFound,
 			expectedBody:       []byte("404 page not found\n"),
 		},
 	} {

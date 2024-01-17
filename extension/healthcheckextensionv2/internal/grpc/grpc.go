@@ -39,7 +39,7 @@ func (s *Server) Watch(req *healthpb.HealthCheckRequest, stream healthpb.Health_
 
 	var lastServingStatus healthpb.HealthCheckResponse_ServingStatus = -1
 
-	failureTicker := time.NewTicker(s.failureDuration)
+	failureTicker := time.NewTicker(s.recoveryDuration)
 	failureTicker.Stop()
 
 	for {
@@ -56,7 +56,7 @@ func (s *Server) Watch(req *healthpb.HealthCheckRequest, stream healthpb.Health_
 				sst = healthpb.HealthCheckResponse_SERVICE_UNKNOWN
 			case ev.Status() == component.StatusRecoverableError:
 				fmt.Printf("recoverable error: setting timer: %s\n", ev.Err().Error())
-				failureTicker.Reset(s.failureDuration)
+				failureTicker.Reset(s.recoveryDuration)
 				sst = lastServingStatus
 				if lastServingStatus == -1 {
 					sst = healthpb.HealthCheckResponse_SERVING
@@ -112,7 +112,7 @@ var statusToServingStatusMap = map[component.Status]healthpb.HealthCheckResponse
 
 func (s *Server) toServingStatus(ev *component.StatusEvent) healthpb.HealthCheckResponse_ServingStatus {
 	if ev.Status() == component.StatusRecoverableError &&
-		time.Now().Compare(ev.Timestamp().Add(s.failureDuration)) == 1 {
+		time.Now().Compare(ev.Timestamp().Add(s.recoveryDuration)) == 1 {
 		return healthpb.HealthCheckResponse_NOT_SERVING
 	}
 	return statusToServingStatusMap[ev.Status()]

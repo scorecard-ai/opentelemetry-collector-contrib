@@ -34,7 +34,7 @@ func NewFactory() extension.Factory {
 
 func createDefaultConfig() component.Config {
 	return &Config{
-		FailureDuration: time.Minute,
+		RecoveryDuration: time.Minute,
 		HTTPSettings: http.Settings{
 			HTTPServerSettings: confighttp.HTTPServerSettings{
 				Endpoint: defaultEndpoint,

@@ -101,14 +101,14 @@ func newExtension(config Config, set extension.CreateSettings) (*healthCheckExte
 		srvGRPC := grpc.NewServer(
 			config.GRPCSettings,
 			set.TelemetrySettings,
-			config.FailureDuration,
+			config.RecoveryDuration,
 			aggregator,
 		)
 		comps = append(comps, srvGRPC)
 	}
 
 	if config.HTTPSettings.Enabled() {
-		srvHTTP := http.NewServer(config.HTTPSettings, set.TelemetrySettings, config.FailureDuration, aggregator)
+		srvHTTP := http.NewServer(config.HTTPSettings, set.TelemetrySettings, config.RecoveryDuration, aggregator)
 		comps = append(comps, srvHTTP)
 	}
 

@@ -43,9 +43,13 @@ func (ev *SerializableEvent) Status() component.Status {
 	return component.StatusNone
 }
 
-func toSerializableEvent(ev *component.StatusEvent) *SerializableEvent {
+func toSerializableEvent(
+	ev *component.StatusEvent,
+	now time.Time,
+	recoveryDuration time.Duration,
+) *SerializableEvent {
 	se := &SerializableEvent{
-		Healthy:      !component.StatusIsError(ev.Status()),
+		Healthy:      isHealthy(ev, now, recoveryDuration),
 		StatusString: ev.Status().String(),
 		Timestamp:    ev.Timestamp(),
 	}
@@ -57,17 +61,25 @@ func toSerializableEvent(ev *component.StatusEvent) *SerializableEvent {
 
 var extsKey = "extensions"
 
-func toSimpleSerializableStatus(startTime *time.Time, ev *component.StatusEvent) *serializableStatus {
+func toSerializableStatus(
+	ev *component.StatusEvent,
+	startTime *time.Time,
+	recoveryDuration time.Duration,
+) *serializableStatus {
 	return &serializableStatus{
 		StartTimestamp:    startTime,
-		SerializableEvent: toSerializableEvent(ev),
+		SerializableEvent: toSerializableEvent(ev, time.Now(), recoveryDuration),
 	}
 }
 
-func toCollectorSerializableStatus(details *status.CollectorStatusDetails) *serializableStatus {
+func toCollectorSerializableStatus(
+	details *status.CollectorStatusDetails,
+	recoveryDuration time.Duration,
+) *serializableStatus {
+	now := time.Now()
 	s := &serializableStatus{
 		StartTimestamp:    &details.StartTimestamp,
-		SerializableEvent: toSerializableEvent(details.OverallStatus),
+		SerializableEvent: toSerializableEvent(details.OverallStatus, now, recoveryDuration),
 		ComponentStatuses: make(map[string]*serializableStatus),
 	}
 
@@ -77,14 +89,14 @@ func toCollectorSerializableStatus(details *status.CollectorStatusDetails) *seri
 			key = "pipeline:" + key
 		}
 		cs := &serializableStatus{
-			SerializableEvent: toSerializableEvent(ev),
+			SerializableEvent: toSerializableEvent(ev, now, recoveryDuration),
 			ComponentStatuses: make(map[string]*serializableStatus),
 		}
 		s.ComponentStatuses[key] = cs
 		for instance, ev := range details.ComponentStatusMap[compID] {
 			key := fmt.Sprintf("%s:%s", kindToString(instance.Kind), instance.ID)
 			cs.ComponentStatuses[key] = &serializableStatus{
-				SerializableEvent: toSerializableEvent(ev),
+				SerializableEvent: toSerializableEvent(ev, now, recoveryDuration),
 			}
 		}
 	}
@@ -92,21 +104,34 @@ func toCollectorSerializableStatus(details *status.CollectorStatusDetails) *seri
 	return s
 }
 
-func toPipelineSerializableStatus(details *status.PipelineStatusDetails) *serializableStatus {
+func toPipelineSerializableStatus(
+	details *status.PipelineStatusDetails,
+	recoveryDuration time.Duration,
+) *serializableStatus {
+	now := time.Now()
 	s := &serializableStatus{
 		StartTimestamp:    &details.StartTimestamp,
-		SerializableEvent: toSerializableEvent(details.OverallStatus),
+		SerializableEvent: toSerializableEvent(details.OverallStatus, now, recoveryDuration),
 		ComponentStatuses: make(map[string]*serializableStatus),
 	}
 
 	for instance, ev := range details.ComponentStatusMap {
 		key := fmt.Sprintf("%s:%s", kindToString(instance.Kind), instance.ID)
 		s.ComponentStatuses[key] = &serializableStatus{
-			SerializableEvent: toSerializableEvent(ev),
+			SerializableEvent: toSerializableEvent(ev, now, recoveryDuration),
 		}
 	}
 
 	return s
+}
+
+func isHealthy(ev *component.StatusEvent, now time.Time, recoveryDuration time.Duration) bool {
+	if ev.Status() == component.StatusRecoverableError &&
+		now.Compare(ev.Timestamp().Add(recoveryDuration)) == -1 {
+		return true
+	}
+
+	return !component.StatusIsError(ev.Status())
 }
 
 // TODO: implemnent Stringer on Kind in core

@@ -16,12 +16,12 @@ import (
 
 type Server struct {
 	healthpb.UnimplementedHealthServer
-	serverGRPC      *grpc.Server
-	aggregator      *status.Aggregator
-	settings        Settings
-	telemetry       component.TelemetrySettings
-	failureDuration time.Duration
-	doneCh          chan struct{}
+	serverGRPC       *grpc.Server
+	aggregator       *status.Aggregator
+	settings         Settings
+	telemetry        component.TelemetrySettings
+	recoveryDuration time.Duration
+	doneCh           chan struct{}
 }
 
 func NewServer(
@@ -31,11 +31,11 @@ func NewServer(
 	aggregator *status.Aggregator,
 ) *Server {
 	return &Server{
-		settings:        settings,
-		telemetry:       telemetry,
-		aggregator:      aggregator,
-		failureDuration: failureDuration,
-		doneCh:          make(chan struct{}),
+		settings:         settings,
+		telemetry:        telemetry,
+		aggregator:       aggregator,
+		recoveryDuration: failureDuration,
+		doneCh:           make(chan struct{}),
 	}
 }
 

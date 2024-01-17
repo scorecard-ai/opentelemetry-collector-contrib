@@ -9,6 +9,7 @@ import (
 	"errors"
 	"fmt"
 	"net/http"
+	"sync/atomic"
 	"time"
 
 	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/status"
@@ -18,31 +19,30 @@ import (
 )
 
 type Server struct {
-	telemetry       component.TelemetrySettings
-	settings        Settings
-	failureDuration time.Duration
-	mux             *http.ServeMux
-	serverHTTP      *http.Server
-	confStore       *confStore
-	aggregator      *status.Aggregator
-	startTimestamp  time.Time
-	done            chan struct{}
+	telemetry        component.TelemetrySettings
+	settings         Settings
+	recoveryDuration time.Duration
+	mux              *http.ServeMux
+	serverHTTP       *http.Server
+	colconf          atomic.Value
+	aggregator       *status.Aggregator
+	startTimestamp   time.Time
+	done             chan struct{}
 }
 
 func NewServer(
 	settings Settings,
 	telemetry component.TelemetrySettings,
-	failureDuration time.Duration,
+	recoveryDuration time.Duration,
 	aggregator *status.Aggregator,
 ) *Server {
 	srv := &Server{
-		telemetry:       telemetry,
-		settings:        settings,
-		confStore:       &confStore{},
-		aggregator:      aggregator,
-		startTimestamp:  aggregator.StartTimestamp(),
-		failureDuration: failureDuration,
-		done:            make(chan struct{}),
+		telemetry:        telemetry,
+		settings:         settings,
+		aggregator:       aggregator,
+		startTimestamp:   aggregator.StartTimestamp(),
+		recoveryDuration: recoveryDuration,
+		done:             make(chan struct{}),
 	}
 
 	srv.mux = http.NewServeMux()
@@ -90,6 +90,6 @@ func (s *Server) NotifyConfig(_ context.Context, conf *confmap.Conf) error {
 		s.telemetry.Logger.Warn("could not marshal config", zap.Error(err))
 		return err
 	}
-	s.confStore.set(confBytes)
+	s.colconf.Store(confBytes)
 	return nil
 }

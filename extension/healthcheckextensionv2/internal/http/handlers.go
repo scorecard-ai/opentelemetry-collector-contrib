@@ -6,7 +6,6 @@ package http
 import (
 	"encoding/json"
 	"net/http"
-	"time"
 
 	"go.opentelemetry.io/collector/component"
 )
@@ -37,26 +36,30 @@ func (s *Server) statusHandler() http.Handler {
 
 func (s *Server) configHandler() http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, _ *http.Request) {
-		confBytes := s.confStore.asBytes()
+		conf := s.colconf.Load()
 
-		if len(confBytes) == 0 {
+		if conf == nil {
 			w.WriteHeader(http.StatusServiceUnavailable)
 			return
 		}
 
 		w.Header().Set("Content-Type", "application/json")
 		w.WriteHeader(http.StatusOK)
-		_, _ = w.Write(confBytes)
+		_, _ = w.Write(conf.([]byte))
 	})
 }
 
 func (s *Server) collectorSerializableStatus() *serializableStatus {
 	if s.settings.Status.Detailed {
 		details := s.aggregator.CollectorStatusDetailed()
-		return toCollectorSerializableStatus(details)
+		return toCollectorSerializableStatus(details, s.recoveryDuration)
 	}
 
-	return toSimpleSerializableStatus(&s.startTimestamp, s.aggregator.CollectorStatus())
+	return toSerializableStatus(
+		s.aggregator.CollectorStatus(),
+		&s.startTimestamp,
+		s.recoveryDuration,
+	)
 }
 
 func (s *Server) pipelineSerializableStatus(pipeline string) (*serializableStatus, error) {
@@ -65,7 +68,7 @@ func (s *Server) pipelineSerializableStatus(pipeline string) (*serializableStatu
 		if err != nil {
 			return nil, err
 		}
-		return toPipelineSerializableStatus(details), nil
+		return toPipelineSerializableStatus(details, s.recoveryDuration), nil
 	}
 
 	ev, err := s.aggregator.PipelineStatus(pipeline)
@@ -73,7 +76,7 @@ func (s *Server) pipelineSerializableStatus(pipeline string) (*serializableStatu
 		return nil, err
 	}
 
-	return toSimpleSerializableStatus(&s.startTimestamp, ev), nil
+	return toSerializableStatus(ev, &s.startTimestamp, s.recoveryDuration), nil
 }
 
 var responseCodes = map[component.Status]int{
@@ -88,8 +91,7 @@ var responseCodes = map[component.Status]int{
 }
 
 func (s *Server) toHTTPStatus(sst *serializableStatus) int {
-	if sst.Status() == component.StatusRecoverableError &&
-		time.Now().Compare(sst.Timestamp.Add(s.failureDuration)) == 1 {
+	if sst.Status() == component.StatusRecoverableError && !sst.Healthy {
 		return http.StatusServiceUnavailable
 	}
 	return responseCodes[sst.Status()]
