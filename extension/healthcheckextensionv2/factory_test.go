@@ -21,7 +21,7 @@ func TestFactory_CreateDefaultConfig(t *testing.T) {
 	cfg := createDefaultConfig()
 	assert.Equal(t, &Config{
 		RecoveryDuration: time.Minute,
-		HTTPSettings: http.Settings{
+		HTTPSettings: &http.Settings{
 			HTTPServerSettings: confighttp.HTTPServerSettings{
 				Endpoint: defaultEndpoint,
 			},
@@ -32,9 +32,7 @@ func TestFactory_CreateDefaultConfig(t *testing.T) {
 					Path:    "/",
 				},
 			},
-			Config: http.PathSettings{
-				Enabled: false,
-			},
+			Config: http.PathSettings{},
 		},
 	}, cfg)
 

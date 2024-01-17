@@ -34,7 +34,7 @@ func NewFactory() extension.Factory {
 func createDefaultConfig() component.Config {
 	return &Config{
 		RecoveryDuration: time.Minute,
-		HTTPSettings: http.Settings{
+		HTTPSettings: &http.Settings{
 			HTTPServerSettings: confighttp.HTTPServerSettings{
 				Endpoint: defaultEndpoint,
 			},
@@ -44,9 +44,6 @@ func createDefaultConfig() component.Config {
 					Enabled: true,
 					Path:    "/",
 				},
-			},
-			Config: http.PathSettings{
-				Enabled: false,
 			},
 		},
 	}

@@ -20,7 +20,7 @@ import (
 
 type Server struct {
 	telemetry        component.TelemetrySettings
-	settings         Settings
+	settings         *Settings
 	recoveryDuration time.Duration
 	mux              *http.ServeMux
 	serverHTTP       *http.Server
@@ -31,7 +31,7 @@ type Server struct {
 }
 
 func NewServer(
-	settings Settings,
+	settings *Settings,
 	telemetry component.TelemetrySettings,
 	recoveryDuration time.Duration,
 	aggregator *status.Aggregator,

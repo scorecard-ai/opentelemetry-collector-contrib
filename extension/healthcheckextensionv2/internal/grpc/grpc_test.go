@@ -23,14 +23,13 @@ import (
 
 func TestCheck(t *testing.T) {
 	addr := testutil.GetAvailableLocalAddress(t)
-	settings := Settings{
+	settings := &Settings{
 		GRPCServerSettings: configgrpc.GRPCServerSettings{
 			NetAddr: confignet.NetAddr{
 				Endpoint:  addr,
 				Transport: "tcp",
 			},
 		},
-		Enabled: true,
 	}
 	server := NewServer(
 		settings,
@@ -241,14 +240,13 @@ func TestCheck(t *testing.T) {
 func TestWatch(t *testing.T) {
 	var err error
 	addr := testutil.GetAvailableLocalAddress(t)
-	settings := Settings{
+	settings := &Settings{
 		GRPCServerSettings: configgrpc.GRPCServerSettings{
 			NetAddr: confignet.NetAddr{
 				Endpoint:  addr,
 				Transport: "tcp",
 			},
 		},
-		Enabled: true,
 	}
 	server := NewServer(
 		settings,

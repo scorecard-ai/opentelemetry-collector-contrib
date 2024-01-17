@@ -18,14 +18,14 @@ type Server struct {
 	healthpb.UnimplementedHealthServer
 	serverGRPC       *grpc.Server
 	aggregator       *status.Aggregator
-	settings         Settings
+	settings         *Settings
 	telemetry        component.TelemetrySettings
 	recoveryDuration time.Duration
 	doneCh           chan struct{}
 }
 
 func NewServer(
-	settings Settings,
+	settings *Settings,
 	telemetry component.TelemetrySettings,
 	failureDuration time.Duration,
 	aggregator *status.Aggregator,
@@ -52,8 +52,9 @@ func (s *Server) Start(ctx context.Context, host component.Host) error {
 	}
 
 	healthpb.RegisterHealthServer(s.serverGRPC, s)
-	// TODO: remove this
-	reflection.Register(s.serverGRPC)
+	if s.settings.Debug {
+		reflection.Register(s.serverGRPC)
+	}
 
 	ln, err := s.settings.ToListener()
 

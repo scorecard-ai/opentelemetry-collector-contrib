@@ -22,6 +22,7 @@ import (
 	"go.opentelemetry.io/collector/component"
 	"go.opentelemetry.io/collector/component/componenttest"
 	"go.opentelemetry.io/collector/config/confighttp"
+	"go.opentelemetry.io/collector/confmap/confmaptest"
 )
 
 type componentStatusExpectation struct {
@@ -47,13 +48,13 @@ func TestStatus(t *testing.T) {
 
 	tests := []struct {
 		name      string
-		settings  Settings
+		settings  *Settings
 		pipelines map[string]*testhelpers.PipelineMetadata
 		teststeps []teststep
 	}{
 		{
 			name: "Collector Status",
-			settings: Settings{
+			settings: &Settings{
 				HTTPServerSettings: confighttp.HTTPServerSettings{
 					Endpoint: testutil.GetAvailableLocalAddress(t),
 				},
@@ -127,7 +128,7 @@ func TestStatus(t *testing.T) {
 		},
 		{
 			name: "Collector Status - Detailed",
-			settings: Settings{
+			settings: &Settings{
 				HTTPServerSettings: confighttp.HTTPServerSettings{
 					Endpoint: testutil.GetAvailableLocalAddress(t),
 				},
@@ -284,7 +285,7 @@ func TestStatus(t *testing.T) {
 		},
 		{
 			name: "Pipeline Status",
-			settings: Settings{
+			settings: &Settings{
 				HTTPServerSettings: confighttp.HTTPServerSettings{
 					Endpoint: testutil.GetAvailableLocalAddress(t),
 				},
@@ -363,7 +364,7 @@ func TestStatus(t *testing.T) {
 		},
 		{
 			name: "Pipeline Status - Detailed",
-			settings: Settings{
+			settings: &Settings{
 				HTTPServerSettings: confighttp.HTTPServerSettings{
 					Endpoint: testutil.GetAvailableLocalAddress(t),
 				},
@@ -498,7 +499,7 @@ func TestStatus(t *testing.T) {
 		},
 		{
 			name: "Multiple Pipelines",
-			settings: Settings{
+			settings: &Settings{
 				HTTPServerSettings: confighttp.HTTPServerSettings{
 					Endpoint: testutil.GetAvailableLocalAddress(t),
 				},
@@ -629,7 +630,7 @@ func TestStatus(t *testing.T) {
 		},
 		{
 			name: "Pipeline Non-existent",
-			settings: Settings{
+			settings: &Settings{
 				HTTPServerSettings: confighttp.HTTPServerSettings{
 					Endpoint: testutil.GetAvailableLocalAddress(t),
 				},
@@ -659,7 +660,7 @@ func TestStatus(t *testing.T) {
 		},
 		{
 			name: "Status Disabled",
-			settings: Settings{
+			settings: &Settings{
 				HTTPServerSettings: confighttp.HTTPServerSettings{
 					Endpoint: testutil.GetAvailableLocalAddress(t),
 				},
@@ -784,21 +785,21 @@ func assertStatusSimple(
 
 func TestConfig(t *testing.T) {
 	var server *Server
-	confMap, err := testhelpers.NewConfmapFromFile(t, filepath.Join("testdata", "config.yaml"))
+	confMap, err := confmaptest.LoadConf(filepath.Join("testdata", "config.yaml"))
 	require.NoError(t, err)
 	confJSON, err := os.ReadFile(filepath.Clean(filepath.Join("testdata", "config.json")))
 	require.NoError(t, err)
 
 	for _, tc := range []struct {
 		name               string
-		settings           Settings
+		settings           *Settings
 		setup              func()
 		expectedStatusCode int
 		expectedBody       []byte
 	}{
 		{
 			name: "config not notified",
-			settings: Settings{
+			settings: &Settings{
 				HTTPServerSettings: confighttp.HTTPServerSettings{
 					Endpoint: testutil.GetAvailableLocalAddress(t),
 				},
@@ -817,7 +818,7 @@ func TestConfig(t *testing.T) {
 		},
 		{
 			name: "config notified",
-			settings: Settings{
+			settings: &Settings{
 				HTTPServerSettings: confighttp.HTTPServerSettings{
 					Endpoint: testutil.GetAvailableLocalAddress(t),
 				},
@@ -839,7 +840,7 @@ func TestConfig(t *testing.T) {
 		},
 		{
 			name: "config disabled",
-			settings: Settings{
+			settings: &Settings{
 				HTTPServerSettings: confighttp.HTTPServerSettings{
 					Endpoint: testutil.GetAvailableLocalAddress(t),
 				},

@@ -4,14 +4,8 @@
 package testhelpers
 
 import (
-	"os"
-	"path/filepath"
-	"testing"
-
 	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/status"
 	"go.opentelemetry.io/collector/component"
-	"go.opentelemetry.io/collector/confmap"
-	"gopkg.in/yaml.v3"
 )
 
 type PipelineMetadata struct {
@@ -72,18 +66,4 @@ func SeedAggregator(
 			agg.RecordStatus(id, component.NewStatusEvent(st))
 		}
 	}
-}
-
-func NewConfmapFromFile(t *testing.T, fileName string) (*confmap.Conf, error) {
-	content, err := os.ReadFile(filepath.Clean(fileName))
-	if err != nil {
-		return nil, err
-	}
-
-	var data map[string]any
-	if err = yaml.Unmarshal(content, &data); err != nil {
-		return nil, err
-	}
-
-	return confmap.NewFromStringMap(data), nil
 }

@@ -87,7 +87,7 @@ func newExtension(config Config, set extension.CreateSettings) (*healthCheckExte
 	var comps []component.Component
 	aggregator := status.NewAggregator()
 
-	if config.GRPCSettings.Enabled {
+	if config.GRPCSettings != nil {
 		srvGRPC := grpc.NewServer(
 			config.GRPCSettings,
 			set.TelemetrySettings,
@@ -97,7 +97,7 @@ func newExtension(config Config, set extension.CreateSettings) (*healthCheckExte
 		comps = append(comps, srvGRPC)
 	}
 
-	if config.HTTPSettings.Enabled() {
+	if config.HTTPSettings != nil {
 		srvHTTP := http.NewServer(config.HTTPSettings, set.TelemetrySettings, config.RecoveryDuration, aggregator)
 		comps = append(comps, srvHTTP)
 	}

@@ -19,6 +19,7 @@ import (
 	"github.com/stretchr/testify/require"
 	"go.opentelemetry.io/collector/component"
 	"go.opentelemetry.io/collector/component/componenttest"
+	"go.opentelemetry.io/collector/confmap/confmaptest"
 	"go.opentelemetry.io/collector/extension/extensiontest"
 )
 
@@ -78,7 +79,7 @@ func TestComponentStatus(t *testing.T) {
 }
 
 func TestNotifyConfig(t *testing.T) {
-	confMap, err := testhelpers.NewConfmapFromFile(t, filepath.Join("internal", "http", "testdata", "config.yaml"))
+	confMap, err := confmaptest.LoadConf(filepath.Join("internal", "http", "testdata", "config.yaml"))
 	require.NoError(t, err)
 	confJSON, err := os.ReadFile(filepath.Clean(filepath.Join("internal", "http", "testdata", "config.json")))
 	require.NoError(t, err)
