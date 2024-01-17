@@ -8,7 +8,6 @@ import (
 	"testing"
 	"time"
 
-	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/events"
 	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/http"
 	"github.com/open-telemetry/opentelemetry-collector-contrib/internal/common/testutil"
 	"github.com/stretchr/testify/assert"
@@ -36,9 +35,6 @@ func TestFactory_CreateDefaultConfig(t *testing.T) {
 			Config: http.PathSettings{
 				Enabled: false,
 			},
-		},
-		EventsSettings: events.Settings{
-			Enabled: false,
 		},
 	}, cfg)
 

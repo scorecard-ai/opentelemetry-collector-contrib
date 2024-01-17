@@ -7,7 +7,6 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/events"
 	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/grpc"
 	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/http"
 	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/status"
@@ -86,15 +85,6 @@ func (hc *healthCheckExtension) NotReady() error {
 
 func newExtension(config Config, set extension.CreateSettings) (*healthCheckExtension, error) {
 	var comps []component.Component
-
-	if config.EventsSettings.Enabled {
-		exp, err := events.NewExporter(&config.EventsSettings.ExporterSettings, set)
-		if err != nil {
-			return nil, err
-		}
-		comps = append(comps, exp)
-	}
-
 	aggregator := status.NewAggregator()
 
 	if config.GRPCSettings.Enabled {

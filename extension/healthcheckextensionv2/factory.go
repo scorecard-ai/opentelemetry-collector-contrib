@@ -11,7 +11,6 @@ import (
 	"go.opentelemetry.io/collector/config/confighttp"
 	"go.opentelemetry.io/collector/extension"
 
-	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/events"
 	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/http"
 	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/metadata"
 )
@@ -49,9 +48,6 @@ func createDefaultConfig() component.Config {
 			Config: http.PathSettings{
 				Enabled: false,
 			},
-		},
-		EventsSettings: events.Settings{
-			Enabled: false,
 		},
 	}
 }
