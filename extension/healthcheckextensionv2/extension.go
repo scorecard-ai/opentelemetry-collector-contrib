@@ -5,7 +5,6 @@ package healthcheckextensionv2 // import "github.com/open-telemetry/opentelemetr
 
 import (
 	"context"
-	"fmt"
 
 	"go.opentelemetry.io/collector/component"
 	"go.opentelemetry.io/collector/confmap"
@@ -61,7 +60,6 @@ func (hc *healthCheckExtension) Shutdown(ctx context.Context) error {
 }
 
 func (hc *healthCheckExtension) ComponentStatusChanged(source *component.InstanceID, event *component.StatusEvent) {
-	fmt.Printf("component status changed: %v %s\n", source, event.Status())
 	hc.eventCh <- &eventSourcePair{source: source, event: event}
 }
 

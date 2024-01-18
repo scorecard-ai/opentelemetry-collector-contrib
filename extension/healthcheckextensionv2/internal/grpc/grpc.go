@@ -5,7 +5,6 @@ package grpc
 
 import (
 	"context"
-	"fmt"
 	"time"
 
 	"go.opentelemetry.io/collector/component"
@@ -58,7 +57,6 @@ func (s *Server) Watch(req *healthpb.HealthCheckRequest, stream healthpb.Health_
 			case ev == nil:
 				sst = healthpb.HealthCheckResponse_SERVICE_UNKNOWN
 			case ev.Status() == component.StatusRecoverableError:
-				fmt.Printf("recoverable error: setting timer: %s\n", ev.Err().Error())
 				failureTicker.Reset(s.recoveryDuration)
 				sst = lastServingStatus
 				if lastServingStatus == -1 {
@@ -67,11 +65,9 @@ func (s *Server) Watch(req *healthpb.HealthCheckRequest, stream healthpb.Health_
 			default:
 				failureTicker.Stop()
 				sst = statusToServingStatusMap[ev.Status()]
-				fmt.Printf("setting sst: %s, evs: %s\n", sst, ev.Status().String())
 			}
 
 			if lastServingStatus == sst {
-				fmt.Printf("skipping status same: %s\n", sst)
 				continue
 			}
 
@@ -82,7 +78,6 @@ func (s *Server) Watch(req *healthpb.HealthCheckRequest, stream healthpb.Health_
 				return status.Error(codes.Canceled, "Stream has ended.")
 			}
 		case <-failureTicker.C:
-			fmt.Println("failure ticker triggered")
 			failureTicker.Stop()
 			if lastServingStatus == healthpb.HealthCheckResponse_NOT_SERVING {
 				continue
