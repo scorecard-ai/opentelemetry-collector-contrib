@@ -105,7 +105,7 @@ func TestStatus(t *testing.T) {
 						)
 					},
 					eventually:         true,
-					expectedStatusCode: http.StatusServiceUnavailable,
+					expectedStatusCode: http.StatusInternalServerError,
 					expectedComponentStatus: &componentStatusExpectation{
 						healthy: false,
 						status:  component.StatusRecoverableError,
@@ -220,7 +220,7 @@ func TestStatus(t *testing.T) {
 						)
 					},
 					eventually:         true,
-					expectedStatusCode: http.StatusServiceUnavailable,
+					expectedStatusCode: http.StatusInternalServerError,
 					expectedComponentStatus: &componentStatusExpectation{
 						healthy: false,
 						status:  component.StatusRecoverableError,
@@ -340,7 +340,7 @@ func TestStatus(t *testing.T) {
 					},
 					queryParams:        "pipeline=traces",
 					eventually:         true,
-					expectedStatusCode: http.StatusServiceUnavailable,
+					expectedStatusCode: http.StatusInternalServerError,
 					expectedComponentStatus: &componentStatusExpectation{
 						healthy: false,
 						status:  component.StatusRecoverableError,
@@ -446,7 +446,7 @@ func TestStatus(t *testing.T) {
 					},
 					queryParams:        "pipeline=traces",
 					eventually:         true,
-					expectedStatusCode: http.StatusServiceUnavailable,
+					expectedStatusCode: http.StatusInternalServerError,
 					expectedComponentStatus: &componentStatusExpectation{
 						healthy: false,
 						status:  component.StatusRecoverableError,
@@ -534,7 +534,7 @@ func TestStatus(t *testing.T) {
 							component.NewPermanentErrorEvent(assert.AnError),
 						)
 					},
-					expectedStatusCode: http.StatusServiceUnavailable,
+					expectedStatusCode: http.StatusInternalServerError,
 					expectedComponentStatus: &componentStatusExpectation{
 						healthy: false,
 						status:  component.StatusPermanentError,
@@ -605,7 +605,7 @@ func TestStatus(t *testing.T) {
 				},
 				{
 					queryParams:        "pipeline=metrics",
-					expectedStatusCode: http.StatusServiceUnavailable,
+					expectedStatusCode: http.StatusInternalServerError,
 					expectedComponentStatus: &componentStatusExpectation{
 						healthy: false,
 						status:  component.StatusPermanentError,

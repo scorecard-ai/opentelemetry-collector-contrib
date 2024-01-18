@@ -48,12 +48,6 @@ func (c *componentIDCache) lookup(name string) (component.ID, error) {
 	return compID, err
 }
 
-func newComponentIDCache() *componentIDCache {
-	return &componentIDCache{
-		componentIDMap: make(map[string]component.ID),
-	}
-}
-
 // Extensions are treated as a pseudo pipeline and extsID is used as a map key
 var extsID = component.NewID("extensions")
 var extsIDMap = map[component.ID]struct{}{extsID: {}}
@@ -249,7 +243,9 @@ func NewAggregator() *Aggregator {
 		overallStatus:      &component.StatusEvent{},
 		pipelineStatusMap:  make(map[component.ID]*component.StatusEvent),
 		componentStatusMap: make(map[component.ID]map[*component.InstanceID]*component.StatusEvent),
-		componentIDCache:   newComponentIDCache(),
-		subscriptions:      make(map[component.ID][]chan *component.StatusEvent),
+		componentIDCache: &componentIDCache{
+			componentIDMap: make(map[string]component.ID),
+		},
+		subscriptions: make(map[component.ID][]chan *component.StatusEvent),
 	}
 }

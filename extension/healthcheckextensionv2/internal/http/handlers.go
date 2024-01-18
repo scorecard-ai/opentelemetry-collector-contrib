@@ -84,7 +84,7 @@ var responseCodes = map[component.Status]int{
 	component.StatusStarting:         http.StatusServiceUnavailable,
 	component.StatusOK:               http.StatusOK,
 	component.StatusRecoverableError: http.StatusOK,
-	component.StatusPermanentError:   http.StatusServiceUnavailable,
+	component.StatusPermanentError:   http.StatusInternalServerError,
 	component.StatusFatalError:       http.StatusInternalServerError,
 	component.StatusStopping:         http.StatusServiceUnavailable,
 	component.StatusStopped:          http.StatusServiceUnavailable,
@@ -92,7 +92,7 @@ var responseCodes = map[component.Status]int{
 
 func (s *Server) toHTTPStatus(sst *serializableStatus) int {
 	if sst.Status() == component.StatusRecoverableError && !sst.Healthy {
-		return http.StatusServiceUnavailable
+		return http.StatusInternalServerError
 	}
 	return responseCodes[sst.Status()]
 }
