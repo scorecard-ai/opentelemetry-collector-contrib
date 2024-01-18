@@ -51,5 +51,5 @@ func createDefaultConfig() component.Config {
 
 func createExtension(_ context.Context, set extension.CreateSettings, cfg component.Config) (extension.Extension, error) {
 	config := cfg.(*Config)
-	return newExtension(*config, set)
+	return newExtension(*config, set), nil
 }

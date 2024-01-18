@@ -1,13 +1,17 @@
+// Copyright The OpenTelemetry Authors
+// SPDX-License-Identifier: Apache-2.0
+
 package status_test
 
 import (
 	"testing"
 
-	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/status"
-	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/testhelpers"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"go.opentelemetry.io/collector/component"
+
+	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/status"
+	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/testhelpers"
 )
 
 func TestCollectorStatus(t *testing.T) {
@@ -29,9 +33,22 @@ func TestCollectorStatus(t *testing.T) {
 		component.NewRecoverableErrorEvent(assert.AnError),
 	)
 
-	t.Run("pipeline with exporter error", func(t *testing.T) {
+	t.Run("pipeline with recoverable error", func(t *testing.T) {
 		assertErrorEventsMatch(t,
 			component.StatusRecoverableError,
+			assert.AnError,
+			agg.CollectorStatus(),
+		)
+	})
+
+	agg.RecordStatus(
+		traces.ExporterID,
+		component.NewPermanentErrorEvent(assert.AnError),
+	)
+
+	t.Run("pipeline with permanent error", func(t *testing.T) {
+		assertErrorEventsMatch(t,
+			component.StatusPermanentError,
 			assert.AnError,
 			agg.CollectorStatus(),
 		)
@@ -49,7 +66,7 @@ func TestCollectorStatusDetailed(t *testing.T) {
 		assert.Empty(t, dst.ComponentStatusMap)
 	})
 
-	// Seed aggregator with succesful statuses for pipeline.
+	// Seed aggregator with successful statuses for pipeline.
 	testhelpers.SeedAggregator(agg, traces.InstanceIDs(), component.StatusOK)
 
 	t.Run("pipeline statuses all successful", func(t *testing.T) {

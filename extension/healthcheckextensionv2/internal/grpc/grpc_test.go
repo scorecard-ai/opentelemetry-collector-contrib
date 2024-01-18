@@ -1,3 +1,6 @@
+// Copyright The OpenTelemetry Authors
+// SPDX-License-Identifier: Apache-2.0
+
 package grpc
 
 import (
@@ -5,9 +8,6 @@ import (
 	"testing"
 	"time"
 
-	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/status"
-	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/testhelpers"
-	"github.com/open-telemetry/opentelemetry-collector-contrib/internal/common/testutil"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"go.opentelemetry.io/collector/component"
@@ -19,6 +19,10 @@ import (
 	"google.golang.org/grpc/credentials/insecure"
 	healthpb "google.golang.org/grpc/health/grpc_health_v1"
 	grpcstatus "google.golang.org/grpc/status"
+
+	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/status"
+	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/testhelpers"
+	"github.com/open-telemetry/opentelemetry-collector-contrib/internal/common/testutil"
 )
 
 func TestCheck(t *testing.T) {
@@ -415,8 +419,9 @@ func TestWatch(t *testing.T) {
 			watchers[ts.service] = watcher
 		}
 
+		var resp *healthpb.HealthCheckResponse
 		// Note Recv blocks until there is a new item in the stream
-		resp, err := watcher.Recv()
+		resp, err = watcher.Recv()
 		require.NoError(t, err)
 		assert.Equal(t, ts.expectedStatus, resp.Status)
 	}

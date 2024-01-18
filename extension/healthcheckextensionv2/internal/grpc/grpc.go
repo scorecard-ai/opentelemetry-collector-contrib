@@ -1,3 +1,6 @@
+// Copyright The OpenTelemetry Authors
+// SPDX-License-Identifier: Apache-2.0
+
 package grpc
 
 import (
@@ -11,7 +14,7 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-func (s *Server) Check(ctx context.Context, req *healthpb.HealthCheckRequest) (*healthpb.HealthCheckResponse, error) {
+func (s *Server) Check(_ context.Context, req *healthpb.HealthCheckRequest) (*healthpb.HealthCheckResponse, error) {
 	var err error
 	var ev *component.StatusEvent
 

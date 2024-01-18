@@ -13,22 +13,22 @@ import (
 	"testing"
 	"time"
 
-	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/testhelpers"
-	"github.com/open-telemetry/opentelemetry-collector-contrib/internal/common/testutil"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"go.opentelemetry.io/collector/component"
 	"go.opentelemetry.io/collector/component/componenttest"
 	"go.opentelemetry.io/collector/confmap/confmaptest"
 	"go.opentelemetry.io/collector/extension/extensiontest"
+
+	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/testhelpers"
+	"github.com/open-telemetry/opentelemetry-collector-contrib/internal/common/testutil"
 )
 
 func TestComponentStatus(t *testing.T) {
 	cfg := createDefaultConfig().(*Config)
 	cfg.HTTPSettings.Endpoint = testutil.GetAvailableLocalAddress(t)
 
-	ext, err := newExtension(*cfg, extensiontest.NewNopCreateSettings())
-	require.NoError(t, err)
+	ext := newExtension(*cfg, extensiontest.NewNopCreateSettings())
 
 	// Status before Start will be StatusNone
 	assert.Equal(t, ext.aggregator.CollectorStatus().Status(), component.StatusNone)
@@ -53,7 +53,7 @@ func TestComponentStatus(t *testing.T) {
 		return ext.aggregator.CollectorStatus().Status() == component.StatusStarting
 	}, time.Second, 10*time.Millisecond)
 
-	ext.Ready()
+	require.NoError(t, ext.Ready())
 
 	assert.Eventually(t, func() bool {
 		return ext.aggregator.CollectorStatus().Status() == component.StatusOK
@@ -68,6 +68,7 @@ func TestComponentStatus(t *testing.T) {
 		return ext.aggregator.CollectorStatus().Status() == component.StatusStopping
 	}, time.Second, 10*time.Millisecond)
 
+	require.NoError(t, ext.NotReady())
 	require.NoError(t, ext.Shutdown(context.Background()))
 
 	// Events sent after shutdown will be discarded
@@ -91,8 +92,7 @@ func TestNotifyConfig(t *testing.T) {
 	cfg.HTTPSettings.Config.Enabled = true
 	cfg.HTTPSettings.Config.Path = "/config"
 
-	ext, err := newExtension(*cfg, extensiontest.NewNopCreateSettings())
-	require.NoError(t, err)
+	ext := newExtension(*cfg, extensiontest.NewNopCreateSettings())
 
 	require.NoError(t, ext.Start(context.Background(), componenttest.NewNopHost()))
 	t.Cleanup(func() { require.NoError(t, ext.Shutdown(context.Background())) })

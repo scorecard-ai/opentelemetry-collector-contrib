@@ -61,7 +61,7 @@ func newComponentIDCache() *componentIDCache {
 var extsID = component.NewID("extensions")
 var extsIDMap = map[component.ID]struct{}{extsID: {}}
 
-// The emtpy string is an alias for the overall collector health when subscribing to
+// The empty string is an alias for the overall collector health when subscribing to
 // status events.
 const emptyStream = ""
 

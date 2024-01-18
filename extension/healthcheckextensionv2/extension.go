@@ -7,14 +7,15 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/grpc"
-	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/http"
-	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/status"
 	"go.opentelemetry.io/collector/component"
 	"go.opentelemetry.io/collector/confmap"
 	"go.opentelemetry.io/collector/extension"
 	"go.uber.org/multierr"
 	"go.uber.org/zap"
+
+	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/grpc"
+	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/http"
+	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/status"
 )
 
 type healthCheckExtension struct {
@@ -83,7 +84,7 @@ func (hc *healthCheckExtension) NotReady() error {
 	return nil
 }
 
-func newExtension(config Config, set extension.CreateSettings) (*healthCheckExtension, error) {
+func newExtension(config Config, set extension.CreateSettings) *healthCheckExtension {
 	var comps []component.Component
 	aggregator := status.NewAggregator()
 
@@ -116,7 +117,7 @@ func newExtension(config Config, set extension.CreateSettings) (*healthCheckExte
 	// block others before the extension starts.
 	go hc.eventLoop()
 
-	return hc, nil
+	return hc
 }
 
 func (hc *healthCheckExtension) eventLoop() {

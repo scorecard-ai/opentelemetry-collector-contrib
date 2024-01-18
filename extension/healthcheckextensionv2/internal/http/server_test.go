@@ -14,15 +14,16 @@ import (
 	"testing"
 	"time"
 
-	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/status"
-	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/testhelpers"
-	"github.com/open-telemetry/opentelemetry-collector-contrib/internal/common/testutil"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"go.opentelemetry.io/collector/component"
 	"go.opentelemetry.io/collector/component/componenttest"
 	"go.opentelemetry.io/collector/config/confighttp"
 	"go.opentelemetry.io/collector/confmap/confmaptest"
+
+	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/status"
+	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/testhelpers"
+	"github.com/open-telemetry/opentelemetry-collector-contrib/internal/common/testutil"
 )
 
 type componentStatusExpectation struct {
@@ -700,9 +701,9 @@ func TestStatus(t *testing.T) {
 					ts.step()
 				}
 
-				stepUrl := url
+				stepURL := url
 				if ts.queryParams != "" {
-					stepUrl = fmt.Sprintf("%s?%s", stepUrl, ts.queryParams)
+					stepURL = fmt.Sprintf("%s?%s", stepURL, ts.queryParams)
 				}
 
 				var err error
@@ -710,12 +711,12 @@ func TestStatus(t *testing.T) {
 
 				if ts.eventually {
 					assert.Eventually(t, func() bool {
-						resp, err = client.Get(stepUrl)
+						resp, err = client.Get(stepURL)
 						require.NoError(t, err)
 						return ts.expectedStatusCode == resp.StatusCode
 					}, time.Second, 10*time.Millisecond)
 				} else {
-					resp, err = client.Get(stepUrl)
+					resp, err = client.Get(stepURL)
 					require.NoError(t, err)
 					assert.Equal(t, ts.expectedStatusCode, resp.StatusCode)
 				}
@@ -833,7 +834,7 @@ func TestConfig(t *testing.T) {
 				},
 			},
 			setup: func() {
-				server.NotifyConfig(context.Background(), confMap)
+				require.NoError(t, server.NotifyConfig(context.Background(), confMap))
 			},
 			expectedStatusCode: http.StatusOK,
 			expectedBody:       confJSON,

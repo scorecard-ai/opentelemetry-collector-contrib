@@ -12,10 +12,11 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/status"
 	"go.opentelemetry.io/collector/component"
 	"go.opentelemetry.io/collector/confmap"
 	"go.uber.org/zap"
+
+	"github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2/internal/status"
 )
 
 type Server struct {
@@ -56,7 +57,7 @@ func NewServer(
 	return srv
 }
 
-func (s *Server) Start(ctx context.Context, host component.Host) error {
+func (s *Server) Start(_ context.Context, host component.Host) error {
 	var err error
 	s.serverHTTP, err = s.settings.ToServer(host, s.telemetry, s.mux)
 	if err != nil {
@@ -71,14 +72,14 @@ func (s *Server) Start(ctx context.Context, host component.Host) error {
 	go func() {
 		defer close(s.done)
 		if err = s.serverHTTP.Serve(ln); !errors.Is(err, http.ErrServerClosed) && err != nil {
-			s.telemetry.ReportComponentStatus(component.NewPermanentErrorEvent(err))
+			_ = s.telemetry.ReportComponentStatus(component.NewPermanentErrorEvent(err))
 		}
 	}()
 
 	return nil
 }
 
-func (s *Server) Shutdown(ctx context.Context) error {
+func (s *Server) Shutdown(context.Context) error {
 	s.serverHTTP.Close()
 	<-s.done
 	return nil
