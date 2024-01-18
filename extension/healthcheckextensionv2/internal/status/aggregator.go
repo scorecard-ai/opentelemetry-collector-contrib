@@ -6,20 +6,17 @@ package status
 import (
 	"fmt"
 	"sync"
-	"time"
 
 	"go.opentelemetry.io/collector/component"
 )
 
 type CollectorStatusDetails struct {
-	StartTimestamp     time.Time
 	OverallStatus      *component.StatusEvent
 	PipelineStatusMap  map[component.ID]*component.StatusEvent
 	ComponentStatusMap map[component.ID]map[*component.InstanceID]*component.StatusEvent
 }
 
 type PipelineStatusDetails struct {
-	StartTimestamp     time.Time
 	OverallStatus      *component.StatusEvent
 	ComponentStatusMap map[*component.InstanceID]*component.StatusEvent
 }
@@ -70,16 +67,11 @@ var collectorID = component.NewID("__collector__")
 
 type Aggregator struct {
 	mu                 sync.RWMutex
-	startTimestamp     time.Time
 	componentIDCache   *componentIDCache
 	overallStatus      *component.StatusEvent
 	pipelineStatusMap  map[component.ID]*component.StatusEvent
 	componentStatusMap map[component.ID]map[*component.InstanceID]*component.StatusEvent
 	subscriptions      map[component.ID][]chan *component.StatusEvent
-}
-
-func (a *Aggregator) StartTimestamp() time.Time {
-	return a.startTimestamp
 }
 
 func (a *Aggregator) CollectorStatus() *component.StatusEvent {
@@ -94,7 +86,6 @@ func (a *Aggregator) CollectorStatusDetailed() *CollectorStatusDetails {
 	defer a.mu.RUnlock()
 
 	details := &CollectorStatusDetails{
-		StartTimestamp:     a.startTimestamp,
 		OverallStatus:      a.overallStatus,
 		PipelineStatusMap:  make(map[component.ID]*component.StatusEvent),
 		ComponentStatusMap: make(map[component.ID]map[*component.InstanceID]*component.StatusEvent),
@@ -146,7 +137,6 @@ func (a *Aggregator) PipelineStatusDetailed(name string) (*PipelineStatusDetails
 	}
 
 	details := &PipelineStatusDetails{
-		StartTimestamp:     a.startTimestamp,
 		OverallStatus:      ev,
 		ComponentStatusMap: make(map[*component.InstanceID]*component.StatusEvent),
 	}
@@ -256,7 +246,6 @@ func (a *Aggregator) notifySubscribers(compID component.ID, event *component.Sta
 func NewAggregator() *Aggregator {
 	return &Aggregator{
 		mu:                 sync.RWMutex{},
-		startTimestamp:     time.Now(),
 		overallStatus:      &component.StatusEvent{},
 		pipelineStatusMap:  make(map[component.ID]*component.StatusEvent),
 		componentStatusMap: make(map[component.ID]map[*component.InstanceID]*component.StatusEvent),

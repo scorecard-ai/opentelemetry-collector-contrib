@@ -64,22 +64,23 @@ var extsKey = "extensions"
 
 func toSerializableStatus(
 	ev *component.StatusEvent,
-	startTime *time.Time,
+	startTimestamp time.Time,
 	recoveryDuration time.Duration,
 ) *serializableStatus {
 	return &serializableStatus{
-		StartTimestamp:    startTime,
+		StartTimestamp:    &startTimestamp,
 		SerializableEvent: toSerializableEvent(ev, time.Now(), recoveryDuration),
 	}
 }
 
 func toCollectorSerializableStatus(
 	details *status.CollectorStatusDetails,
+	startTimestamp time.Time,
 	recoveryDuration time.Duration,
 ) *serializableStatus {
 	now := time.Now()
 	s := &serializableStatus{
-		StartTimestamp:    &details.StartTimestamp,
+		StartTimestamp:    &startTimestamp,
 		SerializableEvent: toSerializableEvent(details.OverallStatus, now, recoveryDuration),
 		ComponentStatuses: make(map[string]*serializableStatus),
 	}
@@ -107,11 +108,12 @@ func toCollectorSerializableStatus(
 
 func toPipelineSerializableStatus(
 	details *status.PipelineStatusDetails,
+	startTimestamp time.Time,
 	recoveryDuration time.Duration,
 ) *serializableStatus {
 	now := time.Now()
 	s := &serializableStatus{
-		StartTimestamp:    &details.StartTimestamp,
+		StartTimestamp:    &startTimestamp,
 		SerializableEvent: toSerializableEvent(details.OverallStatus, now, recoveryDuration),
 		ComponentStatuses: make(map[string]*serializableStatus),
 	}

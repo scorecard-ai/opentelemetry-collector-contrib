@@ -47,7 +47,7 @@ func (hc *healthCheckExtension) Start(ctx context.Context, host component.Host) 
 
 func (hc *healthCheckExtension) Shutdown(ctx context.Context) error {
 	// preemptively send the stopped event, so it can be exported before shutdown
-	_ = hc.telemetry.ReportComponentStatus(component.NewStatusEvent(component.StatusStopped))
+	hc.telemetry.ReportStatus(component.NewStatusEvent(component.StatusStopped))
 
 	close(hc.doneCh)
 	hc.aggregator.Close()

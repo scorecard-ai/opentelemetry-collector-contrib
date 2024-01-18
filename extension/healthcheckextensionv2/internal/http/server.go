@@ -41,7 +41,6 @@ func NewServer(
 		telemetry:        telemetry,
 		settings:         settings,
 		aggregator:       aggregator,
-		startTimestamp:   aggregator.StartTimestamp(),
 		recoveryDuration: recoveryDuration,
 		done:             make(chan struct{}),
 	}
@@ -59,6 +58,8 @@ func NewServer(
 
 func (s *Server) Start(_ context.Context, host component.Host) error {
 	var err error
+	s.startTimestamp = time.Now()
+
 	s.serverHTTP, err = s.settings.ToServer(host, s.telemetry, s.mux)
 	if err != nil {
 		return err
@@ -72,7 +73,7 @@ func (s *Server) Start(_ context.Context, host component.Host) error {
 	go func() {
 		defer close(s.done)
 		if err = s.serverHTTP.Serve(ln); !errors.Is(err, http.ErrServerClosed) && err != nil {
-			_ = s.telemetry.ReportComponentStatus(component.NewPermanentErrorEvent(err))
+			s.telemetry.ReportStatus(component.NewPermanentErrorEvent(err))
 		}
 	}()
 

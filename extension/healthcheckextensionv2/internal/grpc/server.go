@@ -65,7 +65,7 @@ func (s *Server) Start(_ context.Context, host component.Host) error {
 		defer close(s.doneCh)
 
 		if err = s.serverGRPC.Serve(ln); err != nil && !errors.Is(err, grpc.ErrServerStopped) {
-			_ = s.telemetry.ReportComponentStatus(component.NewPermanentErrorEvent(err))
+			s.telemetry.ReportStatus(component.NewPermanentErrorEvent(err))
 		}
 	}()
 

@@ -52,12 +52,12 @@ func (s *Server) configHandler() http.Handler {
 func (s *Server) collectorSerializableStatus() *serializableStatus {
 	if s.settings.Status.Detailed {
 		details := s.aggregator.CollectorStatusDetailed()
-		return toCollectorSerializableStatus(details, s.recoveryDuration)
+		return toCollectorSerializableStatus(details, s.startTimestamp, s.recoveryDuration)
 	}
 
 	return toSerializableStatus(
 		s.aggregator.CollectorStatus(),
-		&s.startTimestamp,
+		s.startTimestamp,
 		s.recoveryDuration,
 	)
 }
@@ -68,7 +68,7 @@ func (s *Server) pipelineSerializableStatus(pipeline string) (*serializableStatu
 		if err != nil {
 			return nil, err
 		}
-		return toPipelineSerializableStatus(details, s.recoveryDuration), nil
+		return toPipelineSerializableStatus(details, s.startTimestamp, s.recoveryDuration), nil
 	}
 
 	ev, err := s.aggregator.PipelineStatus(pipeline)
@@ -76,7 +76,7 @@ func (s *Server) pipelineSerializableStatus(pipeline string) (*serializableStatu
 		return nil, err
 	}
 
-	return toSerializableStatus(ev, &s.startTimestamp, s.recoveryDuration), nil
+	return toSerializableStatus(ev, s.startTimestamp, s.recoveryDuration), nil
 }
 
 var responseCodes = map[component.Status]int{
