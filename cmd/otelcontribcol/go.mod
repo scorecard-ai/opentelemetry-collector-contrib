@@ -66,6 +66,7 @@ require (
 	github.com/open-telemetry/opentelemetry-collector-contrib/extension/encoding/zipkinencodingextension v0.97.0
 	github.com/open-telemetry/opentelemetry-collector-contrib/extension/headerssetterextension v0.97.0
 	github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextension v0.97.0
+	github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2 v0.97.0
 	github.com/open-telemetry/opentelemetry-collector-contrib/extension/httpforwarderextension v0.97.0
 	github.com/open-telemetry/opentelemetry-collector-contrib/extension/jaegerremotesampling v0.97.0
 	github.com/open-telemetry/opentelemetry-collector-contrib/extension/oauth2clientauthextension v0.97.0
