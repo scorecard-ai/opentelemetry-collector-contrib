@@ -4,6 +4,6 @@ status:
   class: extension
   stability:
     development: [extension]
-  distributions: [core, contrib]
+  distributions: []
   codeowners:
-    active: [mwear]
+    active: [jpkrohling, mwear]
