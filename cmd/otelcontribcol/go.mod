@@ -66,7 +66,7 @@ require (
 	github.com/open-telemetry/opentelemetry-collector-contrib/extension/encoding/zipkinencodingextension v0.97.0
 	github.com/open-telemetry/opentelemetry-collector-contrib/extension/headerssetterextension v0.97.0
 	github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextension v0.97.0
-	github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2 v0.97.0
+	github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckv2extension v0.97.0
 	github.com/open-telemetry/opentelemetry-collector-contrib/extension/httpforwarderextension v0.97.0
 	github.com/open-telemetry/opentelemetry-collector-contrib/extension/jaegerremotesampling v0.97.0
 	github.com/open-telemetry/opentelemetry-collector-contrib/extension/oauth2clientauthextension v0.97.0
@@ -833,7 +833,7 @@ replace github.com/open-telemetry/opentelemetry-collector-contrib/processor/reso
 
 replace github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextension => ../../extension/healthcheckextension
 
-replace github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckextensionv2 => ../../extension/healthcheckextensionv2
+replace github.com/open-telemetry/opentelemetry-collector-contrib/extension/healthcheckv2extension => ../../extension/healthcheckv2extension
 
 replace github.com/open-telemetry/opentelemetry-collector-contrib/extension/headerssetterextension => ../../extension/headerssetterextension
 
